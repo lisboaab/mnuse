@@ -1,4 +1,4 @@
-# mnuse-projeto1
+# mnuse
 O repositório foi feito com o objetivo de criar um Escape Room para a aula de Projeto 1.
 Grupo composto por:
   Beatriz Lisboa
