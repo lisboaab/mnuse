@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../css/loginSignup.css">
+</head>
+<body>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1 class="title2">Create Account</h1>
+			<input type="text" placeholder="username">
+			<input type="email" placeholder="email">
+			<input type="password" placeholder="password">
+			<input type="password" placeholder="confirm password">
+			<button id="accountCreated">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1 class="title2">Login</h1>
+			<input type="email" placeholder="email" />
+			<input type="password" placeholder="password" />
+			<a href="#">Forgot your password?</a>
+			<input type="button" value="Login" id="logBtn" onclick="window.location.href = '../index.html'">
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1 class="title">Welcome Back!</h1>
+				<p>To help Lily unlock her memories please login with your personal info</p>
+				<button class="ghost" id="signIn">Log In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1 class="title">Hello, Friend!</h1>
+				<p>Enter your personal details and start helping Lily escape her mind!</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../js/loginSignup.js"></script>
+
