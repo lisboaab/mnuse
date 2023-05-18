@@ -1,11 +1,11 @@
 class Users {
-    username = "";
-    email = "";
-    password = "";
-    avatar = "";
-    currentLevel = 0;
-    finishedChallenges = [];
-    badges = [];
+    #username = "";
+    #email = "";
+    #password = "";
+    #avatar = "";
+    #currentLevel = 0;
+    #finishedChallenges = [];
+    #badges = [];
 
     constructor(username, email, password, avatar, currentLevel, finishedChallenges, badges){
         username = this.username;
@@ -16,10 +16,4 @@ class Users {
         finishedChallenges = this.finishedChallenges;
         badges = this.badges
     }
-}
-
-class Levels {
-    levelName = "";
-    image = "";
-    numberOfChallenges= 0;
 }
