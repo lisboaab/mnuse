@@ -91,23 +91,27 @@ form {
 }
 
 input::placeholder{
-	color: #D2D2D2;
+	color: #8e9095;
 }
 
+input::placeholder:focus{
+	color: #732AD9;
+}
 
 input:focus {
-    border-bottom: 2px solid #D2D2D2;
+    border-bottom: 2px solid #732AD9;
+	color: #8e9095;
 	outline: none;
 }
 
 input {
 	border: 0px;
-	border-bottom: 2px solid #D2D2D2;
+	border-bottom: 2px solid #8e9095;
 	border-radius: 2px;
 	padding: 8px 1px;
 	margin: 8px 0;
 	width: 100%;
-	color: #D2D2D2;
+	color: #8e9095;
 	font-family: Josefin Sans Light;
 	font-size: 16px;
 	background: #EEEAF5;
