@@ -8,12 +8,12 @@ class Users {
     #badges = [];
 
     constructor(username, email, password, avatar, currentLevel, finishedChallenges, badges){
-        username = this.username;
-        email = this.email;
-        password = this.password;
-        avatar = this.avatar;
-        currentLevel = this.currentLevel;
-        finishedChallenges = this.finishedChallenges;
-        badges = this.badges
+        this.#username = username;
+        this.#email = email;
+        this.#password = password;
+        this.#avatar = avatar;
+        this.#currentLevel = currentLevel;
+        this.#finishedChallenges = finishedChallenges;
+        this.#badges = badges
     }
 }
