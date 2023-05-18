@@ -12,18 +12,19 @@
 	<div class="form-container sign-up-container">
 		<form action="#">
 			<h1 class="title2">Create Account</h1>
-			<input type="text" placeholder="username">
-			<input type="email" placeholder="email">
-			<input type="password" placeholder="password">
-			<input type="password" placeholder="confirm password">
+			<input id="usernameSignup" type="text" placeholder="username">
+			<input id="emailSignup" type="email" placeholder="email">
+			<input id="password1Signup" type="password" placeholder="password">
+			<input id="password2Signup" type="password" placeholder="confirm password">
+			<div id="validationMessage"></div>
 			<button id="accountCreated">Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form action="#">
 			<h1 class="title2">Login</h1>
-			<input type="email" placeholder="email" />
-			<input type="password" placeholder="password" />
+			<input id="emailLogin" type="email" placeholder="email" />
+			<input id="passwordLogin" type="password" placeholder="password" />
 			<a href="#">Forgot your password?</a>
 			<input type="button" value="Login" id="logBtn" onclick="window.location.href = '../index.html'">
 		</form>

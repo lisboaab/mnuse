@@ -104,6 +104,14 @@ input:focus {
 	outline: none;
 }
 
+.error:focus {
+	border-bottom: 2px solid red;
+}
+
+.success:focus {
+	border-bottom: 2px solid green;
+}
+
 input {
 	border: 0px;
 	border-bottom: 2px solid #8e9095;
