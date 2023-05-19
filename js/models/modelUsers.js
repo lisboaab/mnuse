@@ -17,3 +17,5 @@ class Users {
         this.#badges = badges
     }
 }
+
+const usersList = [];

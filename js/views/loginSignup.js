@@ -1,39 +1,40 @@
-users = []
-
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
-const accountCreated = document.getElementById("accountCreated")
-const loginAccount = document.getElementById("loginAccount")
+const accountCreated = document.getElementById("accountCreated");
+const loginAccount = document.getElementById("logBtn");
 
-// VALIDATE LOG IN INFORMATION
-signInButton.addEventListener("click", function(event){
+
+
+// VALIDATE IF LOG IN INFORMATION EXISTS
+loginAccount.addEventListener("click", function(event){
 	event.preventDefault();
 	let emailToValidate = document.getElementById("emailLogin").value;
 	let passwordToValidate = document.getElementById("passwordLogin").value;
 
-	const userToLogIn = {
-        email: emailToValidate,
-        password: passwordToValidate
-    };
+    let userExists = users.some(user => user.email === emailToValidate && user.password === passwordToValidate); //essa funcao esta em models
 
-    let userExists = users.some(user => user.email === emailToValidate && user.password === passwordToValidate);
 
     if (userExists) {
-        loginAccount(emailToValidate, passwordToValidate); // crie a função
-    } else {
-        const message = document.getElementById("validationMessageLogIn");
+        
+		const message = document.getElementById("validationMessageLogIn");
         message.textContent = "Log in failed. Try again.";
+		message.style.color = "red";
+    } else {
+		login(emailToValidate, passwordToValidate);
     }
 });
 
 
 // LOG IN FUNCTION
-function loginAccount(emailLogin,passwordLogin)
+function login(emailLogin,passwordLogin){
+	console.log(JSON.stringify(users))
+	console.log("login feito")
+}
 
 
 
-// VALIDADE INPUT OF PASSWORDS ON SIGN UP
+// VALIDADE INPUT OF EQUAL PASSWORDS ON SIGN UP
 const inputPassword1 = document.getElementById("password1Signup");
 const inputPassword2 = document.getElementById("password2Signup");
 let validationMessage = document.getElementById("validationMessage");
@@ -46,19 +47,21 @@ inputPassword2.addEventListener("input", function(){
 		inputPassword2.classList.remove("error");
 		inputPassword2.classList.add("success");
 		validationMessage.textContent = "Password checked!";
+		validationMessage.style.color = "green";
 		accountCreated.disabled = false;
-		inputPassword1.reset()
-		inputPassword2.reset()
 	}
 	else {
 		inputPassword2.classList.remove("success");
 		inputPassword2.classList.add("error");
 		validationMessage.textContent = "Passwords does not check. Try again!";
 		accountCreated.disabled = true;
+		validationMessage.style.color = "red";
 	}
 
 })
-//
+
+
+// SIGN UP
 
 
 signUpButton.addEventListener('click', () => {
@@ -67,12 +70,4 @@ signUpButton.addEventListener('click', () => {
 
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
-});
-
-accountCreated.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
-
-loginAccount.addEventListener('click', () => {
-	window.location.href = "../index.html"
 });
