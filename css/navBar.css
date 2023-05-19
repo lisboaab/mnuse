@@ -1,0 +1,111 @@
+.container {
+    border-radius: 15px;
+    margin-top: 2vh;
+}
+
+#logo {
+    width: 160px;
+    height: auto;
+}
+
+
+nav{
+    border-radius: 15px;
+    background-color: #EEEAF5;
+}
+
+#rulesBtn, #abtUsBtn{
+    background-color: #EEEAF5;
+    border: 0;
+    font-family: Josefin Sans Light;
+    font-size: 22px;
+    margin: 0px;
+    color: #18234d;
+    border-radius: 15px;
+}
+
+#loginBtn{
+    background-color: #732AD9;
+    font-family: Josefin Sans Light;
+    font-size: 22px;
+    border-radius: 15px;
+    border: 0;
+    margin: 0px;
+    color: #EEEAF5;
+}
+
+#col3{
+    background-color: #732AD9;
+    border-radius: 15px;
+}
+
+input[type="button"]:hover{
+    cursor:pointer;
+}
+
+#logBtn{
+    border: none;
+    background-color: #732AD9;
+    margin: 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+#burguerMenu{
+    border: none;
+    background-color: #EEEAF5;
+    cursor: pointer;
+}
+
+
+@media (max-width: 576px) {
+    #logo {
+        margin-top: 0.4vh;
+        margin-left: 0vh;
+    }
+  }
+  
+  /* Small Devices (landscape phones) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    #logo {
+        margin-top: 0.4vh;
+        margin-left: 1vh;
+    }
+
+  }
+  
+  /* Medium Devices (tablets) */
+  @media (min-width: 769px) and (max-width: 992px) {
+    #logo {
+        margin-top: 0.5vh;
+        margin-left: 2vh;
+    }
+
+  }
+  
+  /* Large Devices (desktops) */
+  @media (min-width: 993px) and (max-width: 1200px) {
+    #logo {
+        margin-top: 1vh;
+        margin-left: 3.8vh;
+    }
+
+    #rulesBtn, #abtUsBtn{
+        padding-left: 0vh;
+        padding-right: 5vh;
+    }
+
+  }
+  
+  /* Extra Large Devices (large desktops) */
+  @media (min-width: 1201px) {
+    #logo {
+        margin-top: 1.8vh;
+        margin-left: 4vh;
+    }
+
+    #rulesBtn, #abtUsBtn{
+        padding-left: 5vh;
+        padding-right: 5vh;
+    }
+  }
