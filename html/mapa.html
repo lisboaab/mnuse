@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../css/mapa.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/navBar.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;390;400&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Mnuse brain map</title>
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <div id="bg">
+      <div class="overlay hidden"></div>
+      <section id="frontal-lobe-modal" class="modal hidden">
+        <img class="close close-frontal" src="../img/cruz.png" alt="">
+        <div class="title">
+          <h2 class="level-header">level 1</h2>
+          <h3 class="level-title">frontal lobe</h3>
+        </div>
+        <p class="level-description">
+          Responsible for executive control, decision making, problem solving and working memory
+        </p>
+        <button class="level-btn level-btn--active">Play</button>
+      </section>
+      <section id="temporal-lobe-modal" class="modal hidden">
+        <img class="close close-temporal" src="../img/cruz.png" alt="">
+        <div class="title">
+          <h2 class="level-header">level 2</h2>
+          <h3 class="level-title">temporal lobe</h3>
+        </div>
+        <p class="level-description">
+          responsible for the formation of long-term memories, especially
+          autobiographical and emotional memories
+        </p>
+        <button class="level-btn level-btn--inactive">Locked</button>
+      </section>
+      <section id="parietal-lobe-modal" class="modal hidden">
+        <img class="close close-parietal" src="../img/cruz.png" alt="">
+        <div class="title">
+          <h2 class="level-header">level 3</h2>
+          <h3 class="level-title">parietal lobe</h3>
+        </div>
+        <p class="level-description">
+          responsible for sensory perception, integration of information and
+          spatial orientation
+        </p>
+        <button class="level-btn level-btn--inactive">Locked</button>
+      </section>
+
+      <div id="svgBrain"></div>
+    </div>
+    <footer id="footer"></footer>
+    <script src="../js/views/svgBrainView.js"></script>
+    <script type="module" src="../js/views/navBarView.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/views/footerView.js"></script>
+  </body>
+</html>
