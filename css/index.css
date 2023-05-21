@@ -14,14 +14,17 @@
 }
 
 body{
-    margin: 0px;
+    margin: 0;
+    padding: 0;
 }
 
-.img-fluid {
+.img {
     z-index: -2;
     position: absolute;
     top: 0;
     object-fit: cover;
+    height: 104vh;
+    width: 100%;
 }
   
 .overlay {
@@ -29,7 +32,7 @@ body{
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100vh;
+    height: 104vh;
     background-color: #18234d;
     opacity: 0.8;
 }
@@ -37,59 +40,84 @@ body{
 
 #title{
     font-family: Josefin Sans Light;
-    font-size: 74px;
     color: #EEEAF5;
-    margin-bottom: 8.7vh;
-    margin-top: 12vh;
 }
 
 #bodyText{
     font-family: Josefin Sans Regular;
-    font-size: 26px;
+    font-size: 1.8em;
     color: #EEEAF5;
-    margin-bottom: 8.7vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #middleWebsite{
     text-align: center;
+    flex: 1;
+    height: 77vh;
 }
 
 #middleWebsite input[type="button"]{
     font-family: Josefin Sans Light;
-    font-size: 26px;
-    height: 11.5vh;
     background-color: #EEEAF5;
     border: 0;
     border-radius: 15px;
-    width: 40vh;
-    margin-bottom: 3vh;
     color: #18234D;
+    height: 3em;
+    width: 9em;
 }
 
 #middleWebsite input[type="button"]:hover{
     cursor: pointer;
+} 
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #title{
+        margin-bottom: 0.9em;
+        margin-top: 1em;
+        font-size: 4.6em;
+    }
+
+    #bodyText{
+        margin-bottom: 2em;
+        font-size: 2em;
+    }
+
+    #middleWebsite input[type="button"]{
+        font-size: 1.8em;
+    }
 }
 
-@media (max-width: 480px){
+@media only screen and (max-width: 767px) {
+    #title{
+        margin-bottom: 0.9em;
+        margin-top: 3em;
+        font-size: 7.6em;
+    }
 
+    #bodyText{
+        margin-bottom: 4em;
+        font-size: 3.2em;
+    }
+
+    #middleWebsite input[type="button"]{
+        font-size: 2.5em;
+    }
 }
 
-@media (min-width: 480px) and (max-width: 768px){
 
-}
+@media only screen and (min-width: 1024px) {
+    #title{
+        margin-bottom: 1em;
+        margin-top: 0.8em;
+        font-size: 5em;
+    }
 
-@media screen and (min-width: 768px){
+    #bodyText{
+        margin-bottom: 1.8em;
+    }
 
-}
-
-@media (min-width: 992px){
- 
-}
-
-@media screen and (min-width: 1200px){
-  
-}
-
-@media (min-width: 1201px) {
-
+    #middleWebsite input[type="button"]{
+        font-size: 1.4em;
+    }
 }

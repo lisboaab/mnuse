@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Josefin Sans Light;
+    src: url(../img/josefin-sans/JosefinSans-Light.ttf);
+}
+
 .container {
     border-radius: 15px;
     margin-top: 2vh;
@@ -57,55 +62,33 @@ input[type="button"]:hover{
     cursor: pointer;
 }
 
-
-@media (max-width: 576px) {
+@media screen and (min-width: 768px){
     #logo {
-        margin-top: 0.4vh;
-        margin-left: 0vh;
+        margin-top: 0.6vh;
+        margin-left: 2vh;
     }
-  }
-  
-  /* Small Devices (landscape phones) */
-  @media (min-width: 577px) and (max-width: 768px) {
-    #logo {
-        margin-top: 0.4vh;
-        margin-left: 1vh;
-    }
+} 
 
-  }
-  
-  /* Medium Devices (tablets) */
-  @media (min-width: 769px) and (max-width: 992px) {
+@media screen and (min-width: 992px){
     #logo {
-        margin-top: 0.5vh;
+        margin-top: 0.6vh;
         margin-left: 2vh;
     }
 
-  }
-  
-  /* Large Devices (desktops) */
-  @media (min-width: 993px) and (max-width: 1200px) {
+    #rulesBtn, #abtUsBtn{
+        padding-left: 0vh;
+        padding-right: 3vh;
+    }
+}
+
+@media screen and (min-width: 1200px) {
     #logo {
         margin-top: 1vh;
-        margin-left: 3.8vh;
+        margin-left: 4vh;
     }
 
     #rulesBtn, #abtUsBtn{
         padding-left: 0vh;
         padding-right: 5vh;
     }
-
-  }
-  
-  /* Extra Large Devices (large desktops) */
-  @media (min-width: 1201px) {
-    #logo {
-        margin-top: 1.8vh;
-        margin-left: 4vh;
-    }
-
-    #rulesBtn, #abtUsBtn{
-        padding-left: 5vh;
-        padding-right: 5vh;
-    }
-  }
+}

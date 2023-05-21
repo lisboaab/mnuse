@@ -1,6 +1,8 @@
 #footer{
     font-family: Josefin Sans Regular;
     background-color: #EEEAF5;
+    padding-bottom: 20px;
+    width: 100%;
 }
 
 ul{
@@ -10,9 +12,8 @@ ul{
 }
 
 .col-lg-3 h4{
-    font-size: 22px;
+    font-size: 1.375em;
     color: #18234D;
-    margin-bottom: 6vh;
     font-weight: 500;
     position: relative;
 }
@@ -25,18 +26,18 @@ ul{
     content: '';
     position: absolute;
     left:0;
-    bottom: -1.7vh;
+    bottom: -0.8em;
     background-color: #18234d;
-    height: 0.3vh;
-    width: 7vh;
+    height: 0.01em;
+    width: 2em;
 }
   
 .col-lg-3 ul li:not(:last-child){
-    margin-bottom: 1vh;
+    margin-bottom: 0.675em;
 }
   
 .col-lg-3 ul li a{
-    font-size: 18px;
+    font-size: 1.125em;
     color: #18234d;
     text-decoration: none;
     font-family: Josefin Sans Light;
@@ -46,18 +47,17 @@ ul{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 6.9vh;
+    width: 50%;
 }
 
 .col-lg-3 .social-links a{
-    height: 6.9vh;
-    width: 6.9vh;
+    height: 3.5em;
+    width: 3.5em;
     background-color: #18234d;
-    margin:0 1.7vh 1.7vh 0;
+    margin:0 1.15em 1.15em 0;
     text-align: center;
-    line-height: 6.9vh;
     border-radius: 50%;
-    color: #ffffff;
+    color: #EEEAF5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,48 +65,46 @@ ul{
 }
   
 .col-lg-3 .social-links a:hover{
-    color: #EEEAF5;
     background-color: #732AD9;
 }
   
-input[id="subscribeBtn"]{
+input[id="subscribe"]{
     width:85%;
-    height:6.9vh;
-    margin-bottom:3.4vh;
+    height:3.5em;
+    margin-bottom:2.3em;
     padding: 0;
     margin-top: 0;
     border:none;
     border-bottom:1px solid #18234d;
 }
   
-input[id="subscribeBtn"]:active:focus,
-input[id="subscribeBtn"]:focus,
-input[id="subscribeBtn"]:hover{
+input[id="subscribe"]:active:focus,
+input[id="subscribe"]:focus,
+input[id="subscribe"]:hover{
     outline : none;
 }
   
-#subscribeBtn{
+#subscribe{
     background-color: #EEEAF5;
 }
   
 ::placeholder{
-    font-size:18px;
+    font-size:1.1em;
     color:#18234d;
     font-family: Josefin Sans Light;
 }
   
-.subscribeBtn{
-    width:85%;
+#subscribeBtn{
+    width:13em;
     background:#18234d;
-    padding:2.6vh;
     border:none;
     border-radius:15px;
-    font-size:20px;
     color:#EEEAF5;
     font-family: Josefin Sans Light;
+    height: 3em;
 }
   
-.subscribeBtn:hover{
+#subscribeBtn:hover{
     cursor:pointer;
     color: #EEEAF5;
     background-color: #732AD9;
