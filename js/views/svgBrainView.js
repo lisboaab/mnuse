@@ -380,29 +380,68 @@ function addSvg(){
 
 addSvg()
 
-const lobes = ["frontal", "parietal", "temporal"];
-const overlay = document.querySelector(".overlay");
+const frontalLobe = document.getElementById("frontal-lobe").addEventListener("click", function(){
+    frontalModal.style.display = "block"
+    overlay.style.display = "block"
+    body.classList.add('modal-open');
+})
+const temporalLobe = document.getElementById("temporal-lobe").addEventListener("click", function(){
+    tempModal.style.display = "block"
+    overlay.style.display = "block"
+})
+const parietalLobe = document.getElementById("parietal-lobe").addEventListener("click", function(){
+    parietalModal.style.display = "block"
+    overlay.style.display = "block"
+})
 
-lobes.forEach((lobe) => {
-    const lobeElement = document.getElementById(`${lobe}-lobe`);
-    const lobeElementNodes = lobeElement.getElementsByTagName("path");
-    const lobeBg = document.querySelector(`.${lobe}-lobe-bg`);
-    const lobeModal = document.getElementById(`${lobe}-lobe-modal`);
-    const closeModalBtn = document.querySelector(`.close-${lobe}`);
-
-    const openModal = function () {
-        lobeModal.classList.remove("hidden");
-        overlay.classList.remove("hidden");
-    };
-
-    const closeModal = function () {
-        lobeModal.classList.add("hidden");
-        overlay.classList.add("hidden");
-    };
-
-    closeModalBtn.addEventListener("click", closeModal);
-    overlay.addEventListener("click", closeModal);
-
-    lobeElement.addEventListener("click", openModal);
-    lobeBg.addEventListener("click", openModal);
+const btnclose = document.getElementsByClassName("btnClose")[0];
+const btnclose1 = document.getElementsByClassName("btnClose")[1]
+const btnclose2 = document.getElementsByClassName("btnClose")[2]
+console.log(document.getElementsByClassName("btnClose"))
+btnclose.addEventListener("click", function() {
+  frontalModal.style.display = "none";
+  overlay.style.display = "none"
+  body.classList.remove('modal-open');
 });
+btnclose1.addEventListener("click", function() {
+    parietalModal.style.display = "none";
+    overlay.style.display = "none"
+    body.classList.remove('modal-open');
+  });
+btnclose2.addEventListener("click", function() {
+    tempModal.style.display = "none";
+    overlay.style.display = "none"
+    body.classList.remove('modal-open');
+}); 
+
+/* const btnclose = document.getElementsByClassName("btnClose")
+for(let i = 0; i <= btnclose.length; i++){
+    btnclose.addEventListener("click", function() {
+        frontalModal.style.display = "none";
+        overlay.style.display = "none"
+        body.classList.remove('modal-open');
+    });
+} */
+
+const overlay = document.getElementsByClassName("overlay")[0]
+
+const frontalModal = document.getElementById('frontalModal');
+const parietalModal = document.getElementById('parietalModal');
+const temporalModal = document.getElementById('tempModal');
+
+
+window.addEventListener('click', function(e) {
+    if (e.target == frontalModal) {
+        frontalModal.style.display = 'none';
+        overlay.style.display = "none"
+        body.classList.remove('modal-open');
+    }else if (e.target == parietalModal) {
+        parietalModal.style.display = 'none';
+        overlay.style.display = "none"
+        body.classList.remove('modal-open');
+    } else if (e.target == temporalModal) {
+        temporalModal.style.display = 'none';
+        overlay.style.display = "none"
+        body.classList.remove('modal-open');
+    }
+}); 

@@ -53,100 +53,92 @@ body{
   stroke: #aea4d0;
 }
 
-  .cls-9 {
+.cls-9 {
     stroke: #827397;
-  }
+}
 
-  .cls-10 {
+.cls-10 {
     stroke: #684ea0;
-  }
+}
 
-  #frontal-lobe:hover path,
-  #parietal-lobe:hover path,
-  #temporal-lobe:hover path {
+#frontal-lobe:hover path,
+#parietal-lobe:hover path,
+#temporal-lobe:hover path {
     stroke: #c5ba3e;
     cursor: pointer;
-  }
+}
 
-  #frontal-lobe:hover path,
-  #parietal-lobe:hover path,
-  #temporal-lobe:hover path {
+#frontal-lobe:hover path,
+#parietal-lobe:hover path,
+#temporal-lobe:hover path {
     stroke: #c5ba3e;
     cursor: pointer;
-  }
+}
 
-  #frontal-lobe:hover .frontal-lobe-bg,
-  #parietal-lobe:hover .parietal-lobe-bg,
-  #temporal-lobe:hover .temporal-lobe-bg {
+#frontal-lobe:hover .frontal-lobe-bg,
+#parietal-lobe:hover .parietal-lobe-bg,
+#temporal-lobe:hover .temporal-lobe-bg {
     fill: #d5d482;
     cursor: pointer;
-  }
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Josefin Sans", sans-serif;
-  }
+.modal-dialog {
+  top: 25%;
+  z-index: 10;
+}
 
-  .modal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.4rem;
-    width: 60%;
-    padding: 0 70px;
-    height: 60%;
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: #eeeaf5;
-    border-radius: 7px;
-    color: #18234d;
-  }
+.modal-content {
+  padding: 0 40px;
+  border-radius: 15px !important;
+  background-color: #eeeaf5 !important;
+  text-align: center;
+}
 
-  .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 24px;
-  }
+.btnClose{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #18234d;
+  cursor: pointer;
+  width: 7vh;
+}
 
-  .level-header {
-    text-transform: uppercase;
-    font-weight: 300;
-    margin-bottom: 8px;
-    font-size: 24px;
-  }
+.modal-header-title {
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
 
-  .level-title {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 36px;
-    letter-spacing: 1.8px;
-  }
+.modal-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 36px;
+}
 
-  .level-description {
+  .modal-description {
     text-align: center;
     font-size: 24px;
     margin-bottom: 42px;
   }
 
-  .level-btn {
+  .modal-btn {
     border: none;
     padding: 12px 64px;
-    font-weight: light;
     font-size: 24px;
     letter-spacing: 1.4px;
+    width: 10em;
+    margin-bottom: 1em;
   }
 
   .level-btn--active {
     background-color: #732ad9;
     color: #eeeaf5;
     border-radius: 15px;
+  }
+
+  body.modal-open {
+    overflow: hidden;
   }
 
   .level-btn--active:hover {
@@ -188,14 +180,6 @@ body{
     }
   }
 
-  .close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    color: #18234d;
-    cursor: pointer;
-    width: 9vh;
-  }
 
   .overlay {
     position: fixed;
@@ -206,7 +190,6 @@ body{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
     z-index: 1;
   }
 
