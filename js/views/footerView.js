@@ -2,14 +2,14 @@ function footerView() {
   
   let result = `<div class="container">
   <div class="row">
-    <div class="col-lg-3 col-sm-12 col-md-6">
+    <div class="col-lg-3 col-sm-12">
       <h4 class="text my-5">MNUSE</h4>
       <ul>
         <li><a href="">Rules</a></li>
         <li><a href="">About Us</a></li>
       </ul>
     </div>
-    <div class="col-lg-3 col-sm-12 col-md-6">
+    <div class="col-lg-3 col-sm-12">
       <h4 class="text my-5">Find Help</h4>
       <ul>
         <li><a href="https://www.nimh.nih.gov/health/find-help">National Institute of Mental Health</a></li>
@@ -17,7 +17,7 @@ function footerView() {
         <li><a href="https://www.mhe-sme.org/">Mental Health Europe</a></li>
       </ul>
     </div>
-    <div class="col-lg-3 col-sm-12 col-md-6">
+    <div class="col-lg-3 col-sm-12">
       <h4 class="text my-5">Get Updates</h4>
       <form class="text">
         <input type="text" placeholder="enter your email" id="subscribe"><br/>
@@ -36,7 +36,7 @@ function footerView() {
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-sm-12 col-md-6">
+    <div class="col-lg-3 col-sm-12">
       <h4 class="text my-5">Socials</h4>
       <div class="social-links">
         <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
