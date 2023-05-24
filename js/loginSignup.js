@@ -1,3 +1,5 @@
+import * as User from "./models/modelUsers.js";
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -5,33 +7,20 @@ const accountCreated = document.getElementById("accountCreated");
 const loginAccount = document.getElementById("logBtn");
 
 
-
 // VALIDATE IF LOG IN INFORMATION EXISTS
 loginAccount.addEventListener("click", function(event){
 	event.preventDefault();
-	let emailToValidate = document.getElementById("emailLogin").value;
+	let usernameToValidate = document.getElementById("usernameLogin").value;
 	let passwordToValidate = document.getElementById("passwordLogin").value;
 
-    let userExists = users.some(user => user.email === emailToValidate && user.password === passwordToValidate); //essa funcao esta em models
-
-
-    if (userExists) {
-        
+    if (User.checkLogin(usernameToValidate, passwordToValidate)) {
+        User.login();
+    } else {
 		const message = document.getElementById("validationMessageLogIn");
         message.textContent = "Log in failed. Try again.";
 		message.style.color = "red";
-    } else {
-		login(emailToValidate, passwordToValidate);
     }
 });
-
-
-// LOG IN FUNCTION
-function login(emailLogin,passwordLogin){
-	console.log(JSON.stringify(users))
-	console.log("login feito")
-}
-
 
 
 // VALIDADE INPUT OF EQUAL PASSWORDS ON SIGN UP
@@ -62,6 +51,13 @@ inputPassword2.addEventListener("input", function(){
 
 
 // SIGN UP
+accountCreated.addEventListener("click", function(event) {
+	event.preventDefault();
+	let usernameSignup = document.getElementById("usernameSignup").value;
+	let emailSignup = document.getElementById("emailSignup").value;
+	let password2Signup = inputPassword2.value;
+	User.saveUser(usernameSignup, emailSignup, password2Signup);
+})
 
 
 signUpButton.addEventListener('click', () => {
