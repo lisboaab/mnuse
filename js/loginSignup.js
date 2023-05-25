@@ -14,7 +14,7 @@ loginAccount.addEventListener("click", function(event){
 	let passwordToValidate = document.getElementById("passwordLogin").value;
 
     if (User.checkLogin(usernameToValidate, passwordToValidate)) {
-        User.login();
+        User.login(usernameToValidate, passwordToValidate);
     } else {
 		const message = document.getElementById("validationMessageLogIn");
         message.textContent = "Log in failed. Try again.";

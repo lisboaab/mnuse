@@ -57,7 +57,9 @@ export function checkLogin(usernameToValidate,passwordToValidate){
 }
 
 // LOG IN
-export function login(){
+export function login(usernameToValidate, passwordToValidate){
+    const user = users.find((user) => user.username === usernameToValidate && user.password === passwordToValidate);
+    sessionStorage.setItem("loggedUser", JSON.stringify(user))
 	let usersstr = JSON.stringify(users);
     console.log(usersstr)
 	console.log("login feito")
@@ -92,4 +94,15 @@ export function saveUser(username, email, password) {
         validationMessage.textContent = "User successfully created!";
         validationMessage.style.color = "green";
     }   
+}
+
+// CHECKS IF THE USER IS LOGGED
+
+export function isLogged() {
+    return sessionStorage.getItem("loggedUser") ? true : false
+}
+  
+// RETURNS INFO OF THE LOGGED USER
+export function getUserLogged() {
+    return JSON.parse(sessionStorage.getItem("loggedUser"))
 }
