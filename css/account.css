@@ -1,0 +1,79 @@
+body{
+    background-color: #18234d !important;
+    margin: 0;
+    padding: 0;
+}
+
+#middleWebsite {
+    color: #EEEAF5;
+    font-family: Josefin Sans Regular;
+    margin-top: 1.6em;
+    padding-left: 4em;
+    height: 77vh;
+}
+
+#profilePicture{
+    width:6em;
+}
+
+#unlockedWords{
+    background-color: #eeeaf5;
+    border-radius: 15px;
+}
+
+#unlockedWords h3{
+    color: #18234d;
+}
+
+#unlockedWords h4, #unlockedWords h2{
+    color: #732AD9;
+}
+
+#unlockedBadges{
+    background-color: #827397;
+    border-radius: 15px;
+}
+
+#mnuseLeague{
+    background-color: #732AD9;
+    border-radius: 15px;
+}
+
+#editBtn img{
+    width: 2em;
+}
+
+#editBtn{
+    background-color: #18234d;
+    border: none;
+    width: 0.5em;
+}
+
+#info{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 12em 1fr;
+}
+
+#btnLogout{
+    background-color: #18234d;
+    color: #EEEAF5;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+input[type=radio] + label {
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+    display: inline-block;
+    padding: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+input[type=radio]:checked + label {
+    border-color: blue;
+}
