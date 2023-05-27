@@ -23,7 +23,7 @@ body{
     position: absolute;
     top: 0;
     object-fit: cover;
-    height: 104vh;
+    height: 50em;
     width: 100%;
 }
   
@@ -32,7 +32,7 @@ body{
     position: absolute;
     top: 0;
     width: 100%;
-    height: 104vh;
+    height: 50em;
     background-color: #18234d;
     opacity: 0.8;
 }
@@ -79,7 +79,7 @@ body{
     }
 
     #bodyText{
-        margin-bottom: 2em;
+        margin-bottom: 1em;
         font-size: 2em;
     }
 
@@ -90,18 +90,23 @@ body{
 
 @media only screen and (max-width: 767px) {
     #title{
-        margin-bottom: 0.9em;
-        margin-top: 3em;
-        font-size: 7.6em;
+        margin-bottom: 0.6em;
+        margin-top: 0.6em;
+        font-size: 3.8em;
     }
 
     #bodyText{
-        margin-bottom: 4em;
-        font-size: 3.2em;
+        margin-bottom: 1em;
+        font-size: 1.8em;
     }
 
     #middleWebsite input[type="button"]{
-        font-size: 2.5em;
+        font-size: 1.6em;
+        margin-bottom: 1.4em;
+    }
+
+    #middleWebsite{
+        height: 100%;
     }
 }
 

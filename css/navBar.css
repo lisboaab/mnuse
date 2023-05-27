@@ -9,8 +9,8 @@
 }
 
 #logo {
-    width: 160px;
     height: auto;
+    cursor: pointer;
 }
 
 
@@ -27,6 +27,7 @@ nav{
     margin: 0px;
     color: #18234d;
     border-radius: 15px;
+    margin-left:0.5em;
 }
 
 #loginBtn{
@@ -70,10 +71,27 @@ input[type="button"]:hover{
     width: 2em;
 }
 
+@media only screen and (max-width: 767px) {
+    #logo {
+        margin-top: 2.2vh;
+        margin-left: 2vh;
+        width: 120px;
+    }
+
+    #burguerMenu img{
+        width: 2.4em;
+    }
+
+    #logBtn img{
+        width: 1.8em;
+    }
+}
+
 @media screen and (min-width: 768px){
     #logo {
         margin-top: 0.6vh;
         margin-left: 2vh;
+        width: 145px;
     }
 } 
 
@@ -81,6 +99,8 @@ input[type="button"]:hover{
     #logo {
         margin-top: 0.6vh;
         margin-left: 2vh;
+        width: 160px;
+
     }
 
     #rulesBtn, #abtUsBtn{
@@ -93,6 +113,8 @@ input[type="button"]:hover{
     #logo {
         margin-top: 1vh;
         margin-left: 4vh;
+        width: 160px;
+
     }
 
     #rulesBtn, #abtUsBtn{
