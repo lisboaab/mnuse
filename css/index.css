@@ -54,7 +54,7 @@ body{
 #middleWebsite{
     text-align: center;
     flex: 1;
-    height: 77vh;
+    height: 38em;
 }
 
 #middleWebsite input[type="button"]{

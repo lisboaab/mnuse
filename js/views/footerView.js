@@ -5,8 +5,8 @@ function footerView() {
     <div class="col-lg-3 col-sm-12">
       <h4 class="text my-5">MNUSE</h4>
       <ul>
-        <li><a href="">Rules</a></li>
-        <li><a href="">About Us</a></li>
+        <li><a href="../../html/rules.html">Rules</a></li>
+        <li><a href="../../html/aboutUs.html">About Us</a></li>
       </ul>
     </div>
     <div class="col-lg-3 col-sm-12">
