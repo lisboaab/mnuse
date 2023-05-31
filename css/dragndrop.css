@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('./img/classroom-bg.png');
+  background-size: 100%;
+  margin: 100px;
+}
+
+#one {
+  margin-bottom:50px;
+}
+#three {
+  margin-bottom:50px;
+}
+#four {
+  margin-bottom:50px;
+}
+
+.draggable-elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+    
+}
+.draggable {
+  height: 5rem;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 130px;
+  margin-top: 160px;
+  font-size: 4rem;
+  cursor: grabbing;
+  transition: opacity 0.2s;
+}
+.draggable:hover {
+  opacity: 0.5;
+  cursor:grab;
+}
+
+.droppable {
+    position: relative;
+    height: 6.5rem;
+    width: 6.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4rem;
+    font-weight: bold;
+    transition: border-width 0.2s, transform 0.2s, color 0.4s;
+}
+
+.droppable img {
+  pointer-events:none;
+  height: 11rem;
+  width: 11rem;
+  align-content: space-between;
+}
+
+.droppable-elements {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: space-between;
+}
+
+.droppable.droppable-hover {
+  transform: scale(1.1);
+  cursor: copy;
+}
+
+.droppable.dropped {
+  background-image: none;
+}
+
+.draggable.dragged {
+  user-select:auto;
+  opacity: 0;
+  cursor:default;
+}
+
+#shape-circle {
+  height: 100px;
+  margin-left: 250px;
+}
+
+#shape-square {
+  height: 100px;
+}
+
+#shape-triangle {
+  height: 100px;
+  margin-right: 250px;
+}
+
+#shapes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#triangle {
+  margin-right:250px;
+}
+
+#circle {
+  margin-left:250px;
+}
