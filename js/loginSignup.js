@@ -1,10 +1,14 @@
 import * as User from "./models/modelUsers.js";
 
 const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
+const logInButton = document.getElementById('logIn');
 const container = document.getElementById('container');
 const accountCreated = document.getElementById("accountCreated");
 const loginAccount = document.getElementById("logBtn");
+const smallerDevicesSignUp = document.getElementById("smallerDevicesSignUp");
+const smallerDevicesLogIn = document.getElementById("smallerDevicesLogIn");
+const signContainer = document.querySelector(".sign-up-container");
+const logContainer = document.querySelector(".log-in-container");
 
 
 // VALIDATE IF LOG IN INFORMATION EXISTS
@@ -64,6 +68,16 @@ signUpButton.addEventListener('click', () => {
 	container.classList.add("right-panel-active");
 });
 
-signInButton.addEventListener('click', () => {
+logInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
+});
+
+smallerDevicesSignUp.addEventListener('click', () => {
+	signContainer.style.display = "contents";
+	logContainer.style.display = "none"
+});
+
+smallerDevicesLogIn.addEventListener('click', () => {
+	logContainer.style.display = "contents";
+	signContainer.style.display = "none"
 });

@@ -18,16 +18,24 @@
 			<input id="password2Signup" type="password" placeholder="confirm password">
 			<div id="validationMessage"></div>
 			<button id="accountCreated">Sign Up</button>
+			<div id="smallerDevicesMessage">
+				<p>Already have an account?</p>
+				<p id="smallerDevicesLogIn">Log In!</p>
+			</div>
 		</form>
 	</div>
-	<div class="form-container sign-in-container">
+	<div class="form-container log-in-container">
 		<form action="#">
 			<h1 class="title2">Login</h1>
-			<input id="usernameLogin" type="text" placeholder="username" />
-			<input id="passwordLogin" type="password" placeholder="password" />
+			<input id="usernameLogin" type="text" placeholder="username">
+			<input id="passwordLogin" type="password" placeholder="password">
 			<a href="#">Forgot your password?</a>
 			<div id="validationMessageLogIn"></div>
 			<input type="button" value="Login" id="logBtn">
+			<div id="smallerDevicesMessage">
+				<p>Don't have an account yet?</p>
+				<p id="smallerDevicesSignUp">Sign Up!</p>
+			</div>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -35,7 +43,7 @@
 			<div class="overlay-panel overlay-left">
 				<h1 class="title">Welcome Back!</h1>
 				<p>To help Lily unlock her memories please login with your personal info</p>
-				<button class="ghost" id="signIn">Log In</button>
+				<button class="ghost" id="logIn">Log In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1 class="title">Hello, Friend!</h1>
