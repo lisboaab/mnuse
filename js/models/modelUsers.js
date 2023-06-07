@@ -8,8 +8,9 @@ class Users {
     finishedChallenges = [];
     badges = [];
     words = [];
+    code = 0;
 
-    constructor(username, email, password, avatar, currentLevel, finishedChallenges, badges, words){
+    constructor(username, email, password, avatar, currentLevel, finishedChallenges, badges, words, code){
         this.username = username;
         this.email = email;
         this.password = password;
@@ -18,6 +19,7 @@ class Users {
         this.finishedChallenges = finishedChallenges;
         this.badges = badges
         this.words = words
+        this.code = code
     }
 }
 
@@ -27,29 +29,32 @@ if (!users) {
         {username:"admin",
         email:"admin@email.com",
         password:"123",
-        avatar:"../assets/imgs/user.png",
+        avatar:"../assets/imgs/avatar1.png",
         currentLevel:0,
         finishedChallenges:[],
         badges:[],
-        words:[]
+        words:[],
+        code: 1
     },
         {username:"admin2",
         email:"admin2@email.com",
         password:"123",
-        avatar:"../assets/imgs/user.png",
+        avatar:"../assets/imgs/avatar1.png",
         currentLevel:0,
         finishedChallenges:[],
         badges:[],
-        words:["Forgotten"]
+        words:["Forgotten"],
+        code: 1
     },
         {username:"admin3",
         email:"admin3@email.com",
         password:"123",
-        avatar:"../assets/imgs/user.png",
+        avatar:"../assets/imgs/avatar1.png",
         currentLevel:0,
         finishedChallenges:[],
         badges:[],
-        words:["Forgotten", "Collision"]
+        words:["Forgotten", "Collision"],
+        code: 1
         }
     ];
 } else {
@@ -95,11 +100,12 @@ export function saveUser(username, email, password) {
         username,
         email,
         password,
-        "../assets/imgs/user.png",
+        "../assets/imgs/avatar1.png",
         0,
         [],
         [],
-        []
+        [],
+        0
     );
     if (userExists(username, email) === "email"){
         validationMessage.textContent = "Email already in use. Try another one!";
@@ -135,30 +141,56 @@ export function logout() {
     sessionStorage.removeItem("loggedUser");
 }
 
-// EDIT USERNAME AND / OR EMAIL
-export function editProfile(username, email){
-    const loggedUser = getUserLogged()
-    const updatedUser = new Users(username, email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words)
-    const index  = users.findIndex(user => user.username === loggedUser.username)
-    users[index] =  updatedUser
-    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
-    localStorage.setItem("users", JSON.stringify(users))
-    location.reload()
+// EDIT USERNAME
+export function editUser(username){
+    const validationMessageUser = document.getElementById("validationMessageUser");
+    if (users.some(user => user.username === username)){
+        validationMessageUser.textContent = "This username already exists. Try another one!";
+        validationMessageUser.style.color = "red";
+    }
+    else {
+        const loggedUser = getUserLogged()
+        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
+        const index  = users.findIndex(user => user.username === loggedUser.username)
+        users[index] =  updatedUser
+        sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+        localStorage.setItem("users", JSON.stringify(users))
+        location.reload()
+    }
+}
+
+// EDIT EMAIL
+export function editEmail(email){
+    const validationMessageEmail = document.getElementById("validationMessageEmail");
+    if (users.some(user => user.email === email)){
+        validationMessageEmail.textContent = "Email already in use. Try another one!";
+        validationMessageEmail.style.color = "red";
+    }
+    else {
+        const loggedUser = getUserLogged()
+        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
+        const index  = users.findIndex(user => user.username === loggedUser.username)
+        users[index] =  updatedUser
+        sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+        localStorage.setItem("users", JSON.stringify(users))
+        location.reload()
+    }
 }
 
 // EDIT PASSWORD
 export function editPassword(oldPassword, newPassword){
+    const validationMessagePassword = document.getElementById("validationMessagePassword")
     const loggedUser = getUserLogged()
     if (oldPassword === loggedUser.password){
-        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words)
+        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
         const index  = users.findIndex(user => user.username === loggedUser.username)
         users[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
         localStorage.setItem("users", JSON.stringify(users))
         location.reload()
     }else{
-        /* validationMessage.textContent = "Passwords don't match!";
-        validationMessage.style.color = "red"; */
+        validationMessagePassword.textContent = "Old password incorrect!";
+        validationMessagePassword.style.color = "red";
         console.log("Passwords don't match!")
     }
 }
@@ -166,12 +198,26 @@ export function editPassword(oldPassword, newPassword){
 // EDIT AVATAR
 export function editAvatar(selectedAvatar){
     const loggedUser = getUserLogged()
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, selectedAvatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, selectedAvatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
     const index  = users.findIndex(user => user.username === loggedUser.username)
     users[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
     localStorage.setItem("users", JSON.stringify(users))
     location.reload()
+}
+
+export function editCode(newCode){
+    const loggedUser = getUserLogged()
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, newCode)
+    const index  = users.findIndex(user => user.username === loggedUser.username)
+    users[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("users", JSON.stringify(users))
+    location.reload()
+}
+
+export function exportUsers(){
+    return users
 }
 
 console.log(users)

@@ -1,3 +1,18 @@
+@font-face {
+    font-family: Josefin Sans Light;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: Josefin Sans SemiBold;
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Josefin Sans Regular;
+    src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
+}
+
 body{
     background-color: #18234d !important;
     margin: 0;
@@ -8,17 +23,28 @@ body{
     color: #EEEAF5;
     font-family: Josefin Sans Regular;
     margin-top: 1.6em;
-    padding-left: 4em;
     height: 77vh;
+}
+
+#userInfo{
+    padding-left: 4em;
 }
 
 #profilePicture{
     width:6em;
+    border-radius: 50%;
+}
+
+input[type="radio"]{
+    display: none;
 }
 
 #unlockedWords{
     background-color: #eeeaf5;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    height: 8em;
 }
 
 #unlockedWords h3{
@@ -32,11 +58,64 @@ body{
 #unlockedBadges{
     background-color: #827397;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    height: 8em;
+    border-color: #827397;
+}
+
+#unlockedBadges h3, #unlockedBadges h4{
+    color: #EEEAF5;
+}
+
+#mnuseLeague p, #mnuseLeague h4{
+    color: #EEEAF5;
+}
+
+#mnuseLeague p{
+    font-family: Josefin Sans Light;
 }
 
 #mnuseLeague{
     background-color: #732AD9;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+}
+
+#manageUsers, #manageLevels{
+    background-color: #eeeaf5;
+    border-radius: 15px;
+    min-height: 8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #18234d;
+}
+
+#manageUsers button, #manageLevels button{
+    border: none;
+    height: 8em;
+    color: #18234d;
+    background-color: #EEEAF5;
+}
+
+#manageChallenges button{
+    border: none;
+    height: 8em;
+    background-color: #827397;
+    color: #eeeaf5;
+}
+
+#manageChallenges{
+    background-color: #827397;
+    border-radius: 15px;
+    min-height: 8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #editBtn img{
@@ -47,6 +126,14 @@ body{
     background-color: #18234d;
     border: none;
     width: 0.5em;
+    box-shadow: none;
+}
+
+#info1{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 12em 1fr;
+    margin-top: 2em;
 }
 
 #info{
@@ -55,12 +142,27 @@ body{
     grid-template-columns: 12em 1fr;
 }
 
+#info2{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 4em 8em 1fr;
+    margin-top: 1em;
+}
+
 #btnLogout{
     background-color: #18234d;
     color: #EEEAF5;
     border: none;
     margin: 0;
     padding: 0;
+    text-decoration: underline;
+    text-decoration-color: #732AD9;
+    text-decoration-thickness: 2px;
+    font-size: 1.2em;
+}
+
+#btnLogout:hover{
+    text-decoration-color: #eeeaf5;
 }
 
 input[type=radio] + label {
@@ -75,5 +177,29 @@ input[type=radio] + label {
 }
 
 input[type=radio]:checked + label {
-    border-color: blue;
+    border-color: #732AD9;
+}
+
+#info h2, #info1 h2{
+    text-transform: uppercase;
+    font-family: Josefin Sans Light;
+}
+
+#emailInfo{
+    font-family: Josefin Sans Light;
+}
+
+#unlockedWords button{
+    border: none;
+    background-color: #EEEAF5   ;
+}
+
+#unlockedBadges button{
+    border: none;
+    background-color: #827397;
+}
+
+#mnuseLeague button{
+    border: none;
+    background-color: #732AD9;
 }
