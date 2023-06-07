@@ -1,6 +1,6 @@
 @font-face {
     font-family: Josefin Sans Light;
-    src: url(../img/josefin-sans/JosefinSans-Light.ttf);
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
 }
 
 .container {
@@ -17,6 +17,7 @@
 nav{
     border-radius: 15px;
     background-color: #EEEAF5;
+    height: 90%;
 }
 
 #rulesBtn, #abtUsBtn{
