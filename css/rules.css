@@ -7,11 +7,11 @@ body{
 #middleWebsite {
     color: #EEEAF5;
     font-family: Josefin Sans Regular;
-    margin-top: 1.6em;
-    padding-left: 4em;
-    height: 77vh;
+    margin: 1.6em 0 0 0;
+    padding-left: 6em;
+    padding-right: 6em;
+    height: 38em;
 }
-
 
 p li, p, .list{
     font-size: 24px;
@@ -25,4 +25,21 @@ h1{
     text-decoration: none;
     color: #EEEAF5;
     font-size: 24px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    
+}
+
+@media only screen and (max-width: 767px) {
+    #middleWebsite{
+        padding-right: 2em;
+        padding-left: 2em;
+        height: 100%;
+        margin-bottom: 4em;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    
 }

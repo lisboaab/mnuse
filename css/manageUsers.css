@@ -1,0 +1,17 @@
+body{
+    background-color: #18234d !important;
+    margin: 0;
+    padding: 0;
+}
+
+#middleWebsite {
+    color: #EEEAF5;
+    font-family: Josefin Sans Regular;
+    margin: 1.6em 0 0 0;
+    padding-left: 6em;
+    padding-right: 6em;
+    height: 38em;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
