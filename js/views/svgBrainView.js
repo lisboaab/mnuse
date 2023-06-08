@@ -1,4 +1,3 @@
-
 function addSvg(){
     const svgBrain = document.getElementById("svgBrain")
 

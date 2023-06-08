@@ -1,43 +1,47 @@
 body{
     background-color: #eeeaf5;
+    position: absolute;
 }
 
-#container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1;
-    grid-template-areas: "door video";
-    align-items: start;
-    justify-items: center;
-}
-
-#divImgPorta {
-    grid-area: door;
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: absolute;
 }
 
 #imgPorta {
-    width: 30vw; 
+    width: 30em; 
     height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    min-height: 20%;
+    min-width: 20%;
 }
+
+#divImgPorta{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
 
 #divVideo {
     margin-top: 17vh;
-    grid-area: video;
-    position: relative;
     overflow: hidden;
     border: 5px solid #827397;
     border-radius: 40px;
-    width: 55vw;
-    height: 60vh;
+    width: 80em;
+    height: 30em;
     display: grid;
     place-items: center;
-    margin-left: 2vw;
 }
 
 
-#videoDoor {
+#video {
     border-radius: 30px;
-    position: absolute;
+    position: relative;
     width: 97%;
     height: 95%;
 }
