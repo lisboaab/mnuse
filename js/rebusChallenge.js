@@ -1,30 +1,62 @@
-correctAnswers = ["one in a million", "think outside of the box", "somewhere over the rainbow", "happy hour"]
+import * as Rebus  from "./models/modelChallengeRebus.js"
 
-answer1 = document.getElementById("InputRebusAnswer1");
-answer2 = document.getElementById("InputRebusAnswer2");
-answer3 = document.getElementById("InputRebusAnswer3");
-answer4 = document.getElementById("InputRebusAnswer4");
-inputs = [answer1, answer2,answer3,answer4]
-
-check1 = document.getElementById("addCheck0")
-check2 = document.getElementById("addCheck1")
-check3 = document.getElementById("addCheck2")
-check4 = document.getElementById("addCheck3")
-checks = [check1,check2,check3,check4]
+console.log(Rebus.challengesRebus);
 
 
+// CREATE 4 RANDOM NUMBERS FOR THE CHALLENGE
+let randomIds = []
+while (randomIds.length != 4){
+    let randomId = Math.floor(Math.random() * Rebus.challengesRebus.length) + 1;
+    if (randomIds.includes(randomId)){
+        continue
+    } else {
+        randomIds.push(randomId)
+    }
+}
 
-// criar classe com a imagem, id e resposta certa de cada rebus (já fica fácil pra adicionar outros rebus)
-// gerar 4 numeros random e esses numeros serão o id do obj na classe
-// e usar a classe pra alimentar a funcao e o html
+console.log(randomIds)
+
+
+// GET IN THE ARRAY OF ANSWERS THE 4 OBJECTS CHOSEN FROM THE RANDOM NUMBERS
+let rebus1 = Rebus.challengesRebus.find((challenge) => challenge.id === randomIds[0]);
+let rebus2 = Rebus.challengesRebus.find((challenge) => challenge.id === randomIds[1]);
+let rebus3 = Rebus.challengesRebus.find((challenge) => challenge.id === randomIds[2]);
+let rebus4 = Rebus.challengesRebus.find((challenge) => challenge.id === randomIds[3]);
+
+let correctAnswers = [];
+correctAnswers.push(rebus1.rigthAnswer);
+correctAnswers.push(rebus2.rigthAnswer);
+correctAnswers.push(rebus3.rigthAnswer);
+correctAnswers.push(rebus4.rigthAnswer);
+
+console.log(correctAnswers)
+
+
+// PUT THE IMAGES OF EACH CHALLENGE IN THE HTML 
+document.getElementById("rebusImg1").src = rebus1.imgUrl;
+document.getElementById("rebusImg2").src = rebus2.imgUrl;
+document.getElementById("rebusImg3").src = rebus3.imgUrl;
+document.getElementById("rebusImg4").src = rebus4.imgUrl;
 
 
 
+// SELECT THE INPUTS THAT WILL BE FILLED BY THE USER
+let answer1 = document.getElementById("InputRebusAnswer1");
+let answer2 = document.getElementById("InputRebusAnswer2");
+let answer3 = document.getElementById("InputRebusAnswer3");
+let answer4 = document.getElementById("InputRebusAnswer4");
+let inputs = [answer1, answer2,answer3,answer4]
 
 
+// SELECT THE DIVS WHERE THE "RIGHT" OR "WRONG" ICON WILL APPEAR
+let check1 = document.getElementById("addCheck0")
+let check2 = document.getElementById("addCheck1")
+let check3 = document.getElementById("addCheck2")
+let check4 = document.getElementById("addCheck3")
+let checks = [check1,check2,check3,check4]
 
 
-// tentar fazer isso usando o for each e o index da resposta    
+// ADD EVENT LISTENER TO EACH INPUT AREA
 answer1.addEventListener("keypress", function(event){
     if (event.key === "Enter"){
         if (checkAnswer(answer1,0) === true){
@@ -69,9 +101,10 @@ answer4.addEventListener("keypress", function(event){
     }
 })
 
+// FUNCTION TO CHECK THE ANSWERS OF THE USER
 // idCard = input do challenge;   indexAnswer = index da answer no array  correctAnswers 
 function checkAnswer(idCard, indexAnswer){
-    if (idCard.value === correctAnswers[indexAnswer]){
+    if (idCard.value.toLowerCase() === correctAnswers[indexAnswer]){
         return true
     }
     else {
@@ -79,29 +112,30 @@ function checkAnswer(idCard, indexAnswer){
     }
 }
 
+// FUNCTION TO ADD THE ICON OF "RIGTH" OR "WRONG" AND COLORS BESIDES THE INPUT AREA
 function showCorrectOrWrong(state, idInput){
-    obj = inputs[idInput];
-    div = checks[idInput];
-    img = document.getElementById("imageChecks");
-    if (this.img){ // como fazer para apagar só a imagem que estiver no div dessa sessao?
-        this.img.parentNode.removeChild(img);
-    }
+    let obj = inputs[idInput];
+    let div = checks[idInput];
+    let divCheckCorrect = document.getElementsByClassName("correct");
+    let divCheckWrong = document.getElementsByClassName("wrong");
     if (state === "correct"){
+        if (divCheckWrong[idInput].style.opacity = "1" 
+        || (divCheckWrong[idInput].style.display = "inline")){    // checks if the wrong answer check is showing
+            divCheckWrong[idInput].style.opacity = "0"           // if it is, it hiddens the image
+            divCheckWrong[idInput].style.display = "none"
+        }
         obj.style.borderBottom = "solid #00bb00 2px";
-        const image = document.createElement('img')
-        image.src = "../assets/imgs/green checked.png";
-        image.width = "35";
-        image.marginLeft = "10%";
-        image.id = "imageChecks"
-        div.appendChild(image)
+        divCheckCorrect[idInput].style.opacity = "1"
+        divCheckCorrect[idInput].style.display = "inline"
     }
     else{
+        if (divCheckCorrect[idInput].style.opacity = "1"
+        || (divCheckCorrect[idInput].style.display = "inline")){  // checks if the correct answer check is showing
+            divCheckCorrect[idInput].style.opacity = "0"
+            divCheckCorrect[idInput].style.display = "none"     // if it is, it hiddens the image
+        }
         obj.style.borderBottom = "solid #ee3a00 2px";
-        const image = document.createElement('img');
-        image.src = "../assets/imgs/red wrong icon.png";
-        image.width = "35";
-        image.marginLeft = "10%";
-        image.id = "imageChecks"
-        div.appendChild(image)
+        divCheckWrong[idInput].style.opacity = "1"
+        divCheckWrong[idInput].style.display = "inline"
     }
 }

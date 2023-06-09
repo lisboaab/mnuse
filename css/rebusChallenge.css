@@ -14,7 +14,7 @@
 }
 
 body{
-    background-image: url("../assets/imgs/classroom_rebus bg.png");
+    background-image: url("../assets/imgs/classroom_rebus\ bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -24,9 +24,14 @@ body{
     font-family: josefinSansRegular;
 }
 
+h1 {
+    color: #18234d;
+    text-align: center;
+}
+
 #divChallenges {
+    border-radius: 5vw;
     background-color: #827397;
-    border-radius: 60px;
     height: 80%;
     min-width: 40%;
     position: absolute;
@@ -35,10 +40,11 @@ body{
     transform: translate(0, -50%);
     width: 80%;
     display: grid;
-    grid-template-columns: 2;
-    grid-template-rows: 2;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: "rebus1 rebus2"
                         "rebus3 rebus4";
+    justify-items: center;
 }
 
 #rebus1 {
@@ -59,7 +65,7 @@ body{
 
 .card .img {
     background-color: #eeeaf5;
-    border-radius: 40px;
+    border-radius: 2.5vw;
     width: 35%;
     height: auto;
 }
@@ -74,7 +80,7 @@ input {
     border: none;
     border-bottom: #18234d 2px solid;
     background-color: #827397;
-    width: 30%;
+    width: 10vw;
     margin-left: 5%;
     margin-right: 2%;
     font-family: josefinSansRegular;
@@ -96,4 +102,11 @@ input:focus{
     font-family: josefinSansRegular;
     color: #18234d;
     font-size: 20px;
+}
+
+.check{
+    opacity: 0;
+    width: 3vw;
+    height: auto;
+    margin-left: 3%;
 }
