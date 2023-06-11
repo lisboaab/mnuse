@@ -12,7 +12,7 @@ const logContainer = document.querySelector(".log-in-container");
 
 
 // VALIDATE IF LOG IN INFORMATION EXISTS
-loginAccount.addEventListener("click", function(event){
+loginAccount.addEventListener("submit", function(event){
 	event.preventDefault();
 	let usernameToValidate = document.getElementById("usernameLogin").value;
 	let passwordToValidate = document.getElementById("passwordLogin").value;
@@ -36,8 +36,17 @@ inputPassword2.addEventListener("input", function(){
 	let password = inputPassword1.value;
 	let validatePassword = inputPassword2.value;
 
-	if (password === validatePassword){
+	if (validatePassword === '') {
+		// Campo vazio
+		inputPassword2.classList.remove("success");
 		inputPassword2.classList.remove("error");
+		inputPassword2.classList.add("blank");
+		validationMessage.textContent = "";
+		accountCreated.disabled = true;
+	}
+	else if (password === validatePassword){
+		inputPassword2.classList.remove("error");
+		inputPassword2.classList.remove("blank");
 		inputPassword2.classList.add("success");
 		validationMessage.textContent = "Password checked!";
 		validationMessage.style.color = "green";
@@ -45,6 +54,7 @@ inputPassword2.addEventListener("input", function(){
 	}
 	else {
 		inputPassword2.classList.remove("success");
+		inputPassword2.classList.remove("blank");
 		inputPassword2.classList.add("error");
 		validationMessage.textContent = "Passwords does not check. Try again!";
 		accountCreated.disabled = true;
@@ -55,7 +65,7 @@ inputPassword2.addEventListener("input", function(){
 
 
 // SIGN UP
-accountCreated.addEventListener("click", function(event) {
+accountCreated.addEventListener("submit", function(event) {
 	event.preventDefault();
 	let usernameSignup = document.getElementById("usernameSignup").value;
 	let emailSignup = document.getElementById("emailSignup").value;

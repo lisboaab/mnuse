@@ -1,0 +1,70 @@
+@font-face {
+    font-family: josefinSansRegular;
+    src: url(../img/josefin-sans/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: josefinSansLight;
+    src: url(../img/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: josefinSansSemibold;
+    src: url(../img/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+
+body{
+    background-color: #eeeaf5;
+    position: absolute;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: absolute;
+    display: grid;
+    justify-items: center;
+}
+
+#divVideo {
+    margin-top: 17vh;
+    overflow: hidden;
+    border: 5px solid #18234d;
+    border-radius: 40px;
+    width: 80em;
+    height: 30em;
+    display: grid;
+    place-items: center;
+}
+
+
+#video {
+    border-radius: 30px;
+    position: relative;
+    width: 97%;
+    height: 95%;
+}
+
+#modalUnlockWords{
+    font-family: josefinSansRegular;
+    color: #18234d;
+}
+
+#modalUnlockWords input{
+    border: none;
+    background-color: #732AD950;
+    color: #18234d;
+    border: 0.5px;
+}
+
+#btnContinue{
+    background-color: #732AD9;
+    color: #eeeaf5;
+    outline: none;
+}
+
+#inputWord1::placeholder{
+    color: #18234d;
+}
