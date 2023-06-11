@@ -12,7 +12,7 @@ const logContainer = document.querySelector(".log-in-container");
 
 
 // VALIDATE IF LOG IN INFORMATION EXISTS
-loginAccount.addEventListener("submit", function(event){
+loginAccount.addEventListener("click", function(event){
 	event.preventDefault();
 	let usernameToValidate = document.getElementById("usernameLogin").value;
 	let passwordToValidate = document.getElementById("passwordLogin").value;
@@ -65,7 +65,7 @@ inputPassword2.addEventListener("input", function(){
 
 
 // SIGN UP
-accountCreated.addEventListener("submit", function(event) {
+accountCreated.addEventListener("click", function(event) {
 	event.preventDefault();
 	let usernameSignup = document.getElementById("usernameSignup").value;
 	let emailSignup = document.getElementById("emailSignup").value;
