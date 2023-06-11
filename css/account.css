@@ -47,8 +47,13 @@ input[type="radio"]{
     height: 8em;
 }
 
-#unlockedWords h3{
+#unlockedWords p{
     color: #18234d;
+}
+
+#manageRebus p, #manageUsers p, #statistics p{
+    font-size: 26px;
+    font-family: Josefin Sans Light;
 }
 
 #unlockedWords h4, #unlockedWords h2{
@@ -64,7 +69,7 @@ input[type="radio"]{
     border-color: #827397;
 }
 
-#unlockedBadges h3, #unlockedBadges h4{
+#unlockedBadges h4, #manageRebus p, #unlockedBadges h3{
     color: #EEEAF5;
 }
 
@@ -85,7 +90,7 @@ input[type="radio"]{
     height: 8em;
 }
 
-#manageUsers, #manageLevels{
+#manageUsers, #manageRebus, #statistics{
     background-color: #eeeaf5;
     border-radius: 15px;
     min-height: 8em;
@@ -95,21 +100,21 @@ input[type="radio"]{
     color: #18234d;
 }
 
-#manageUsers button, #manageLevels button{
+#manageUsers button, #statistics button{
     border: none;
     height: 8em;
     color: #18234d;
     background-color: #EEEAF5;
 }
 
-#manageChallenges button{
+#manageRebus button{
     border: none;
     height: 8em;
     background-color: #827397;
     color: #eeeaf5;
 }
 
-#manageChallenges{
+#manageRebus{
     background-color: #827397;
     border-radius: 15px;
     min-height: 8em;
@@ -119,7 +124,7 @@ input[type="radio"]{
 }
 
 #editBtn img{
-    width: 2em;
+    width: 1.3em;
 }
 
 #editBtn{
@@ -202,4 +207,39 @@ input[type=radio]:checked + label {
 #mnuseLeague button{
     border: none;
     background-color: #732AD9;
+}
+
+p{
+    margin-bottom: 0 !important;
+}
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.file-input-label {
+    width: 140px;
+    height: 140px;
+    background-image: url('../assets/imgs/fileIcon.png');
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border: 1px solid #18234d;
+    border-radius: 10px;
+}
+
+#file-input-label {
+    display: inline-block;
+    width: 140px;
+}
+
+#answerRebus, #descriptionRebus{
+    background-color: #EEEAF5;
+    border: none;
+    border-bottom: 1px solid #18234d;
 }
