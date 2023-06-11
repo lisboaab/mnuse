@@ -11,7 +11,7 @@ function indexView(){
     <p>Help her unlock the memories!</p></div>`
 
     if (User.isLogged()){
-        result += `<input type="button" class="btn btn-primary btn-lg btn-block" value="Play" onclick="window.location.href = '../../html/mapa.html'">
+        result += `<input type="button" class="btn btn-primary btn-lg btn-block" value="Play" data-bs-toggle="modal" data-bs-target="#disclaimerModal" >
         </div>
       </div>
       </div>`
