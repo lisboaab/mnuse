@@ -1,3 +1,15 @@
+import * as User from "../models/modelUsers.js"
+import * as dialogue from "./dialogueView.js"
+
+if(User.getUserLogged().currentLevel == 0){
+    dialogue.generateDialogue(1)
+}else{
+    const messageBallon = document.getElementById("messageBallon")
+    messageBallon.style.display = "none"
+    const svg = document.querySelector("svg")
+    svg.style.height = "40px"
+}
+
 function addSvg(){
     const svgBrain = document.getElementById("svgBrain")
 
@@ -379,54 +391,63 @@ function addSvg(){
 
 addSvg()
 
-const frontalLobe = document.getElementById("frontal-lobe").addEventListener("click", function(){
+document.getElementById("frontal-lobe").addEventListener("click", function(){
     frontalModal.style.display = "block"
     overlay.style.display = "block"
-    body.classList.add('modal-open');
+    body.classList.add('modal-open')
 })
-const temporalLobe = document.getElementById("temporal-lobe").addEventListener("click", function(){
+
+document.getElementById("temporal-lobe").addEventListener("click", function(){
     tempModal.style.display = "block"
     overlay.style.display = "block"
 })
-const parietalLobe = document.getElementById("parietal-lobe").addEventListener("click", function(){
+
+document.getElementById("parietal-lobe").addEventListener("click", function(){
     parietalModal.style.display = "block"
     overlay.style.display = "block"
 })
 
-const btnclose = document.getElementsByClassName("btnClose")[0];
+if(User.getUserLogged().currentLevel == 2){
+    const tempModalBtn = document.getElementById("tempModalBtn")
+    tempModalBtn.innerHTML = "Play"
+    tempModalBtn.className = "modal-btn level-btn--active"
+    tempModalBtn.addEventListener("click", () => {window.location.href = 'terapeuta.html'})
+}else if(User.getUserLogged().currentLevel == 3){
+    const tempModalBtn = document.getElementById("tempModalBtn")
+    tempModalBtn.innerHTML = "Play"
+    tempModalBtn.className = "modal-btn level-btn--active"
+    tempModalBtn.addEventListener("click", () => {window.location.href = 'terapeuta.html'})
+    const parietalModalBtn = document.getElementById("parietalModalBtn")
+    parietalModalBtn.innerHTML = "Play"
+    parietalModalBtn.className = "modal-btn level-btn--active"
+    parietalModalBtn.addEventListener("click", () => {window.location.href = 'terapeuta.html'})
+}
+
+const btnclose = document.getElementsByClassName("btnClose")[0]
 const btnclose1 = document.getElementsByClassName("btnClose")[1]
 const btnclose2 = document.getElementsByClassName("btnClose")[2]
-console.log(document.getElementsByClassName("btnClose"))
-btnclose.addEventListener("click", function() {
-  frontalModal.style.display = "none";
-  overlay.style.display = "none"
-  body.classList.remove('modal-open');
-});
-btnclose1.addEventListener("click", function() {
-    parietalModal.style.display = "none";
-    overlay.style.display = "none"
-    body.classList.remove('modal-open');
-  });
-btnclose2.addEventListener("click", function() {
-    tempModal.style.display = "none";
-    overlay.style.display = "none"
-    body.classList.remove('modal-open');
-}); 
 
-/* const btnclose = document.getElementsByClassName("btnClose")
-for(let i = 0; i <= btnclose.length; i++){
-    btnclose.addEventListener("click", function() {
-        frontalModal.style.display = "none";
-        overlay.style.display = "none"
-        body.classList.remove('modal-open');
-    });
-} */
+btnclose.addEventListener("click", function() {
+  frontalModal.style.display = "none"
+  overlay.style.display = "none"
+  body.classList.remove('modal-open')
+})
+btnclose1.addEventListener("click", function() {
+    parietalModal.style.display = "none"
+    overlay.style.display = "none"
+    body.classList.remove('modal-open')
+})
+btnclose2.addEventListener("click", function() {
+    tempModal.style.display = "none"
+    overlay.style.display = "none"
+    body.classList.remove('modal-open')
+})
 
 const overlay = document.getElementsByClassName("overlay")[0]
 
-const frontalModal = document.getElementById('frontalModal');
-const parietalModal = document.getElementById('parietalModal');
-const temporalModal = document.getElementById('tempModal');
+const frontalModal = document.getElementById('frontalModal')
+const parietalModal = document.getElementById('parietalModal')
+const temporalModal = document.getElementById('tempModal')
 
 
 window.addEventListener('click', function(e) {
@@ -443,4 +464,5 @@ window.addEventListener('click', function(e) {
         overlay.style.display = "none"
         body.classList.remove('modal-open');
     }
-}); 
+})
+
