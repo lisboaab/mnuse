@@ -15,27 +15,34 @@
 
   <body>
     <div id="header"></div>
-    <div id="middleWebsite" class="container">
+    <div id="middleWebsite">
+      <div class="container">
+        <h2>MANAGE USERS</h2>
+        <input type="text" id="searchBtn" placeholder="Search by..">
+        <input type="button" value="username" id="usernameBtn">
+        <input type="button" value="email" id="emailBtn">
+        <input type="button" value="level" id="levelBtn">
+      </div>
+      <div class="container table">
         <table id="tableUsers" border="1"></table>
+      </div>
     </div>
     <div class="modal" id="editProfileModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="header">
-            <h5 class="modal-title">Edit Profile</h5>
+            <h5 class="modal-title">Edit User Role</h5>
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
               <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
             </button>
           </div>
           <div class="modal-body">
             <form id="editProfile">
-              <input id="manageNewEmail" type="text" placeholder="new email"><br>
-              <div id="validationMessageEmail"></div>
-              <input id="manageNewUsername" type="text" placeholder="new username"><br>
-              <div id="validationMessageUsername"></div>
-              <input id="manageNewPassword" type="text" placeholder="new password"><br>
-              <div id="validationMessagePassword"></div>
-              <input id="manageNewCode" type="text" placeholder="new role"><br>
+              <select name="roleUser" id="roleUser">
+                <option value="">User Role</option>
+                <option value="1">Admin</option>
+                <option value="0">Player</option>
+              </select><br>
               <input type="submit" value="Confirm">
             </form>
           </div>

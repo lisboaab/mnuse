@@ -31,7 +31,7 @@ function navbarView() {
       result += `<div class="col-lg-2 col-4">
                   <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center" id="col3">
                     <button class="navbar-toggler" id="logBtn" type="button" onclick="window.location.href = '../../html/loginSignup.html'">
-                      <img src="../../img/account.png" alt="icon">
+                      <img src="../../assets/imgs/accountIcon.png" alt="icon">
                     </button>
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNav2">
                       <ul class="navbar-nav">

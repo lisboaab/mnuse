@@ -38,20 +38,15 @@ function accountView(){
             <div class="row">
             <h4>No unlocked words yet!</h4></div></button></div></div>`
             
-        }else if(User.getUserLogged().words.length == 1){
-            result += `<div class="container"><div class="row" id="moreInfoRow">
-            <div class="col-lg-5"><div id="unlockedWords"><button><h3>Unlocked words</h3>
-            <div class="row">
-            <h2 class="col-6">${User.getUserLogged().words[0]}</h2>
-            <h2 class="col-6"></h2></div></div></div></button>`
         }else{
             result += `<div class="container"><div class="row" id="moreInfoRow">
-            <div class="col-lg-5"><div id="unlockedWords"><button>
-            <h3>Unlocked words</h3>
-            <div class="row">
-            <h2 class="col-6">${User.getUserLogged().words[0]}</h2>
-            <h2 class="col-6">${User.getUserLogged().words[1]}</h2></div></button></div></div>`
+            <div class="col-lg-5"><div id="unlockedWords"><button><h3>Unlocked words</h3>
+            <div class="row">`
+            for(let word of User.getUserLogged().words){
+                result += `<h2 class="col-6">${word}</h2>`
+            }
         }
+        result += `</button>`
 
         if (User.getUserLogged().badges.length == 0){
             result += `<div class="col-lg-5"><div id="unlockedBadges" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#unlockedBadgesModal"><button>
@@ -68,11 +63,11 @@ function accountView(){
     }else{
         result += `<div class="container"><div class="row" id="moreInfoRow">
         <div class="col-lg-3">
-        <div id="manageUsers" type="button"><h3>Manage users</h3></div></div>
+        <div id="manageUsers" type="button"><p>Manage users</p></div></div>
         <div class="col-lg-6">
-        <div id="manageChallenges"><button><h3>Manage challenges</h3></button></div></div>
+        <div id="manageRebus" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#manageRebusModal"><p>Manage Rebus Challenge</p></button></div></div>
         <div class="col-lg-3">
-        <div id="manageLevels"><button><h3>Statistics</h3></button></div></div>`
+        <div id="statistics" type="button"><p>Statistics</p></div></div>`
     }
 
     document.getElementById("middleWebsite").innerHTML = result
@@ -114,4 +109,8 @@ document.getElementById("formAvatar").addEventListener("submit", function(e){
 
 document.getElementById("manageUsers").addEventListener("click", function(){
     window.location.href = "../../html/manageUsers.html"
+})
+
+document.getElementById("statistics").addEventListener("click", function(){
+    window.location.href = "../../html/statistics.html"
 })

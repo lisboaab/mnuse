@@ -62,6 +62,7 @@ input[type="button"]:hover{
     border: none;
     background-color: #EEEAF5;
     cursor: pointer;
+    border-radius: 15px;
 }
 
 #burguerMenu img{

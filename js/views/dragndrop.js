@@ -55,6 +55,6 @@ function drop(event) {
     
     draggableElement.classList.add("dragged");
     draggableElement.setAttribute("draggable", "false");
-    event.target.insertAdjacentHTML("afterbegin", `<img src="../img/check.png" style="height: 100px;"></img>`);
+    event.target.insertAdjacentHTML("afterbegin", `<img src="../assets/imgs/check.png" style="height: 100px;"></img>`);
   }
 }

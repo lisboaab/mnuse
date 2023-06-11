@@ -1,13 +1,13 @@
 * {
-  margin: 0;
+  /* margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; */
 }
 
 body {
-  background-image: url('../img/classroom-bg.png');
-  background-size: 100%;
-  margin: 100px;
+  /* background: no-repeat url('../assets/imgs/classroom-bg.png');
+  background-size: 100%; */
+  /* margin: 100px; */
 }
 
 #one {
