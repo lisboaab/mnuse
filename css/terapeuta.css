@@ -1,3 +1,22 @@
+@font-face {
+    font-family: josefinSansRegular;
+    src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: josefinSansLight;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: josefinSansSemibold;
+    src: url(../img/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+body{
+    font-family: josefinSansRegular;
+}
+
 #middleWebsite{
     height: 30em;
     display: flex;
