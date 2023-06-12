@@ -1,13 +1,18 @@
-body{
+/* body{
     background-color: #eeeaf5;
     position: absolute;
+} */
+
+body{
+    background-color: #18234d !important;
 }
 
-.row{
+#rowVideo{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    position: absolute;
+    background-color: #eeeaf5;
+    border-radius: 15px;
 }
 
 #imgPorta {
