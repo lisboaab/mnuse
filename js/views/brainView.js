@@ -6,8 +6,6 @@ if(User.getUserLogged().currentLevel == 0){
 }else{
     const messageBallon = document.getElementById("messageBallon")
     messageBallon.style.display = "none"
-    const svg = document.querySelector("svg")
-    svg.style.height = "40px"
 }
 
 function addSvg(){
@@ -391,6 +389,8 @@ function addSvg(){
 
 addSvg()
 
+const body = document.querySelector("body")
+
 document.getElementById("frontal-lobe").addEventListener("click", function(){
     frontalModal.style.display = "block"
     overlay.style.display = "block"
@@ -466,3 +466,17 @@ window.addEventListener('click', function(e) {
     }
 })
 
+document.getElementById("frontModalBtn").addEventListener("click", () => {
+    User.changeCurrentLevel(1)
+    window.location.href = "level.html"
+})
+
+document.getElementById("tempModalBtn").addEventListener("click", () => {
+    User.changeCurrentLevel(2)
+    window.location.href = "level.html"
+})
+
+document.getElementById("parietalModalBtn").addEventListener("click", () => {
+    User.changeCurrentLevel(3)
+    window.location.href = "level.html"
+})
