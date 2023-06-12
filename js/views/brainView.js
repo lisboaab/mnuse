@@ -389,12 +389,10 @@ function addSvg(){
 
 addSvg()
 
-const body = document.querySelector("body")
 
 document.getElementById("frontal-lobe").addEventListener("click", function(){
     frontalModal.style.display = "block"
     overlay.style.display = "block"
-    body.classList.add('modal-open')
 })
 
 document.getElementById("temporal-lobe").addEventListener("click", function(){
@@ -430,17 +428,14 @@ const btnclose2 = document.getElementsByClassName("btnClose")[2]
 btnclose.addEventListener("click", function() {
   frontalModal.style.display = "none"
   overlay.style.display = "none"
-  body.classList.remove('modal-open')
 })
 btnclose1.addEventListener("click", function() {
     parietalModal.style.display = "none"
     overlay.style.display = "none"
-    body.classList.remove('modal-open')
 })
 btnclose2.addEventListener("click", function() {
     tempModal.style.display = "none"
     overlay.style.display = "none"
-    body.classList.remove('modal-open')
 })
 
 const overlay = document.getElementsByClassName("overlay")[0]
@@ -454,29 +449,35 @@ window.addEventListener('click', function(e) {
     if (e.target == frontalModal) {
         frontalModal.style.display = 'none';
         overlay.style.display = "none"
-        body.classList.remove('modal-open');
     }else if (e.target == parietalModal) {
         parietalModal.style.display = 'none';
         overlay.style.display = "none"
-        body.classList.remove('modal-open');
     } else if (e.target == temporalModal) {
         temporalModal.style.display = 'none';
         overlay.style.display = "none"
-        body.classList.remove('modal-open');
     }
 })
 
 document.getElementById("frontModalBtn").addEventListener("click", () => {
-    User.changeCurrentLevel(1)
+    if(User.getUserLogged().currentLevel == 0){
+        User.changeCurrentLevel(1)
+    }
+    User.changeLevelLoad(1)
     window.location.href = "level.html"
 })
 
+const tempModalBtn = document.getElementById("tempModalBtn")
+
+if(tempModalBtn.className == "modal-btn level-btn--active"){
 document.getElementById("tempModalBtn").addEventListener("click", () => {
-    User.changeCurrentLevel(2)
+    User.changeLevelLoad(2)
     window.location.href = "level.html"
-})
+})}
 
+const parietalModalBtn = document.getElementById("parietalModalBtn")
+
+if(parietalModalBtn.className == "modal-btn level-btn--active"){
 document.getElementById("parietalModalBtn").addEventListener("click", () => {
-    User.changeCurrentLevel(3)
+    User.changeLevelLoad(3)
     window.location.href = "level.html"
-})
+})}

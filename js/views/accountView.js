@@ -14,21 +14,19 @@ function accountView(){
     </div>
     <div class="col-10">
     <div id="info1">
-    <h2>${User.getUserLogged().username}</h2>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editUsernameModal" id="editBtn" class="col">
     <img src="../assets/imgs/edit.png" alt="Edit button">
-    </button></div>
+    </button>
+    <h2>${User.getUserLogged().username}</h2></div>
     <div id="info2">
-    <p>email:</p>
-    <p id="emailInfo">${User.getUserLogged().email}</p>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editEmailModal" id="editBtn" class="col">
-    <img src="../assets/imgs/edit.png" alt="Edit button">
-    </button></div>
+    <img src="../assets/imgs/edit.png" alt="Edit button"></button>
+    <p>email:</p>
+    <p id="emailInfo">${User.getUserLogged().email}</p></div>
     <div id="info">
-    <p>change password</p>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPasswordModal" id="editBtn" class="col">
-    <img src="../assets/imgs/edit.png" alt="Edit button">
-    </button></div>
+    <img src="../assets/imgs/edit.png" alt="Edit button"></button>
+    <p>change password</p></div>
     <button id="btnLogout">Logout</button></div></div></div>`
 
     if (User.getUserLogged().code == 0){
