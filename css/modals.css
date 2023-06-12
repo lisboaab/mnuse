@@ -12,11 +12,12 @@
   
 .btnClose{
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 0.6em;
+    top: 0.6em;
     color: #18234d;
     cursor: pointer;
-    width: 5vh;
+    width: 2em;
+    height: 2em;
 }
 
 .close{

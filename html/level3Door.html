@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 3 - The closure of the story</title>
     <link rel="stylesheet" href="../css/level3Door.css">
+    <link rel="stylesheet" href="../css/modals.css">
     <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -21,16 +22,19 @@
               <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">LEVEL LOCKED</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
                 </button>
               </div>
               <div class="modal-body">
                 <div id="text">
-                    <p class="text">Write the words you got in the previous levels to unlock the final one!</p>
+                    <p class="text">Write the words you got in the previous levels <br>to unlock the final one!</p>
                 </div>
                 <div id="inputsWords">
-                    <input type="text" id="inputWord1" placeholder="Level 1">
-                    <input type="text" id="inputWord2" placeholder="Level 2">
+                    <input type="text" class="input" id="inputWord1" placeholder="Level 1"><br>
+                    <input type="text" class="input" id="inputWord2" placeholder="Level 2">
+                </div>
+                <div>
+                    <p class="text" id="messageToShow"></p>
                 </div>
                 <div id="divBtnContinue">
                     <button id="btnContinue">Continue</button>
@@ -42,14 +46,14 @@
         </div>
         
     </div>
-    <div class="container video">
-        <div class="col-8 col-md-8 d-flex" id="containerVideo">
+    <div class="container video" id="containerVideo">
+        <div class="col-8 col-md-8 d-flex justify-content-center align-items-center">
             <div id="divVideo">
                 <iframe id="video" height="315" src="https://www.youtube.com/embed/v-5TfJ39sC0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                
             </div>
         </div>
     </div>
+    <script src="../js/views/level3door.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
