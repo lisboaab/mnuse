@@ -1,0 +1,16 @@
+#bgLevel{
+    border-radius: 15px;
+}
+
+#sideInfo h3, #sideInfo p, #countdown{
+    color: #EEEAF5;
+}
+
+#words{
+    background-color: #732ad950;
+    border-radius: 15px;
+}
+
+#countdown, #words, #challenges{
+    font-size: 26px;
+}

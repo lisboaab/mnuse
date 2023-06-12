@@ -4,10 +4,14 @@
   box-sizing: border-box; */
 }
 
-body {
-  /* background: no-repeat url('../assets/imgs/classroom-bg.png');
-  background-size: 100%; */
-  /* margin: 100px; */
+#game {
+  background-image: url('../assets/imgs/classroom-bg.png');
+  border-radius: 15px;
+
+}
+
+body{
+  background-color: #18234d !important;
 }
 
 #one {

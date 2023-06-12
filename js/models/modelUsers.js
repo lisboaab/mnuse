@@ -5,24 +5,26 @@ class Users {
     password = "";
     avatar = "";
     currentLevel = 0;
+    levelLoad = 0;
     finishedChallenges = [];
     badges = [];
     words = [];
     code = 0;
 
-    constructor(username, email, password, avatar, currentLevel, finishedChallenges, badges, words, code){
+    constructor(username, email, password, avatar, currentLevel, levelLoad, finishedChallenges, badges, words, code){
         this.username = username;
         this.email = email;
         this.password = password;
         this.avatar = avatar;
         this.currentLevel = currentLevel;
+        this.levelLoad = levelLoad;
         this.finishedChallenges = finishedChallenges;
         this.badges = badges
         this.words = words
         this.code = code
     }
 }
-localStorage.clear()
+
 let users = localStorage.getItem("users"); // Verifica se já existem usuários no localStorage e os recupera
 if (!users) {
   	users = [
@@ -31,9 +33,10 @@ if (!users) {
         password:"123",
         avatar:"../assets/imgs/avatar1.png",
         currentLevel:3,
+        levelLoad: 0,
         finishedChallenges:[],
         badges:[],
-        words:[],
+        words:["Forgotten", "Collision"],
         code: 1
     },
         {username:"admin2",
@@ -41,9 +44,10 @@ if (!users) {
         password:"123",
         avatar:"../assets/imgs/avatar1.png",
         currentLevel:1,
+        levelLoad: 0,
         finishedChallenges:[],
         badges:[],
-        words:["Forgotten"],
+        words:[],
         code: 1
     },
         {username:"admin3",
@@ -51,9 +55,10 @@ if (!users) {
         password:"123",
         avatar:"../assets/imgs/avatar1.png",
         currentLevel:2,
+        levelLoad: 0,
         finishedChallenges:[],
         badges:[],
-        words:["Forgotten", "Collision"],
+        words:["Forgotten"],
         code: 1
         }
     ];
@@ -109,6 +114,7 @@ export function saveUser(username, email, password) {
         password,
         "../assets/imgs/avatar1.png",
         0,
+        0,
         [],
         [],
         [],
@@ -157,7 +163,7 @@ export function editUser(username){
     }
     else {
         const loggedUser = getUserLogged()
-        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
+        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
         const index  = users.findIndex(user => user.username === loggedUser.username)
         users[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -175,7 +181,7 @@ export function editEmail(email){
     }
     else {
         const loggedUser = getUserLogged()
-        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
+        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
         const index  = users.findIndex(user => user.username === loggedUser.username)
         users[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -189,7 +195,7 @@ export function editPassword(oldPassword, newPassword){
     const validationMessagePassword = document.getElementById("validationMessagePassword")
     const loggedUser = getUserLogged()
     if (oldPassword === loggedUser.password){
-        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
+        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
         const index  = users.findIndex(user => user.username === loggedUser.username)
         users[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -205,7 +211,7 @@ export function editPassword(oldPassword, newPassword){
 // EDIT AVATAR
 export function editAvatar(selectedAvatar){
     const loggedUser = getUserLogged()
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, selectedAvatar, loggedUser.currentLevel, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, selectedAvatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
     const index  = users.findIndex(user => user.username === loggedUser.username)
     users[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -215,7 +221,7 @@ export function editAvatar(selectedAvatar){
 
 export function editCode(userID, newCode){
     const user  = users.find(user => user.username === userID)
-    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.finishedChallenges, user.badges, user.words, newCode)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, user.finishedChallenges, user.badges, user.words, newCode)
     const index  = users.findIndex(user => user.username === userID)
     users[index] =  updatedUser
     localStorage.setItem("users", JSON.stringify(users))
@@ -231,7 +237,6 @@ export function removeUser(userID){
     users.splice(index, 1)
     localStorage.setItem('users', JSON.stringify(users))
 }
-
 
 export function blockUser(userID){
     let blockedUsers = JSON.parse(localStorage.getItem("blockedUsers"))
@@ -251,6 +256,15 @@ export function unblockUser(userID){
 export function exportBlockedUsers(){
     const blockedUsers = JSON.parse(localStorage.getItem("blockedUsers")) || []
     return blockedUsers
+}
+
+export function changeCurrentLevel(level){
+    const loggedUser = getUserLogged()
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, level, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
+    const index  = users.findIndex(user => user.username === loggedUser.username)
+    users[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("users", JSON.stringify(users))
 }
 
 console.log(users)
