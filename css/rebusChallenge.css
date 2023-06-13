@@ -13,14 +13,20 @@
     src: url(../img/josefin-sans/JosefinSans-SemiBold.ttf);
 }
 
-#game{
-    background-image: url("../assets/imgs/classroom_rebus\ bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #827397;
-    font-family: josefinSansRegular;
+.rebus{
     border-radius: 15px;
-} 
+    width: 100%;
+}
+
+#background {
+    position: relative;
+}
+  
+.overlay{
+    position: absolute;
+    top: 1em;
+    z-index: 1;
+}
 
 #game h1 {
     color: #18234d;
@@ -35,13 +41,6 @@ body{
 #divChallenges {
     border-radius: 4vw;
     background-color: #827397;
-    /* height: 80%;
-    min-width: 40%;
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translate(0, -50%);
-    width: 80%; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
