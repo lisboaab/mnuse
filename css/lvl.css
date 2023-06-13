@@ -14,3 +14,16 @@
 #countdown, #words, #challenges{
     font-size: 26px;
 }
+
+#butonsSideInfo button {
+    background-color: #732AD9;
+    width: 8em;
+    height: 3em;
+    color: #EEEAF5;
+    border-radius: 15px;
+    border: #732AD9;
+    margin-top: 1%;
+    margin-right: 1%;
+}
+
+
