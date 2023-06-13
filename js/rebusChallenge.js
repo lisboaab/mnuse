@@ -2,11 +2,12 @@ import * as Rebus  from "./models/modelChallengeRebus.js"
 
 console.log(Rebus.challengesRebus);
 
+const rebusChallenges = JSON.parse(localStorage.getItem("challengesRebus"))
 
 // CREATE 4 RANDOM NUMBERS FOR THE CHALLENGE
 let randomIds = []
 while (randomIds.length != 4){
-    let randomId = Math.floor(Math.random() * Rebus.challengesRebus.length) + 1;
+    let randomId = Math.floor(Math.random() * rebusChallenges.length) + 1;
     if (randomIds.includes(randomId)){
         continue
     } else {
@@ -18,16 +19,16 @@ console.log(randomIds)
 
 
 // GET IN THE ARRAY OF ANSWERS THE 4 OBJECTS CHOSEN FROM THE RANDOM NUMBERS
-let rebus1 = Rebus.challengesRebus.find((challenge) => challenge.id === randomIds[0]);
-let rebus2 = Rebus.challengesRebus.find((challenge) => challenge.id === randomIds[1]);
-let rebus3 = Rebus.challengesRebus.find((challenge) => challenge.id === randomIds[2]);
-let rebus4 = Rebus.challengesRebus.find((challenge) => challenge.id === randomIds[3]);
+let rebus1 = rebusChallenges.find((challenge) => challenge.id === randomIds[0]);
+let rebus2 = rebusChallenges.find((challenge) => challenge.id === randomIds[1]);
+let rebus3 = rebusChallenges.find((challenge) => challenge.id === randomIds[2]);
+let rebus4 = rebusChallenges.find((challenge) => challenge.id === randomIds[3]);
 
 let correctAnswers = [];
-correctAnswers.push(rebus1.rigthAnswer);
-correctAnswers.push(rebus2.rigthAnswer);
-correctAnswers.push(rebus3.rigthAnswer);
-correctAnswers.push(rebus4.rigthAnswer);
+correctAnswers.push(rebus1.rightAnswer);
+correctAnswers.push(rebus2.rightAnswer);
+correctAnswers.push(rebus3.rightAnswer);
+correctAnswers.push(rebus4.rightAnswer);
 
 console.log(correctAnswers)
 

@@ -1,21 +1,21 @@
 export default class Rebus {
     id = 0;
     imgUrl = "";
-    rigthAnswer = "";
+    rightAnswer = "";
     textHelpBtn = "";
 
-    constructor(imgUrl,rigthAnswer,textHelpBtn){
+    constructor(imgUrl,rightAnswer,textHelpBtn){
         this.id = getId();
         this.imgUrl = imgUrl;
-        this.rigthAnswer = rigthAnswer;
+        this.rightAnswer = rightAnswer;
         this.textHelpBtn = textHelpBtn;
     }
 
     get imgUrl(){
         return this.imgUrl
     }
-    get rigthAnswer(){
-        return this.rigthAnswer
+    get rightAnswer(){
+        return this.rightAnswer
     }
     get textHelpBtn(){
         return this.textHelpBtn
@@ -24,8 +24,8 @@ export default class Rebus {
     set imgUrl(newUrl){
         this.imgUrl = newUrl
     }
-    set rigthAnswer(newAnswer){
-        this.rigthAnswer = newAnswer
+    set rightAnswer(newAnswer){
+        this.rightAnswer = newAnswer
     }
     set textHelpBtn(newText){
         this.textHelpBtn = newText
@@ -42,6 +42,7 @@ challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus5.png","earring","
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus6.png","hot dog","Common streetfood originally invented in the USA"))
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus7.png","it is raining man","Title of a pop song released in 1983 by The Weather Girls."))
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus8.png","breakfast","Meal usually taken in the morning."))
+localStorage.setItem("challengesRebus", JSON.stringify(challengesRebus))
 
 export function getId(){
     let max = 0;
@@ -51,4 +52,29 @@ export function getId(){
         }
     }
     return max+1;
+}
+
+export function addRebus(url, rightAnswer, helpBtn){
+    const newRebus = new Rebus(
+        url,
+        rightAnswer,
+        helpBtn
+    )
+
+    if(rebusExists(rightAnswer)){
+        alert("Existent")
+    }else{
+        challengesRebus.push(newRebus)
+        localStorage.setItem("challengesRebus", JSON.stringify(challengesRebus))
+        console.log(JSON.stringify(challengesRebus))
+    }
+    console.log(challengesRebus)
+}
+
+export function rebusExists(rightAnswer){
+    if(challengesRebus.some((challengeRebus) => challengeRebus.rightAnswer == rightAnswer)){
+        return true
+    }else{
+        return false
+    }
 }

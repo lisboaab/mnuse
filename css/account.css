@@ -137,20 +137,20 @@ input[type="radio"]{
 #info1{
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 12em 1fr;
+    grid-template-columns: 3em 1fr;
     margin-top: 2em;
 }
 
 #info{
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 12em 1fr;
+    grid-template-columns: 3em 1fr;
 }
 
 #info2{
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 4em 8em 1fr;
+    grid-template-columns: 3em 3.5em 1fr;
     margin-top: 1em;
 }
 
@@ -213,16 +213,16 @@ p{
     margin-bottom: 0 !important;
 }
 
-.file-input {
+.urlRebusInput {
     position: absolute;
     left: 0;
     top: 0;
     opacity: 0;
-    width: 100%;
+    width: 12em;
     height: 100%;
 }
 
-.file-input-label {
+.urlRebusInputLabel {
     width: 140px;
     height: 140px;
     background-image: url('../assets/imgs/fileIcon.png');
@@ -233,7 +233,7 @@ p{
     border-radius: 10px;
 }
 
-#file-input-label {
+#urlRebusInputLabel {
     display: inline-block;
     width: 140px;
 }

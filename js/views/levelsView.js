@@ -10,8 +10,6 @@ levels.push(level1)
 levels.push(level2)
 
 const imageMap = document.getElementById("imageMap")
-const sideInfo = document.getElementById("sideInfo")
-
 
 
 const levelUser = User.getUserLogged().levelLoad
