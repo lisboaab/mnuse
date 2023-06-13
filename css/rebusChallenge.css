@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: josefinSansSemibold;
-    src: url(../img/josefin-sans/JosefinSans-SemiBold.ttf);
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
 }
 
 #game{
@@ -20,7 +20,7 @@
     background-color: #827397;
     font-family: josefinSansRegular;
     border-radius: 15px;
-} 
+}
 
 #game h1 {
     color: #18234d;

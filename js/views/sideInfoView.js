@@ -3,6 +3,7 @@ import * as User from "../models/modelUsers.js"
 let resultSideInfo = ""
 
 const sideInfo = document.getElementById("sideInfo")
+const butonsSideInfo = document.getElementById("butonsSideInfo");
 
 // let countDownDate = new Date().getTime() + (5 * 60 * 1000)
 let countDownDate = new Date().getTime() + (0.1 * 60 * 1000)
@@ -24,6 +25,7 @@ let x = setInterval(function() {
 }, 1000)
 
 resultSideInfo += `<h3>Words unlocked</h3>`
+
 
 if(User.getUserLogged().words[0] == undefined){
     resultSideInfo += `<div id="words"><p>a</p></div><div id="words"><p>a</p></div>`

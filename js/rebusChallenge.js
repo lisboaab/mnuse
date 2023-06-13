@@ -1,6 +1,8 @@
 import * as Rebus  from "./models/modelChallengeRebus.js"
+import * as User from "./models/modelUsers.js"
+import * as Challenges from "./models/modelChallenges.js"
 
-console.log(Rebus.challengesRebus);
+// console.log(Rebus.challengesRebus);
 
 const rebusChallenges = JSON.parse(localStorage.getItem("challengesRebus"))
 
@@ -11,11 +13,11 @@ while (randomIds.length != 4){
     if (randomIds.includes(randomId)){
         continue
     } else {
-        randomIds.push(randomId)
+        randomIds.push(randomId);
     }
 }
 
-console.log(randomIds)
+// console.log(randomIds);
 
 
 // GET IN THE ARRAY OF ANSWERS THE 4 OBJECTS CHOSEN FROM THE RANDOM NUMBERS
@@ -30,7 +32,7 @@ correctAnswers.push(rebus2.rightAnswer);
 correctAnswers.push(rebus3.rightAnswer);
 correctAnswers.push(rebus4.rightAnswer);
 
-console.log(correctAnswers)
+console.log(correctAnswers);
 
 
 // PUT THE IMAGES OF EACH CHALLENGE IN THE HTML 
@@ -46,25 +48,27 @@ let answer1 = document.getElementById("InputRebusAnswer1");
 let answer2 = document.getElementById("InputRebusAnswer2");
 let answer3 = document.getElementById("InputRebusAnswer3");
 let answer4 = document.getElementById("InputRebusAnswer4");
-let inputs = [answer1, answer2,answer3,answer4]
+let inputs = [answer1, answer2,answer3,answer4];
 
 
 // SELECT THE DIVS WHERE THE "RIGHT" OR "WRONG" ICON WILL APPEAR
-let check1 = document.getElementById("addCheck0")
-let check2 = document.getElementById("addCheck1")
-let check3 = document.getElementById("addCheck2")
-let check4 = document.getElementById("addCheck3")
-let checks = [check1,check2,check3,check4]
+let check1 = document.getElementById("addCheck0");
+let check2 = document.getElementById("addCheck1");
+let check3 = document.getElementById("addCheck2");
+let check4 = document.getElementById("addCheck3");
+let checks = [check1,check2,check3,check4];
 
 
 // ADD EVENT LISTENER TO EACH INPUT AREA
+let sumAllRigthAnswers = 0;
 answer1.addEventListener("keypress", function(event){
     if (event.key === "Enter"){
         if (checkAnswer(answer1,0) === true){
-            showCorrectOrWrong("correct", 0)
+            showCorrectOrWrong("correct", 0);
+            sumAllRigthAnswers += 1;
         }
         else {
-            showCorrectOrWrong("wrong", 0)
+            showCorrectOrWrong("wrong", 0);
         }
     }
 })
@@ -72,10 +76,11 @@ answer1.addEventListener("keypress", function(event){
 answer2.addEventListener("keypress", function(event){
     if (event.key === "Enter"){
         if (checkAnswer(answer2,1) === true){
-            showCorrectOrWrong("correct",1)
+            showCorrectOrWrong("correct",1);
+            sumAllRigthAnswers += 1;
         }
         else {
-            showCorrectOrWrong("wrong", 1)
+            showCorrectOrWrong("wrong", 1);
         }
     }
 })
@@ -83,10 +88,11 @@ answer2.addEventListener("keypress", function(event){
 answer3.addEventListener("keypress", function(event){
     if (event.key === "Enter"){
         if (checkAnswer(answer3,2) === true){
-            showCorrectOrWrong("correct", 2)
+            showCorrectOrWrong("correct", 2);
+            sumAllRigthAnswers += 1;
         }
         else {
-            showCorrectOrWrong("wrong", 2)
+            showCorrectOrWrong("wrong", 2);
         }
     }
 })
@@ -94,10 +100,11 @@ answer3.addEventListener("keypress", function(event){
 answer4.addEventListener("keypress", function(event){
     if (event.key === "Enter"){
         if (checkAnswer(answer4,3) === true){
-            showCorrectOrWrong("correct", 3)
+            showCorrectOrWrong("correct", 3);
+            sumAllRigthAnswers += 1;
         }
         else {
-            showCorrectOrWrong("wrong", 3)
+            showCorrectOrWrong("wrong", 3);
         }
     }
 })
@@ -122,21 +129,71 @@ function showCorrectOrWrong(state, idInput){
     if (state === "correct"){
         if (divCheckWrong[idInput].style.opacity = "1" 
         || (divCheckWrong[idInput].style.display = "inline")){    // checks if the wrong answer check is showing
-            divCheckWrong[idInput].style.opacity = "0"           // if it is, it hiddens the image
-            divCheckWrong[idInput].style.display = "none"
+            divCheckWrong[idInput].style.opacity = "0";           // if it is, it hiddens the image
+            divCheckWrong[idInput].style.display = "none";
         }
         obj.style.borderBottom = "solid #00bb00 2px";
-        divCheckCorrect[idInput].style.opacity = "1"
-        divCheckCorrect[idInput].style.display = "inline"
+        divCheckCorrect[idInput].style.opacity = "1";
+        divCheckCorrect[idInput].style.display = "inline";
     }
     else{
-        if (divCheckCorrect[idInput].style.opacity = "1"
-        || (divCheckCorrect[idInput].style.display = "inline")){  // checks if the correct answer check is showing
-            divCheckCorrect[idInput].style.opacity = "0"
-            divCheckCorrect[idInput].style.display = "none"     // if it is, it hiddens the image
+        if (divCheckCorrect[idInput].style.opacity = "1" || (divCheckCorrect[idInput].style.display = "inline")){  // checks if the correct answer check is showing
+            divCheckCorrect[idInput].style.opacity = "0";
+            divCheckCorrect[idInput].style.display = "none" ;    // if it is, it hiddens the image
         }
         obj.style.borderBottom = "solid #ee3a00 2px";
-        divCheckWrong[idInput].style.opacity = "1"
-        divCheckWrong[idInput].style.display = "inline"
+        divCheckWrong[idInput].style.opacity = "1";
+        divCheckWrong[idInput].style.display = "inline";
     }
 }
+
+    // BUTTONS ON THE SIDE VIEW PAGE
+// FEED THE HELP BUTTONS ON THE CHALLENGE PAGE
+let textsHelpBtn = document.getElementById("textsHelpBtn");
+let challenge = Challenges.challengesList.find(chall => chall.challengeID === "rebus");
+
+let line = `${challenge.helpCard} <br><br> <b>1.</b> ${rebus1.textHelpBtn} <br><br> <b>2.</b>${rebus2.textHelpBtn} <br><br> <b>3.</b> ${rebus3.textHelpBtn} <br> <br><b>4.</b> ${rebus4.textHelpBtn} <br>`;
+textsHelpBtn.innerHTML += line;
+
+// BACK BUTTON
+let btnBackSideInfo = document.getElementById("btnBackSideInfo");
+
+btnBackSideInfo.addEventListener("click", function(event){
+    event.preventDefault();
+    User.changeCurrentLevel(1);
+    window.location.href = "level.html";
+})
+
+// VALIDATE ALL ANSWERS
+let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
+
+
+let usersList = JSON.parse(localStorage.getItem("users"));
+btnContinueSideInfo.addEventListener("click", function(event){
+    event.preventDefault()
+    let user = User.getUserLogged();
+    if (sumAllRigthAnswers === 4){
+        if (user.finishedChallenges.includes(challenge.challengeID)){
+            let modal = document.getElementById("challengeAlreadyCompleted");
+            modal.classList.add("show");
+            modal.style.display = "block";
+            document.body.classList.add("modal-open");
+        } else {
+            let arrayChallenges = user.finishedChallenges += challenge.challengeID;
+            const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, arrayChallenges, user.badges, user.words, user.code)
+            const index  = usersList.findIndex(user => user.username === loggedUser.username);
+            usersList[index] =  updatedUser;
+            sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
+            localStorage.setItem("users", JSON.stringify(usersList));
+            // location.reload();
+        }
+    }
+})
+
+let btnCloseChallengeCompleted = document.getElementById("btnCloseChallengeCompleted")
+btnCloseChallengeCompleted.addEventListener("click", function(){
+    var modal = document.getElementById("challengeAlreadyCompleted");
+    modal.classList.remove("show");
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+})

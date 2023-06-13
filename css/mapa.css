@@ -1,5 +1,22 @@
+@font-face {
+  font-family: josefinSansRegular;
+  src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: josefinSansLight;
+  src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+  font-family: josefinSansSemibold;
+  src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+
 body{
     background-color: #18234d !important;
+    font-family: josefinSansRegular;
 }
 
 .cls-1 {
