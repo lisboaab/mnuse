@@ -259,13 +259,23 @@ export function exportBlockedUsers(){
     return blockedUsers
 }
 
-export function changeCurrentLevel(level){
+export function changeLevelLoad(level){
     const loggedUser = getUserLogged()
     const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, level, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
     const index  = users.findIndex(user => user.username === loggedUser.username)
     users[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
     localStorage.setItem("users", JSON.stringify(users))
+}
+
+export function changeCurrentLevel(level){
+    const loggedUser = getUserLogged()
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, level, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.words, loggedUser.code)
+    const index  = users.findIndex(user => user.username === loggedUser.username)
+    users[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("users", JSON.stringify(users))
+    console.log(users)
 }
 
 console.log(users)

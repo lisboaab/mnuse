@@ -13,26 +13,24 @@
     src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
 }
 
-
 body{
-    background-color: #eeeaf5;
-    position: absolute;
+    background-color: #18234d !important;
 }
 
-.container{
-    display: grid;
-    justify-items: center;
+#game{
+    width: 1070px;
+    height: 602px;
+    border-radius: 15px;
+    padding: 0;
 }
 
 #divVideo {
-    margin-top: 17vh;
-    overflow: hidden;
-    border: 5px solid #18234d;
-    border-radius: 40px;
-    width: 80em;
-    height: 30em;
-    display: grid;
-    place-items: center;
+    border-radius: 15px;
+}
+
+#containerVideo{
+    margin-top: 0;
+    padding: 0;
 }
 
 #inputsWords{
@@ -40,11 +38,14 @@ body{
     place-items: center;
 }
 
+#btnClose{
+    border: none;
+}
+
 #video {
     border-radius: 30px;
-    position: relative;
-    width: 97%;
-    height: 95%;
+    width: 1070px;
+    height: 602px;
 }
 
 #modalUnlockWords{
@@ -88,10 +89,6 @@ body{
     outline: none;
     text-align: center;
     background-color: #732AD950 !important;
-}
-
-.video {
-    opacity: 0;
 }
 
 .text{

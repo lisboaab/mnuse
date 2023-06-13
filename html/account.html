@@ -143,17 +143,17 @@
             </button>
           </div>
           <div class="modal-body" id="modalBodyRebus">
-            <form>
+            <form id="formRebus">
               <div class="container">
                 <div class="row">
                   <div class="col-lg-6">
-                    <input type="file" id="myFileInput" name="filename" class="file-input">
-                    <label class="file-input-label"></label>
-                    <label for="myFileInput" id="file-input-label">Upload Image</label>
+                    <input type="file" id="urlRebus" class="urlRebusInput" required>
+                    <label class="urlRebusInputLabel"></label>
+                    <label for="urlRebus" id="urlRebusInputLabel">Upload Image</label>
                   </div>
                   <div class="col-lg-6">
-                    <input type="text" name="answerRebus" id="answerRebus" placeholder="Correct answer">
-                    <input type="text" name="descriptionRebus" id="descriptionRebus" placeholder="Description help button">
+                    <input type="text" name="answerRebus" id="answerRebus" placeholder="Correct answer" required>
+                    <input type="text" name="descriptionRebus" id="descriptionRebus" placeholder="Description help button" required>
                     <input type="submit" value="Save">
                   </div>
                 </div>
@@ -170,5 +170,7 @@
     <script type="module" src="../js/views/footerView.js"></script>
     <script type="module" src="../js/views/accountView.js"></script>
     <script type="module" src="../js/models/modelUsers.js"></script>
+    <script type="module" src="../js/views/manageRebus.js"></script>
+    <script type="module" src="../js/rebusChallenge.js"></script>
   </body>
 </html>
