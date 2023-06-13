@@ -22,7 +22,29 @@
             </div>
             <div class="col-lg-2" id="sideInfo"></div>
         </div>
+        <div id="butonsSideInfo">
+          <button id="btnBackSideInfo" type="button" class="btn" onclick="window.location.href='mapa.html'">Back</button>
+          <button id="btnHelpSideInfo" type="button" class="btn" value="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
+        </div>
     </div>    
+
+    <div class="modal fade" id="helpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="#helpModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">HELP</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="text">There are some hidden challenges in this level. Analyse the room, find and complete all the challenges to be one step closer to unlock all Lily's memories!</p>
+          </div>
+           
+        </div>
+      </div>
+    </div>
+    
     <footer id="footer"></footer>
     <script type="module" src="../js/views/navBarView.js"></script>
     <script type="module" src="../js/views/levelsView.js"></script>

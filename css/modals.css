@@ -1,3 +1,23 @@
+@font-face {
+    font-family: josefinSansRegular;
+    src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: josefinSansLight;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: josefinSansSemibold;
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+
+body{
+    font-family: josefinSansRegular;
+}
+
 .modal-dialog {
     top: 15%;
     z-index: 10;
@@ -36,6 +56,7 @@
     font-family: Josefin Sans Light;
     padding-top: 0 !important;
     font-size: 18px;
+    margin-top: 5%;
 }
 
 #newEmail, #oldPassword, #newUsername, #newPassword, #newCode {
@@ -91,4 +112,8 @@ input[type="submit"] {
 
 input[type="submit"]:hover{
     background-color: #732AD9;
+}
+
+.btnSideInfo {
+    box-shadow: none;
 }
