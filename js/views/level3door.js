@@ -46,19 +46,11 @@ function checkInput(){
     }
 }
 
-
 btnContinue.addEventListener("click", function(event){
     event.preventDefault()
     checkInput()
     if (checkInput()){
-        containerVideo.style.opacity = "100";
+        window.location.href = "level3Door.html"
         modalUnlockWords.hide();
-    }
-    else {
-        containerVideo.style.opacity = "0";
-    }
-    
+    }  
 })
-
-
-
