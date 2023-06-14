@@ -52,7 +52,6 @@
                                                 <line x1="140" y1="20" x2="140" y2="50" />
                                                 <line x1="60" y1="20" x2="60" y2="230" />
                                                 <line x1="20" y1="230" x2="100" y2="230" />
-                                    
                                                 <!-- head -->
                                                 <circle cx="140" cy="70" r="20" class="hangman-part" />
                                                 <!-- body -->
@@ -68,14 +67,7 @@
                                         </div>
 
                                         <p>Wrong letters:</p>
-                                        <div class="wrong-letters-container">
-                                            
-                                        </div>
-
-                                        <div class="warning-repeated-word">  
-                                            <!-- colocar com aquilo que a carol gosta de usar, hidden overlay sla   -->
-                                            You already used this letter!
-                                        </div>
+                                        <div class="wrong-letters-container"></div>
 
                                         <div class="popup-container">
                                             <div class="popup">
@@ -94,6 +86,83 @@
                 </div>
             </div>
             <div class="col-lg-2" id="sideInfo"></div>
+
+            <div id="butonsSideInfo">
+                <button id="btnBackSideInfo" type="button" class="btnSideInfo">Back</button>
+                <button id="btnHelpSideInfo" type="button" class="btnSideInfo" value="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
+                <button id="btnContinueSideInfo" type="button" class="btnSideInfo">Verify</button>
+            </div>
+
+            <!-- MODAL HELP -->
+            <div class="modal fade" id="helpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="#helpModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">HELP</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text" id="textsHelpBtn"></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL CHALLENGE ALREADY COMPLETED -->
+            <div class="modal fade" id="challengeAlreadyCompleted" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">YAY!</h5>
+                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                <img src="../assets/imgs/cruz.png" id="btnCloseChallengeCompleted" class="btnClose" alt="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text">Good news! You have already completed this challenge before!<br>Hurry up to complete all the others in time!</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+  
+            <!-- MODAL CHALLENGE SUCESSFULLY COMPLETED -->
+            <div class="modal fade" id="challengeSucessfullyCompleted" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">CONGRATULATIONS!</h5>
+                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                <img src="../assets/imgs/cruz.png" id="btnCloseChallengeSucessfull" class="btnClose" alt="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text">Challenge sucessfully completed!<br>Hurry up to complete all the others in time!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <!-- MODAL CHALLENGE NOT COMPLETED -->
+            <div class="modal fade" id="challengeNotCompleted" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Oh No...</h5>
+                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                <img src="../assets/imgs/cruz.png" id="btnCloseChallengeNotCompleted" class="btnClose" alt="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text">It looks like you didn't complete the challenge. Don't you want to try again? <br> Or you can go back to the classroom and try to find other clues!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
     <footer id="footer"></footer>
