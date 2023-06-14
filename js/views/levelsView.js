@@ -37,5 +37,6 @@ if(User.getUserLogged().currentLevel == 1){
         })
         User.changeCurrentLevel(2)    
         User.addWords()
+        User.addBadge()
     }
 }

@@ -34,7 +34,7 @@ function accountView(){
             result += `<div class="container"><div class="row" id="moreInfoRow">
             <div class="col-lg-5"><div id="unlockedWords"><button><h3>Unlocked words</h3>
             <div class="row">
-            <h4>No unlocked words yet!</h4></div></button></div></div>`
+            <h4>No unlocked words yet!</h4>`
             
         }else{
             result += `<div class="container"><div class="row" id="moreInfoRow">
@@ -44,17 +44,22 @@ function accountView(){
                 result += `<h2 class="col-6">${word}</h2>`
             }
         }
-        result += `</button>`
+        result += `</button></div></div>`
+
+        result += `<div class="col-lg-5"><div id="unlockedBadges" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#unlockedBadgesModal"><button>
+            <h3>Badges</h3>`
 
         if (User.getUserLogged().badges.length == 0){
-            result += `<div class="col-lg-5"><div id="unlockedBadges" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#unlockedBadgesModal"><button>
-            <h3>Badges</h3>
-            <h4>You have no badges yet!</h4>
-            </div></div></button>`
-
-            let unlockedBadges = `<h4>You have no badges yet!</h4>`
-            document.getElementById("modalBodyBadges").innerHTML = unlockedBadges
+            result += `<h4>You have no badges yet!</h4>`
+        }else{
+            for(let i = 0; User.getUserLogged().badges.length > i; i++){
+                const badge = User.getUserLogged().badges
+                console.log(badge[i])
+                result += `<img id="badge" src="${badge[i]}">`
+            }
         }
+
+        result += `</div></div></button>`
 
         result += `<div class="col-lg-2"><div id="mnuseLeague"><button>
         <h4>MNUSE</h4><h4>league</h4></div></div></button></div></div>`
@@ -69,6 +74,23 @@ function accountView(){
     }
 
     document.getElementById("middleWebsite").innerHTML = result
+
+    const modalBodyBadges = document.getElementById("modalBodyBadges")
+
+    let modalBody = ""
+    if (User.getUserLogged().badges.length == 0){
+        modalBody += `<h4>You have no badges yet!</h4>`
+    }else{
+        for(let i = 0; User.getUserLogged().badges.length > i; i++){
+            const badge = User.getUserLogged().badges
+            console.log(badge[i])
+            modalBody += `<table id="tableBadges">
+            <tr><th>Badge</th><th>Description</th></tr>
+            </table><tr><td><img id="badge" src="${badge[i]}"></td><td>${User.getUserLogged().badgesDescription}</td></tr>`
+        }
+    }
+
+    modalBodyBadges.innerHTML += modalBody
 }
 
 accountView()

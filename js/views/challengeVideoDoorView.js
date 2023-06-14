@@ -56,7 +56,7 @@ btnContinueSideInfo.addEventListener("click", function() {
     let usersList = JSON.parse(localStorage.getItem("users"));
     if (!checkChallengeIs(challenge.challengeID)) {
         challengeList.push(challenge.challengeID);
-        const updatedUser = new User.Users(user.username,user.email,user.password,user.avatar,user.currentLevel,user.levelLoad,challengeList,user.badges,user.words,user.code);
+        const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
         const index = usersList.findIndex(u => u.username === user.username);
         usersList[index] = updatedUser;
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));

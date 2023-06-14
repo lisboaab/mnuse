@@ -243,3 +243,7 @@ p{
     border: none;
     border-bottom: 1px solid #18234d;
 }
+
+#badge{
+    width: 5em;
+}
