@@ -96,9 +96,8 @@ export function checkLogin(usernameToValidate,passwordToValidate){
 // LOG IN
 export function login(usernameToValidate, passwordToValidate){
     const user = users.find((user) => user.username === usernameToValidate && user.password === passwordToValidate);
-    const blockedUsers = JSON.parse(localStorage.getItem("blockedUsers")) || []
     const validationMessage = document.getElementById("validationMessageLogIn")
-    if(blockedUsers.some(blockedUser => blockedUser.username === user.username)){
+    if(user.isBlocked){
         validationMessage.textContent = "Your account is blocked."
         validationMessage.style.color = "red"
     }else{
@@ -245,8 +244,8 @@ export function removeUser(userID){
 }
 
 export function isUserBlocked(userID){
-    const user  = users.find(user => user.username === userID)
-    if (user.isBlocked){
+    const userFound  = users.find(user => user.username == userID)
+    if (userFound.isBlocked == true){
         return true
     }else{
         return false
@@ -254,21 +253,23 @@ export function isUserBlocked(userID){
 }
 
 export function blockUser(userID){
-        const block = true
-        const user  = users.find(user => user.username === userID)
-        const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, user.finishedChallenges, user.badges, user.words, user.code, block)
-        const index  = users.findIndex(user => user.username === userID)
-        users[index] =  updatedUser
-        localStorage.setItem("users", JSON.stringify(users))
-        location.reload()
-    
+    const block = true
+    const user  = users.find(user => user.username === userID)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, user.finishedChallenges, user.badges, user.words, user.code, block)
+    const index  = users.findIndex(user => user.username === userID)
+    users[index] =  updatedUser
+    localStorage.setItem("users", JSON.stringify(users))
+    location.reload()
 }
 
 export function unblockUser(userID){
-    let blockedUsers = JSON.parse(localStorage.getItem("blockedUsers"))
-    const blockedUserIndex = blockedUsers.findIndex(blockedUser => blockedUser.username === userID)
-    blockedUsers.splice(blockedUserIndex, 1)
-    localStorage.setItem('blockedUsers', JSON.stringify(blockedUsers))
+    const block = false
+    const user  = users.find(user => user.username === userID)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, user.finishedChallenges, user.badges, user.words, user.code, block)
+    const index  = users.findIndex(user => user.username === userID)
+    users[index] =  updatedUser
+    localStorage.setItem("users", JSON.stringify(users))
+    location.reload()
 }
 
 export function exportBlockedUsers(){
