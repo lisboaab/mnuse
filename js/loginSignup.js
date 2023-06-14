@@ -17,7 +17,12 @@ loginAccount.addEventListener("click", function(event){
 	let usernameToValidate = document.getElementById("usernameLogin").value;
 	let passwordToValidate = document.getElementById("passwordLogin").value;
 
-    if (User.checkLogin(usernameToValidate, passwordToValidate)) {
+    if (usernameToValidate === "" || passwordToValidate === ""){
+		const message = document.getElementById("validationMessageLogIn");
+        message.textContent = "Please, fill all the fields.";
+		message.style.color = "red";
+	}
+	else if (User.checkLogin(usernameToValidate, passwordToValidate)) {
         User.login(usernameToValidate, passwordToValidate);
     } else {
 		const message = document.getElementById("validationMessageLogIn");
@@ -70,7 +75,13 @@ accountCreated.addEventListener("click", function(event) {
 	let usernameSignup = document.getElementById("usernameSignup").value;
 	let emailSignup = document.getElementById("emailSignup").value;
 	let password2Signup = inputPassword2.value;
-	User.saveUser(usernameSignup, emailSignup, password2Signup);
+	if (usernameSignup === "" || emailSignup === "" || password2Signup === ""){
+		const message = document.getElementById("validationMessage");
+        message.textContent = "Please, fill all the fields.";
+		message.style.color = "red";
+	} else {
+		User.saveUser(usernameSignup, emailSignup, password2Signup);
+	}
 })
 
 
