@@ -12,10 +12,10 @@
 	<div class="form-container sign-up-container">
 		<form action="#">
 			<h1 class="title2">Create Account</h1>
-			<input id="usernameSignup" type="text" placeholder="username">
-			<input id="emailSignup" type="email" placeholder="email">
-			<input id="password1Signup" type="password" placeholder="password">
-			<input id="password2Signup" type="password" placeholder="confirm password">
+			<input id="usernameSignup" type="text" placeholder="username" required>
+			<input id="emailSignup" type="email" placeholder="email" required>
+			<input id="password1Signup" type="password" placeholder="password" required>
+			<input id="password2Signup" type="password" placeholder="confirm password" required>
 			<div id="validationMessage"></div>
 			<button id="accountCreated">Sign Up</button>
 			<div id="smallerDevicesMessage">
@@ -27,8 +27,8 @@
 	<div class="form-container log-in-container">
 		<form action="#">
 			<h1 class="title2">Login</h1>
-			<input id="usernameLogin" type="text" placeholder="username">
-			<input id="passwordLogin" type="password" placeholder="password">
+			<input id="usernameLogin" type="text" placeholder="username" required>
+			<input id="passwordLogin" type="password" placeholder="password" required>
 			<a href="#">Forgot your password?</a>
 			<div id="validationMessageLogIn"></div>
 			<input type="button" value="Login" id="logBtn">
