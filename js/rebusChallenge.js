@@ -146,6 +146,8 @@ function showCorrectOrWrong(state, idInput){
     }
 }
 
+
+
     // BUTTONS ON THE SIDE VIEW PAGE
 // FEED THE HELP BUTTONS ON THE CHALLENGE PAGE
 let textsHelpBtn = document.getElementById("textsHelpBtn");
@@ -170,11 +172,11 @@ function checkChallengeIs(id) {
     return challengeList.includes(id);
 }
   
-  // VALIDATE ALL ANSWERS
-  let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
-  let usersList = JSON.parse(localStorage.getItem("users"));
-  
-  btnContinueSideInfo.addEventListener("click", function(event) {
+// VALIDATE ALL ANSWERS
+let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
+let usersList = JSON.parse(localStorage.getItem("users"));
+
+btnContinueSideInfo.addEventListener("click", function(event) {
     event.preventDefault();
     let user = User.getUserLogged();
     let challengeList = user.finishedChallenges;
@@ -217,7 +219,7 @@ function checkChallengeIs(id) {
         console.log(challenge.challengeID);
         console.log(challengeList);
     }
-  });
+});
   
 
 
