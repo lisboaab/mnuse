@@ -1,10 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+#game {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,8 +36,8 @@ body {
     border: 0;
     margin: 7px;
     color: #EEEAF5;
-    height: 100px;
-    width: 100px;
+    height: 114px;
+    width: 114px;
 }
 
 .btn-clicked {
@@ -54,8 +48,8 @@ body {
     border: 0;
     margin: 7px;
     color: #EEEAF5;
-    height: 100px;
-    width: 100px;
+    height: 114px;
+    width: 114px;
     transition: 0.5s;
 }
 
