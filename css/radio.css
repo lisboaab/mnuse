@@ -1,8 +1,37 @@
+.radio{
+    border-radius: 15px;
+    width: 100%;
+}
+
+#background {
+    position: relative;
+}
+  
+.overlayBtnLeft{
+    position: absolute;
+    top: 5.5em;
+    left: 5em;
+    z-index: 1;
+}
+
+.overlayRadio{
+    position: absolute;
+    top: 5.5em;
+    left: 15em;
+    z-index: 1;
+}
+
+.overlayBtnRight{
+    position: absolute;
+    top: 5.5em;
+    left: 55em;
+    z-index: 1;
+}
+
 #game {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     flex-direction: row;
 }
 
@@ -11,7 +40,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     flex-direction: column;
 }
 
@@ -19,7 +47,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     flex-direction: column;
 }
 
@@ -28,32 +55,44 @@
     flex-direction: column;
 }
 
-.btn {
+.radioBtn {
     background-color: #827397;
     font-family: Josefin Sans Light;
     font-size: 25px;
     border-radius: 15px;
     border: 0;
-    margin: 7px;
     color: #EEEAF5;
     height: 114px;
     width: 114px;
 }
 
-.btn-clicked {
+.radioBtn:not(.first) {
+    margin: 7px;
+}
+
+.radioBtn-clicked {
     background-color: #4D4C7D;
     font-family: Josefin Sans Light;
     font-size: 25px;
     border-radius: 15px;
     border: 0;
-    margin: 7px;
     color: #EEEAF5;
     height: 114px;
     width: 114px;
     transition: 0.5s;
 }
 
-.btnImg {
+.btnImg:not(.car, .plane) {
     width: 65px;
     height: 65px;
+}
+
+.car {
+    width: 85px;
+    height: 47px;
+}
+
+.plane {
+    width: 70px;
+    height: 49px;
 }
