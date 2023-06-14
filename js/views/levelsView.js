@@ -18,3 +18,24 @@ console.log(levelUser)
 const levelFound = levels.find((level) => level.levelName == levelUser)
 
 imageMap.innerHTML = `${levelFound.imagePath}`
+
+console.log(User.getUserLogged().finishedChallenges)
+
+if(User.getUserLogged().currentLevel == 1){
+    if(User.getUserLogged().finishedChallenges.length == 3){
+        let modal = document.getElementById("challengeAlreadyCompleted");
+        modal.classList.add("show");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
+        let btnCloseChallengeCompleted = document.getElementById("btnCloseChallengeCompleted")
+        btnCloseChallengeCompleted.addEventListener("click", function(){
+            var modal = document.getElementById("challengeAlreadyCompleted");
+            modal.classList.remove("show");
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+            window.location.href = "../html/terapeuta.html"
+        })
+        User.changeCurrentLevel(2)    
+        User.addWords()
+    }
+}

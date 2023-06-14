@@ -5,30 +5,64 @@ const sound2 = new Audio()
 sound2.src = "../assets/sounds/car.wav"
 
 const sound3 = new Audio()
-sound3.src = "../assets/sounds/car.wav"
+sound3.src = "../assets/sounds/smash-bottle.wav"
 
 const sound4 = new Audio()
-sound4.src = "../assets/explosion.mp3"
+sound4.src = "../assets/sounds/explosion.mp3"
+
+const sound3Btn = document.getElementById("sound3")
+
+sound3Btn.addEventListener("click", () => {
+    clicked(sound3Btn)
+})
+
+sound3Btn.addEventListener("mousedown", () => {
+    sound3.play()
+})
+
+const soundButtons = document.querySelectorAll("#sounds .radioBtn")
+const imageButtons = document.querySelectorAll("#images .radioBtn")
+
+soundButtons.forEach((soundButton) => {
+    const sound = getSoundFromButtonName(soundButton.name)
+    soundButton.addEventListener("click", () => {
+      clicked(soundButton)
+    })
+  
+    soundButton.addEventListener("mousedown", () => {
+      if (sound) {
+        sound.play()
+      }
+    })
+})
+  
+
+imageButtons.forEach((imageButton) => {
+    imageButton.addEventListener("click", () => {
+      clicked(imageButton)
+    })
+})
+
 
 let button1 = null
 let button2 = null
-let challengeCompleted = false
+let matched = 0
 
 function clicked(button) {
-    if (button.classList.contains("btn-clicked")) {
-        return
+    if (button.classList.contains("radioBtn-clicked")) {
+      return
     }
-
-    button.classList.add("btn-clicked")
-
+  
+    button.classList.add("radioBtn-clicked")
+  
     if (button1 === null) {
-        button1 = button
+      button1 = button
     } else if (button2 === null) {
-        button2 = button
-        checkMatch()
-        checkChallengeCompleted()
+      button2 = button
+      checkMatch()
     }
 }
+  
 
 function checkMatch() {
     if (button1.name === button2.name && button1.id !== button2.id) {
@@ -36,26 +70,26 @@ function checkMatch() {
         button2.removeEventListener("click", clicked)
         button1 = null
         button2 = null
+        matched += 1
+        if(matched == 4){
+            console.log("completed")
+        }
     } else {
-        setTimeout(function () {
-            button1.classList.remove("btn-clicked")
-            button2.classList.remove("btn-clicked")
-            button1 = null
-            button2 = null
-        }, 400)
+        button1.classList.remove("radioBtn-clicked")
+        button2.classList.remove("radioBtn-clicked")
+        button1 = null
+        button2 = null
     }
 }
 
-function checkChallengeCompleted() {
-    const buttons = document.getElementsByClassName("btn")
-    const uniqueClassNames = new Set()
-
-    for (let i = 0; i < buttons.length; i++) {
-        uniqueClassNames.add(buttons[i].className)
-    }
-
-    if (uniqueClassNames.size === 1) {
-        challengeCompleted = true
-        console.log("Challenge completed!")
+function getSoundFromButtonName(name) {
+    if (name == "one"){
+        return sound1
+    }else if (name == "two"){
+        return sound2
+    }else if (name == "three"){
+        return sound3
+    }else if (name == "four"){
+        return sound4
     }
 }
