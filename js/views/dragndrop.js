@@ -92,8 +92,6 @@ btnContinueSideInfo.addEventListener("click", function(event) {
   if (correctAnswers === 3) {
     if (!checkChallengeIs(challenge.challengeID)) {
       challengeList.push(challenge.challengeID);
-      console.log(challenge.challengeID);
-      console.log(challengeList);
       const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
       const index = usersList.findIndex(u => u.username === user.username);
       usersList[index] = updatedUser;
@@ -109,28 +107,22 @@ btnContinueSideInfo.addEventListener("click", function(event) {
       modal.classList.add("show");
       modal.style.display = "block";
       document.body.classList.add("modal-open");
-      console.log(challenge.challengeID);
-      console.log(challengeList);
     }
   } else if (checkChallengeIs(challenge.challengeID)){
   let modal = document.getElementById("challengeAlreadyCompleted");
   modal.classList.add("show");
   modal.style.display = "block";
   document.body.classList.add("modal-open");
-  console.log(challenge.challengeID);
-  console.log(challengeList);
   }
   else {
   let modal = document.getElementById("challengeNotCompleted");
   modal.classList.add("show");
   modal.style.display = "block";
   document.body.classList.add("modal-open");
-  console.log(challenge.challengeID);
-  console.log(challengeList);
   }
 })
 
-// SEE IF VIVEO CHALLENGE IS IN ARRAY OF FINISHED CHALLENGES
+// SEE IF VIDEO CHALLENGE IS IN ARRAY OF FINISHED CHALLENGES
 function checkChallengeIs(id) {
   let user = User.getUserLogged();
   let challengeList = user.finishedChallenges;

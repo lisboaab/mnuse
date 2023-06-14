@@ -1,4 +1,5 @@
 import * as User from "../models/modelUsers.js"
+import * as Levels from "./levelsView.js"
 
 let resultSideInfo = ""
 
@@ -35,6 +36,33 @@ if(User.getUserLogged().words[0] == undefined){
     resultSideInfo += `<div id="words"><p>${User.getUserLogged().words[0]}</p></div><div id="words"><p>${User.getUserLogged().words[1]}</p></div>`
 }
 
-resultSideInfo += `<h3>Challenges</h3><p id="challenges">${User.getUserLogged().finishedChallenges.length}/3</p>`
+function showTotalChallenges(){
+    let currentLevel = User.getUserLogged().levelLoad;
+    if (currentLevel === 1){
+        return Levels.levels[0].numberOfChallenges
+    }
+    else if (currentLevel == 2){
+        return Levels.levels[1].numberOfChallenges
+    }
+    else if (currentLevel == 3){
+        return 1
+    }
+}
+
+function getFinishedChallenges(){
+    let currentLevel = User.getUserLogged().levelLoad;
+    let finishedChallenges = User.getUserLogged().finishedChallenges.length;
+    if (currentLevel === 1){
+        return (finishedChallenges)
+    }
+    else if (currentLevel === 2){
+        return (finishedChallenges - 3)
+    }
+    else {
+        return (finishedChallenges - 7)
+    }
+}
+
+resultSideInfo += `<h3>Challenges</h3><p id="challenges">${getFinishedChallenges()}/${showTotalChallenges()}</p>`
 
 sideInfo.innerHTML = resultSideInfo
