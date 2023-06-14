@@ -3,6 +3,7 @@ import * as User from "./models/modelUsers.js"
 import * as Challenges from "./models/modelChallenges.js"
 
 const rebusChallenges = JSON.parse(localStorage.getItem("challengesRebus"))
+console.log(rebusChallenges)
 
 // CREATE 4 RANDOM NUMBERS FOR THE CHALLENGE
 let randomIds = []
