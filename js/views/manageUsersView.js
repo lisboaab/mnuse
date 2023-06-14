@@ -25,7 +25,7 @@ function renderTable(users){
 
         result += `
         <td><button type="button" class="btn edit" data-bs-toggle="modal" data-bs-target="#editProfileModal"  id="${user.username}">edit</button></td>`
-        if(User.exportBlockedUsers().some(blockedUser => blockedUser.username === user.username)){
+        if(User.isUserBlocked(user.username)){
             result += `<td><button class="btn unblock" id="${user.username}">unblock</button></td>`
         }else{
             result += `<td><button class="btn block" id="${user.username}">block</button></td>`
