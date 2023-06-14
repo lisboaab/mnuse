@@ -1,0 +1,183 @@
+@font-face {
+    font-family: Josefin Sans Regular;
+    src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Josefin Sans Light;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: Josefin Sans Bold;
+    src: url(../assets/josefin-sans/JosefinSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: Josefin Sans SemiBold;
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+body{
+    background-color: #18234d !important;
+    margin: 0;
+    padding: 0;
+}
+
+#middleWebsite {
+    color: #EEEAF5;
+    font-family: Josefin Sans Regular;
+    margin: 1.6em 0 0 0;
+    padding-left: 6em;
+    padding-right: 6em;
+    height: 38em;
+    text-decoration: none;
+    color: #EEEAF5;
+    display: flex;
+    flex-direction: row;
+    display: grid;
+    grid-template-areas: "img img countdown"
+                        "img img words"
+                        "buttons 1fr challenges";
+}
+#challenge {
+    grid-area: img;
+}
+
+.img {
+ height: 450px;
+}
+
+
+.buttons{
+    background-color: #732AD9;
+    font-family: Josefin Sans Light;
+    font-size: 25px;
+    border-radius: 15px;
+    border: 0;
+    margin-top: 0px;
+    color: #EEEAF5;
+    height: 50px;
+    width: 150px;
+}
+
+#buttons{
+    grid-area: buttons;
+}
+
+#wordsContainer {
+    font-family: Josefin Sans Regular;
+    font-size: 25px;
+    grid-area: words
+}
+
+#word1Container, #word2Container {
+    background-color: #332874;
+    border-radius: 15px;
+    height: 60px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#word1, #word2 {
+    color: white;
+    font-family: Josefin Sans Light;
+    font-size: 25px;
+    text-align: center;
+}
+
+#countdown {
+    font-family: Josefin Sans Regular;
+    font-size: 25px;
+    grid-area: countdown
+}
+
+#help {
+    text-align: center;
+}
+
+#help-title {
+    font-family: Josefin Sans Bold;
+    font-size: 30px;
+    color:#18234d;
+}
+
+#help-challengeName {
+    font-family: Josefin Sans SemiBold;
+    font-size: 25px;
+    color:#18234d;
+}
+
+#help-challengeDescription {
+    font-family: Josefin Sans Light;
+    font-size: 25px;
+    color:#18234d;
+}
+
+.modal-button {
+    background-color: #732AD9;
+    font-family: Josefin Sans Light;
+    font-size: 25px;
+    border-radius: 15px;
+    border: 0;
+    margin: 0px;
+    color: #EEEAF5;
+    height: 50px;
+    width: 170px;
+    margin-top: 10px;
+    justify-items: center;
+
+}
+
+.modal {
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal > .modal-content {
+    opacity: 0;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+    color:#18234d;
+}
+
+#challenges {
+    font-family: Josefin Sans Regular;
+    font-size: 25px;
+    grid-area: challengesCompleted;
+}
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    
+}
+
+@media only screen and (max-width: 767px) {
+    #middleWebsite{
+        padding-right: 2em;
+        padding-left: 2em;
+        height: 100%;
+        margin-bottom: 4em;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    
+}
