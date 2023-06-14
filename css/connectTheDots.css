@@ -1,16 +1,15 @@
+.overlay{
+  background-image: url("../assets/imgs/background.png");
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 body{
-  margin: 0;
   background-color: #18234d !important;
 }
 
-#canvas{
-  width: 10em;
-}
-
-canvas{
+#finalImg{
   border-radius: 15px;
-}
-
-#game{
-  background: #fff;
 }

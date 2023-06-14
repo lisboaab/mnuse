@@ -13,21 +13,26 @@
     src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
 }
 
-
-#game {
-    border: 18px #82739790 solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    background-color: #eeeaf5;
-    color: #18234d;
-    font-family: josefinSansRegular;
+.hangman{
     border-radius: 15px;
+    width: 100%;
 }
 
-#game div{
-    margin-top: 1em;
+#background {
+    border-radius: 20px;
+    position: relative;
+}
+  
+.overlay{
+    position: absolute;
+    top: 1.8em;
+    left: 1em;
+    z-index: 1;
+}
+
+#game {
+    color: #18234d;
+    font-family: josefinSansRegular;
 }
 
 #game div h2{
