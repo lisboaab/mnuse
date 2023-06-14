@@ -39,19 +39,30 @@ if(User.getUserLogged().words[0] == undefined){
 function showTotalChallenges(){
     let currentLevel = User.getUserLogged().levelLoad;
     if (currentLevel === 1){
-        console.log(Levels.levels[0].numberOfChallenges)
         return Levels.levels[0].numberOfChallenges
     }
     else if (currentLevel == 2){
-        console.log(Levels.levels[0].numberOfChallenges)
         return Levels.levels[1].numberOfChallenges
     }
     else if (currentLevel == 3){
-        console.log(Levels.levels[0].numberOfChallenges)
         return 1
     }
 }
 
-resultSideInfo += `<h3>Challenges</h3><p id="challenges">${User.getUserLogged().finishedChallenges.length}/${showTotalChallenges()}</p>`
+function getFinishedChallenges(){
+    let currentLevel = User.getUserLogged().levelLoad;
+    let finishedChallenges = User.getUserLogged().finishedChallenges.length;
+    if (currentLevel === 1){
+        return (finishedChallenges)
+    }
+    else if (currentLevel === 2){
+        return (finishedChallenges - 3)
+    }
+    else {
+        return (finishedChallenges - 7)
+    }
+}
+
+resultSideInfo += `<h3>Challenges</h3><p id="challenges">${getFinishedChallenges()}/${showTotalChallenges()}</p>`
 
 sideInfo.innerHTML = resultSideInfo
