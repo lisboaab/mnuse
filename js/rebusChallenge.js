@@ -158,7 +158,7 @@ let btnBackSideInfo = document.getElementById("btnBackSideInfo");
 
 btnBackSideInfo.addEventListener("click", function(event){
     event.preventDefault();
-    User.changeCurrentLevel(1);
+    User.changeLevelLoad(1);
     window.location.href = "level.html";
 })
 
