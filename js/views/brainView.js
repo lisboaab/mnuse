@@ -436,7 +436,7 @@ btnclose1.addEventListener("click", function() {
     overlay.style.display = "none"
 })
 btnclose2.addEventListener("click", function() {
-    tempModal.style.display = "none"
+    temporalModal.style.display = "none"
     overlay.style.display = "none"
 })
 
@@ -483,3 +483,16 @@ document.getElementById("parietalModalBtn").addEventListener("click", () => {
     User.changeLevelLoad(3)
     // window.location.href = "level.html"
 })}
+
+
+document.getElementById("btnCloseModalTempLobe").addEventListener("click", function(){
+    let modal = document.getElementById("tempModal");
+    modal.style.display = 'none';
+    overlay.style.display = "none";
+})
+
+document.getElementById("btnCloseModalparietalLobe").addEventListener("click", function(){
+    let modal = document.getElementById("parietalModal");
+    modal.style.display = 'none';
+    overlay.style.display = "none";
+})
