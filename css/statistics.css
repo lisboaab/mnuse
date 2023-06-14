@@ -1,0 +1,41 @@
+@font-face {
+    font-family: Josefin Sans Light;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+body{
+    background-color: #18234d !important;
+    margin: 0;
+    padding: 0;
+}
+
+#middleWebsite {
+    color: #EEEAF5;
+    font-family: Josefin Sans Regular;
+}
+
+.col-lg-4 p{
+    font-family: Josefin Sans Light;
+    display: flex;
+    justify-content: center;
+}
+
+.col-lg-4 h3{
+    display: flex;
+    justify-content: center;
+}
+
+.sideBorder{
+    border-right: 1px white solid;
+}
+
+canvas{
+    background-color: #732AD950;
+    border-radius: 15px;
+}
+
+@media only screen and (max-width: 991px) {
+    .sideBorder{
+        border-right: none;
+    }
+}

@@ -12,20 +12,30 @@
 	<div class="form-container sign-up-container">
 		<form action="#">
 			<h1 class="title2">Create Account</h1>
-			<input type="text" placeholder="username">
-			<input type="email" placeholder="email">
-			<input type="password" placeholder="password">
-			<input type="password" placeholder="confirm password">
+			<input id="usernameSignup" type="text" placeholder="username">
+			<input id="emailSignup" type="email" placeholder="email">
+			<input id="password1Signup" type="password" placeholder="password">
+			<input id="password2Signup" type="password" placeholder="confirm password">
+			<div id="validationMessage"></div>
 			<button id="accountCreated">Sign Up</button>
+			<div id="smallerDevicesMessage">
+				<p>Already have an account?</p>
+				<p id="smallerDevicesLogIn">Log In!</p>
+			</div>
 		</form>
 	</div>
-	<div class="form-container sign-in-container">
+	<div class="form-container log-in-container">
 		<form action="#">
 			<h1 class="title2">Login</h1>
-			<input type="email" placeholder="email" />
-			<input type="password" placeholder="password" />
+			<input id="usernameLogin" type="text" placeholder="username">
+			<input id="passwordLogin" type="password" placeholder="password">
 			<a href="#">Forgot your password?</a>
-			<input type="button" value="Login" id="logBtn" onclick="window.location.href = '../index.html'">
+			<div id="validationMessageLogIn"></div>
+			<input type="button" value="Login" id="logBtn">
+			<div id="smallerDevicesMessage">
+				<p>Don't have an account yet?</p>
+				<p id="smallerDevicesSignUp">Sign Up!</p>
+			</div>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -33,7 +43,7 @@
 			<div class="overlay-panel overlay-left">
 				<h1 class="title">Welcome Back!</h1>
 				<p>To help Lily unlock her memories please login with your personal info</p>
-				<button class="ghost" id="signIn">Log In</button>
+				<button class="ghost" id="logIn">Log In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1 class="title">Hello, Friend!</h1>
@@ -43,5 +53,67 @@
 		</div>
 	</div>
 </div>
-<script src="../js/loginSignup.js"></script>
+<script type="module" src="../js/loginSignup.js"></script>
+<script type="module" src="../js/models/modelUsers.js"></script>
+</body>
+</html>
 
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../css/loginSignup.css">
+</head>
+<body>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1 class="title2">Create Account</h1>
+			<input id="usernameSignup" type="text" placeholder="username">
+			<input id="emailSignup" type="email" placeholder="email">
+			<input id="password1Signup" type="password" placeholder="password">
+			<input id="password2Signup" type="password" placeholder="confirm password">
+			<div id="validationMessage"></div>
+			<button id="accountCreated">Sign Up</button>
+			<div id="smallerDevicesMessage">
+				<p>Already have an account?</p>
+				<p id="smallerDevicesLogIn">Log In!</p>
+			</div>
+		</form>
+	</div>
+	<div class="form-container log-in-container">
+		<form action="#">
+			<h1 class="title2">Login</h1>
+			<input id="usernameLogin" type="text" placeholder="username">
+			<input id="passwordLogin" type="password" placeholder="password">
+			<a href="#">Forgot your password?</a>
+			<div id="validationMessageLogIn"></div>
+			<input type="button" value="Login" id="logBtn">
+			<div id="smallerDevicesMessage">
+				<p>Don't have an account yet?</p>
+				<p id="smallerDevicesSignUp">Sign Up!</p>
+			</div>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1 class="title">Welcome Back!</h1>
+				<p>To help Lily unlock her memories please login with your personal info</p>
+				<button class="ghost" id="logIn">Log In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1 class="title">Hello, Friend!</h1>
+				<p>Enter your personal details and start helping Lily escape her mind!</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="module" src="../js/loginSignup.js"></script>
+<script type="module" src="../js/models/modelUsers.js"></script>
+</body>
+</html> -->

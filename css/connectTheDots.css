@@ -1,0 +1,15 @@
+.overlay{
+  background-image: url("../assets/imgs/background.png");
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body{
+  background-color: #18234d !important;
+}
+
+#finalImg{
+  border-radius: 15px;
+}

@@ -1,0 +1,77 @@
+@font-face {
+    font-family: josefinSansRegular;
+    src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: josefinSansLight;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: josefinSansSemibold;
+    src: url(../img/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+body{
+    font-family: josefinSansRegular;
+}
+
+#middleWebsite{
+    height: 30em;
+    display: flex;
+    align-items: flex-end;
+}
+
+#messageBallon{
+    background-color: #FFFAE1;
+    height: 10em;
+    border-radius: 15px;
+}
+
+#messageBallon img{  
+    width: 10em;
+    position: absolute;
+}
+
+#nextBtn{
+    background-image: url("../assets/imgs/terapeuta.png");
+    width: 10em;
+    height: 10em;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    color: #EEEAF5;
+}
+
+#messageBallon p{
+    font-family: Josefin Sans Regular;
+    color: #18234d;
+    text-align: center;
+    font-size: 20px;
+}
+
+#messageBallon h3{
+    font-family: Josefin Sans SemiBold;
+    color: #18234d;
+    margin-left: 2em;
+}
+
+.img {
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    height: 50em;
+    width: 100%;
+}
+  
+.overlay {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50em;
+    background-color: #18234d;
+    opacity: 0.8;
+}

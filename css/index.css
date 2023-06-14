@@ -1,254 +1,128 @@
 @font-face {
     font-family: Josefin Sans Light;
-    src: url(../img/josefin-sans/JosefinSans-Light.ttf);
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
 }
 
 @font-face {
     font-family: Josefin Sans SemiBold;
-    src: url(../img/josefin-sans/JosefinSans-SemiBold.ttf);
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
 }
 
 @font-face {
     font-family: Josefin Sans Regular;
-    src: url(../img/josefin-sans/JosefinSans-Regular.ttf);
+    src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
 }
 
 body{
-    margin: 0px;
-}
-
-.backgroundImage{
-    z-index: -2;
-    position: absolute;
-    top: 0vh;
-    width: 220.4vh; 
-    height: 100vh;
-}
-
-.overlay {
-    z-index: -1;
-    position: absolute;
-    top: 0vh;
-    width: 220.4vh; 
-    height: 100vh;   
-    background-color: #18234d;
-    opacity: 0.8;
-}
-
-#bodyWebsite {
-    text-align: center;
-    display: grid;
-    grid-template-rows: 19vh 1fr 43vh;;
-    margin: 0px;
-}
-
-
-.header-container {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 5fr 1fr;
-    margin: 0; 
-    column-gap: 1.7vh;
-}
-  
-
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  
-
-#headerLogo {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 3fr 1fr 1fr;
-    background-color: #EEEAF5;
-    border-radius: 15px;
-    width: 137vh;
-    margin: 0 auto; 
-    height: 11.5vh;
-  }
-
-#headerLogo figure{
-    margin-top: 1.7vh;
-}
-
-#headerLogo img{
-    height: 8vh;
-    display: flex;
-    justify-self: start;
-}
-
-#headerLogo input[type="button"]{
-    background-color: #EEEAF5;
-    border: 0;
-    height: 11.5vh;
-    font-family: Josefin Sans Light;
-    font-size: 22px;
-    border-radius: 15px;
-    color: #18234d;
-}
-
-#loginHeader input[type="button"]{
-    background-color: #732AD9;
-    font-family: Josefin Sans Light;
-    font-size: 22px;
-    height: 11.5vh;
-    border-radius: 15px;
-    border: 0;
-    width: 27vh;
-    margin: 0px;
-    color: #EEEAF5;
-}
-
-#loginHeader input[type="button"]:hover{
-    cursor:pointer;
-}
-
-#title{
-    font-family: Josefin Sans Light;
-    font-size: 74px;
-    color: #EEEAF5;
-    margin-bottom: 8.7vh;
-    margin-top: 12vh;
-}
-
-#bodyText{
-    font-family: Josefin Sans Regular;
-    font-size: 26px;
-    color: #EEEAF5;
-    margin-bottom: 8.7vh;
-}
-
-#middleWebsite{
-    margin-bottom: 13vh;
-}
-
-#middleWebsite input[type="button"]{
-    font-family: Josefin Sans Light;
-    font-size: 26px;
-    height: 11.5vh;
-    background-color: #EEEAF5;
-    border: 0;
-    border-radius: 15px;
-    width: 40vh;
-    color: #18234D;
-}
-
-#middleWebsite input[type="button"]:hover{
-    cursor: pointer;
-}
-
-#footer{
-    display: grid;
-    grid-template-columns: 27vh 45vh 45vh 21vh;
-    grid-template-rows: 1fr;
-    text-align: left;
-    font-family: Josefin Sans Regular;
-    background-color: #EEEAF5;
-    column-gap: 24vh;
-}
-
-ul{
-    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.footer-col:first-child{
-    margin-left: 3.4vh;
-}
-
-.footer-col h4{
-    font-size: 22px;
-    color: #18234D;
-    margin-bottom: 6vh;
-    font-weight: 500;
-    position: relative;
-}
-  
-.footer-col h4::before{
-    content: '';
+.img {
+    z-index: -2;
     position: absolute;
-    left:0;
-    bottom: -1.7vh;
+    top: 0;
+    object-fit: cover;
+    height: 50em;
+    width: 100%;
+}
+  
+.overlay {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50em;
     background-color: #18234d;
-    height: 0.3vh;
-    width: 7vh;
+    opacity: 0.8;
 }
   
-.footer-col ul li:not(:last-child){
-    margin-bottom: 1vh;
-}
-  
-.footer-col ul li a{
-    font-size: 18px;
-    color: #18234d;
-    text-decoration: none;
+
+#title{
     font-family: Josefin Sans Light;
+    color: #EEEAF5;
 }
 
-.footer-col .social-links{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 6.9vh;
+#bodyText{
+    font-family: Josefin Sans Regular;
+    font-size: 1.8em;
+    color: #EEEAF5;
+    display: flex;
+    flex-direction: column;
 }
 
-.footer-col .social-links a{
-    height: 6.9vh;
-    width: 6.9vh;
-    background-color: #18234d;
-    margin:0 1.7vh 1.7vh 0;
+#middleWebsite{
     text-align: center;
-    line-height: 6.9vh;
-    border-radius: 50%;
-    color: #ffffff;
+    flex: 1;
+    height: 38em;
 }
-  
-.footer-col .social-links a:hover{
-    color: #EEEAF5;
-    background-color: #732AD9;
-}
-  
-input[class='text']{
-    width:85%;
-    height:6.9vh;
-    margin-bottom:3.4vh;
-    border:none;
-    border-bottom:1px solid #18234d;
-}
-  
-input[class='text']:active:focus,
-input[class='text']:focus,
-input[class='text']:hover{
-    outline : none;
-}
-  
-.text{
+
+#middleWebsite input[type="button"]{
+    font-family: Josefin Sans Light;
     background-color: #EEEAF5;
+    border: 0;
+    border-radius: 15px;
+    color: #18234D;
+    height: 3em;
+    width: 9em;
 }
-  
-::placeholder{
-    font-size:18px;
-    color:#18234d;
-    font-family: Josefin Sans Light;
+
+#middleWebsite input[type="button"]:hover{
+    cursor: pointer;
+} 
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #title{
+        margin-bottom: 0.9em;
+        margin-top: 1em;
+        font-size: 4.6em;
+    }
+
+    #bodyText{
+        margin-bottom: 1em;
+        font-size: 2em;
+    }
+
+    #middleWebsite input[type="button"]{
+        font-size: 1.8em;
+    }
 }
-  
-.subscribeBtn{
-    width:85%;
-    background:#18234d;
-    padding:2.6vh;
-    border:none;
-    border-radius:15px;
-    font-size:20px;
-    color:#EEEAF5;
-    font-family: Josefin Sans Light;
+
+@media only screen and (max-width: 767px) {
+    #title{
+        margin-bottom: 0.6em;
+        margin-top: 0.6em;
+        font-size: 3.8em;
+    }
+
+    #bodyText{
+        margin-bottom: 1em;
+        font-size: 1.8em;
+    }
+
+    #middleWebsite input[type="button"]{
+        font-size: 1.6em;
+        margin-bottom: 1.4em;
+    }
+
+    #middleWebsite{
+        height: 100%;
+    }
 }
-  
-.subscribeBtn:hover{
-    cursor:pointer;
-    color: #EEEAF5;
-    background-color: #732AD9;
+
+
+@media only screen and (min-width: 1024px) {
+    #title{
+        margin-bottom: 1em;
+        margin-top: 0.8em;
+        font-size: 5em;
+    }
+
+    #bodyText{
+        margin-bottom: 1.8em;
+    }
+
+    #middleWebsite input[type="button"]{
+        font-size: 1.4em;
+    }
 }

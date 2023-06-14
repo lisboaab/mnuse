@@ -1,16 +1,16 @@
 @font-face {
     font-family: Josefin Sans Light;
-    src: url(../img/josefin-sans/JosefinSans-Light.ttf);
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
 }
 
 @font-face {
     font-family: Josefin Sans SemiBold;
-    src: url(../img/josefin-sans/JosefinSans-SemiBold.ttf);
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
 }
 
 @font-face {
     font-family: Josefin Sans Bold;
-    src: url(../img/josefin-sans/JosefinSans-Bold.ttf);
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
 }
 
 * {
@@ -36,13 +36,22 @@ h2 {
 	text-align: center;
 }
 
-p {
+p:not(#smallerDevicesMessage p) {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
 }
+
+#smallerDevicesMessage p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	color: #18234d;
+}
+
 
 span {
 	font-size: 12px;
@@ -91,23 +100,39 @@ form {
 }
 
 input::placeholder{
-	color: #D2D2D2;
+	color: #8e9095;
 }
 
+input::placeholder:focus{
+	color: #732AD9;
+}
 
 input:focus {
-    border-bottom: 2px solid #D2D2D2;
+    border-bottom: 2px solid #732AD9;
+	color: #8e9095;
 	outline: none;
+}
+
+.error:focus {
+	border-bottom: 2px solid red;
+}
+
+.success:focus {
+	border-bottom: 2px solid green;
+}
+
+.blank:focus {
+	border-bottom: 2px solid #8e9095;
 }
 
 input {
 	border: 0px;
-	border-bottom: 2px solid #D2D2D2;
+	border-bottom: 2px solid #8e9095;
 	border-radius: 2px;
 	padding: 8px 1px;
 	margin: 8px 0;
 	width: 100%;
-	color: #D2D2D2;
+	color: #8e9095;
 	font-family: Josefin Sans Light;
 	font-size: 16px;
 	background: #EEEAF5;
@@ -127,6 +152,7 @@ input {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
+	top: 5%;
 }
 
 .form-container {
@@ -136,18 +162,16 @@ input {
 	transition: all 0.6s ease-in-out;
 }
 
-.sign-in-container {
-	left: 0;
+.log-in-container {
 	width: 50%;
 	z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.container.right-panel-active .log-in-container {
 	transform: translateX(100%);
 }
 
 .sign-up-container {
-	left: 0;
 	width: 50%;
 	opacity: 0;
 	z-index: 1;
@@ -244,4 +268,72 @@ input {
 
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #smallerDevicesMessage{
+		display: none;
+	}
+
+	.log-in-container, .sign-up-container {
+		left: 0;
+	}
+
+	.container{
+		width: 768px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.form-container {
+		flex-direction: column;
+	  }
+
+	.overlay-container {
+		display: none;
+	  }
+
+	  .container{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		width: 394px;
+	}
+
+	.form-container{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		height: 100vh;
+	}
+
+	.sign-up-container {
+		display: none;
+	}
+
+	.log-in-container {
+		display: contents;
+	}
+
+	input{
+		width: 14em;
+	}
+	
+}
+
+
+@media only screen and (min-width: 1024px) {
+    #smallerDevicesMessage{
+		display: none;
+	}
+
+	.log-in-container, .sign-up-container {
+		left: 0;
+	}
+
+	.container{
+		width: 768px;
+	}
 }

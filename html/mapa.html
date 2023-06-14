@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/mapa.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/navBar.css">
+    <link rel="stylesheet" href="../css/terapeuta.css">
+    <link rel="stylesheet" href="../css/level3Door.css">
+    <link rel="stylesheet" href="../css/modals.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;390;400&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Mnuse</title>
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <div id="bg">
+      <div class="overlay hidden"></div>
+    </div>
+    <div id="middleWebsite2">
+      <div id="frontalModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="header">
+              <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
+            </div>
+            <div class="modal-body">
+              <p class="modal-header-title" id="frontalModalLabel">level 1</p>
+              <p class="modal-title" id="frontalLobeLabel">frontal lobe</p>
+              <p>Responsible for executive control, decision making, problem solving, and working memory.</p>
+            <button class="modal-btn level-btn--active" id="frontModalBtn">Play</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tempModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="header">
+              <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
+            </div>
+            <div class="modal-body">
+              <p class="modal-header-title" id="tempModalLabel">level 2</p>
+              <p class="modal-title" id="tempLobeLabel">temporal lobe</p>
+              <p>Responsible for executive control, decision making, problem solving, and working memory.</p>
+            <button id="tempModalBtn" class="modal-btn level-btn--inactive" id="tempModalBtn">Locked</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="parietalModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="header">
+              <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
+            </div>
+            <div class="modal-body">
+              <p class="modal-header-title" id="parietalModalLabel">level 3</p>
+              <p class="modal-title" id="parietalLobeLabel">parietal lobe</p>
+              <p>Responsible for sensory perception, integration of information and spatial orientation.</p>
+            <button id="parietalModalBtn" class="modal-btn level-btn--inactive" id="parietalModalBtn">Locked</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="svgBrain"></div>
+      <div class="container">
+        <div class="row"  id="messageBallon">
+          <div class="col-lg-10">
+            <h3>Therapist:</h3>
+            <p id="dialogue"></p>
+          </div>
+          <div class="col-lg-2">
+            <input type="button" id="nextBtn">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container dialog">
+      <div class="modal" id="modalUnlockWords" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">LEVEL LOCKED</h5>
+              <button type="button" id="btnClose" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="text">
+                  <p class="text">Write the words you got in the previous levels <br>to unlock the final one!</p>
+              </div>
+              <div id="inputsWords">
+                  <input type="text" class="input" id="inputWord1" placeholder="Level 1"><br>
+                  <input type="text" class="input" id="inputWord2" placeholder="Level 2">
+              </div>
+              <div>
+                  <p class="text" id="messageToShow"></p>
+              </div>
+              <div id="divBtnContinue">
+                  <button id="btnContinue">Continue</button>
+              </div>
+            </div>
+             
+          </div>
+        </div>
+      </div>
+      
+  </div>
+    <footer id="footer"></footer>
+    <script src="../js/views/level3door.js"></script>
+    <script type="module" src="../js/views/brainView.js"></script>
+    <script type="module" src="../js/views/navBarView.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/views/footerView.js"></script>
+  </body>
+</html>

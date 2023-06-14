@@ -1,0 +1,109 @@
+@font-face {
+    font-family: josefinSansRegular;
+    src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: josefinSansLight;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: josefinSansSemibold;
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+body{
+    background-color: #18234d !important;
+}
+
+#game{
+    width: 1070px;
+    height: 602px;
+    border-radius: 15px;
+    padding: 0;
+}
+
+#divVideo {
+    border-radius: 15px;
+}
+
+#containerVideo{
+    margin-top: 0;
+    padding: 0;
+}
+
+#inputsWords{
+    display: grid;
+    place-items: center;
+}
+
+#btnClose{
+    border: none;
+}
+
+#video {
+    border-radius: 30px;
+    width: 1070px;
+    height: 602px;
+}
+
+#modalUnlockWords{
+    font-family: josefinSansRegular;
+    color: #18234d;
+}
+
+#modalUnlockWords input{
+    border: none;
+    background-color: #732AD950 !important;
+    color: #18234d;
+    border: 0.5px;
+    border-radius: 8px;
+    width: 7em;
+    height: 2em;
+    text-align: center;
+}
+
+#divBtnContinue{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#btnContinue{
+    background-color: #732AD9;
+    color: #eeeaf5;
+    outline: none;
+    border-radius: 8px;
+    border: none;
+    width: 7em;
+    height: 2em;
+}
+
+.input::placeholder {
+    color: #18234d;
+    text-align: center;
+}
+
+
+.input:focus{
+    outline: none;
+    text-align: center;
+    background-color: #732AD950 !important;
+}
+
+/* .text{
+    text-align: center;
+    margin-top: 2%;
+} */
+
+.wrong{
+    color: red;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.right{
+    color: green;
+    text-align: center;
+    margin-top: 2%;
+}
