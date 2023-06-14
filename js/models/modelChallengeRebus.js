@@ -1,3 +1,5 @@
+let challengesRebus = []
+
 export default class Rebus {
     id = 0;
     imgUrl = "";
@@ -32,8 +34,6 @@ export default class Rebus {
     }
 }
 
-export const challengesRebus = [];
-
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus1.png","one in a million","Try to separate the number inside of the word, put them in the same sentence and guess it!"))
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus2.png","think outside of the box","Way of thinking that is different from convetional. Term commonly used to instigate people to be creative and innovative."))
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus3.png","somewhere over the rainbow","Title of a very famous song related to rainbow."))
@@ -42,7 +42,13 @@ challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus5.png","earring","
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus6.png","hot dog","Common streetfood originally invented in the USA"))
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus7.png","it is raining man","Title of a pop song released in 1983 by The Weather Girls."))
 challengesRebus.push(new Rebus("../assets/imgs/classroom-rebus8.png","breakfast","Meal usually taken in the morning."))
-localStorage.setItem("challengesRebus", JSON.stringify(challengesRebus))
+  
+let storedChallengesRebus = JSON.parse(localStorage.getItem("challengesRebus"));
+if (storedChallengesRebus && Array.isArray(storedChallengesRebus)) {
+challengesRebus = storedChallengesRebus;
+} else {
+localStorage.setItem("challengesRebus", JSON.stringify(challengesRebus));
+}
 
 export function getId(){
     let max = 0;

@@ -24,8 +24,7 @@ export class Users {
         this.code = code
     }
 }
-// localStorage.clear()
-// sessionStorage.clear()
+
 let users = localStorage.getItem("users"); // Verifica se já existem usuários no localStorage e os recupera
 if (!users) {
   	users = [

@@ -5,6 +5,7 @@ import * as Challenges from "./models/modelChallenges.js"
 // console.log(Rebus.challengesRebus);
 
 const rebusChallenges = JSON.parse(localStorage.getItem("challengesRebus"))
+console.log(rebusChallenges)
 
 // CREATE 4 RANDOM NUMBERS FOR THE CHALLENGE
 let randomIds = []
@@ -181,7 +182,7 @@ btnContinueSideInfo.addEventListener("click", function(event){
         } else {
             let arrayChallenges = user.finishedChallenges += challenge.challengeID;
             const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, arrayChallenges, user.badges, user.words, user.code)
-            const index  = usersList.findIndex(user => user.username === loggedUser.username);
+            const index  = usersList.findIndex(u => u.username === user.username);
             usersList[index] =  updatedUser;
             sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
             localStorage.setItem("users", JSON.stringify(usersList));
