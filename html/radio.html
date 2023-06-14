@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/radio.css">
+</head>
+<body>
+        <div id="sounds">
+            <button name="one" id="sound1" class="btn" onclick="clicked(this)" onmousedown="sound1.play()">1</button>
+            <button name="two" id="sound2" class="btn" onclick="clicked(this)" onmousedown="sound2.play()">2</button>
+            <button name="three" id="sound3" class="btn" onclick="clicked(this)" onmousedown="sound3.play()">3</button>
+            <button name="four" id="sound4" class="btn" onclick="clicked(this)" onmousedown="sound4.play()">4</button>
+        </div>
+        
+        <div id="radio">
+            <img src="../img/pic.jpg">
+            <img src="../img/pic.jpg">
+        </div>
+
+        <div id="images">
+            <button name="one" id="img1" class="btn" onclick="clicked(this)" onmousedown=""><img class="btnImg" src="../img/pic.jpg"></button>
+            <button name="two" id="img2" class="btn" onclick="clicked(this)" onmousedown=""><img class="btnImg" src="../img/pic.jpg"></button>
+            <button name="three" id="img3" class="btn" onclick="clicked(this)" onmousedown=""><img class="btnImg" src="../img/pic.jpg"></button>
+            <button name="four" id="img4" class="btn" onclick="clicked(this)" onmousedown=""><img class="btnImg" src="../img/pic.jpg"></button>
+        </div>
+</body>
+<script>
+    //sons
+    const sound1 = new Audio();
+    sound1.src = "../img/sound.wav";
+
+    const sound2 = new Audio();
+    sound2.src = "../img/sound.wav";
+
+    const sound3 = new Audio();
+    sound3.src = "../img/sound.wav";
+
+    const sound4 = new Audio();
+    sound4.src = "../img/sound.wav";
+
+    //jogo em si
+    let button1 = null; // Variável para armazenar o primeiro botão clicado
+    let button2 = null; // Variável para armazenar o segundo botão clicado
+    let challengeCompleted = false; // Variável para indicar se o desafio foi concluído
+
+    function clicked(button) {
+        if (button.classList.contains("btn-clicked")) {
+            return; // Se o botão já foi clicado anteriormente, retorna sem fazer nada
+        }
+
+        button.classList.add("btn-clicked"); // Adiciona a classe "btn-clicked" ao botão atual
+
+        if (button1 === null) {
+            button1 = button; // Armazena o botão atual em button1, se button1 for nulo
+        } else if (button2 === null) {
+            button2 = button; // Armazena o botão atual em button2, se button2 for nulo
+            checkMatch(); // Verifica se há correspondência entre os botões
+            checkChallengeCompleted(); // Verifica se o desafio foi concluído
+        }
+    }
+
+    function checkMatch() {
+        if (button1.name === button2.name && button1.id !== button2.id) {
+            // Se os nomes dos botões correspondem e seus IDs são diferentes
+            button1.removeEventListener("click", clicked); // Remove o ouvinte de evento de clique do button1
+            button2.removeEventListener("click", clicked); // Remove o ouvinte de evento de clique do button2
+            button1 = null; // Redefine button1 para nulo
+            button2 = null; // Redefine button2 para nulo
+        } else {
+            setTimeout(function () {
+                // Aguarda 1 segundo antes de executar o código abaixo
+                button1.classList.remove("btn-clicked"); // Remove a classe "btn-clicked" do button1
+                button2.classList.remove("btn-clicked"); // Remove a classe "btn-clicked" do button2
+                button1 = null; // Redefine button1 para nulo
+                button2 = null; // Redefine button2 para nulo
+            }, 400);
+        }
+    }
+
+    function checkChallengeCompleted() {
+        const buttons = document.getElementsByClassName("btn"); // Obtém todos os elementos com a classe "btn"
+        const uniqueClassNames = new Set(); // Cria um conjunto para armazenar as classes únicas
+
+        for (let i = 0; i < buttons.length; i++) {
+            uniqueClassNames.add(buttons[i].className); // Adiciona a classe de cada botão ao conjunto
+        }
+
+        // Verifica se há apenas uma classe no conjunto
+        if (uniqueClassNames.size === 1) {
+            challengeCompleted = true; // Define a variável challengeCompleted como true, indicando que o desafio foi concluído
+            console.log("Challenge completed!"); // Exibe uma mensagem no console indicando que o desafio foi concluído
+        }
+    }
+</script>
+</html>
