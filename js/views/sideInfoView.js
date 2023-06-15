@@ -44,8 +44,13 @@ function getFinishedChallenges(){
     else if (currentLevel === 2){
         return (finishedChallenges - 3)
     }
-    else {
-        return (finishedChallenges - 7)
+    else if (currentLevel === 3){
+        if (User.getUserLogged().finishedChallenges.includes("videoLevel3")){
+            return 1
+        }
+        else {
+          return (finishedChallenges - 7)  
+        }
     }
 }
 
