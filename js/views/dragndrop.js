@@ -4,6 +4,19 @@ import * as Challenges from "./../models/modelChallenges.js"
 const draggableElements = document.querySelectorAll(".draggable")
 const droppableElements = document.querySelectorAll(".droppable")
 
+let remainingTime = 300
+
+function updateTimer() {
+  if (remainingTime > 0) {
+    console.log("Time remaining:", remainingTime)
+    remainingTime -= 1
+  } else {
+    clearInterval(timerInterval)
+  }
+}
+
+const timerInterval = setInterval(updateTimer, 1000)
+
 draggableElements.forEach(element => {
   element.addEventListener("dragstart", dragStart)
   element.addEventListener("dragend", dragEnd)
@@ -86,13 +99,16 @@ let usersList = JSON.parse(localStorage.getItem("users"));
 let user = User.getUserLogged();
 let challengeList = user.finishedChallenges;
 
+let wastedTime = 0
+let wastedTimeMinutes = 0
+
 btnContinueSideInfo.addEventListener("click", function(event) {
   event.preventDefault();
 
   if (correctAnswers === 3) {
     if (!checkChallengeIs(challenge.challengeID)) {
       challengeList.push(challenge.challengeID);
-      const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+      const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.time);
       const index = usersList.findIndex(u => u.username === user.username);
       usersList[index] = updatedUser;
       sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
@@ -102,23 +118,31 @@ btnContinueSideInfo.addEventListener("click", function(event) {
       modal.classList.add("show");
       modal.style.display = "block";
       document.body.classList.add("modal-open");
+      wastedTime = 300 - remainingTime
+      wastedTimeMinutes = wastedTime/60
+      clearInterval(timerInterval)
+      User.getTime(wastedTime)
+
     } else {
       let modal = document.getElementById("challengeAlreadyCompleted");
       modal.classList.add("show");
       modal.style.display = "block";
       document.body.classList.add("modal-open");
+      clearInterval(timerInterval)
     }
   } else if (checkChallengeIs(challenge.challengeID)){
   let modal = document.getElementById("challengeAlreadyCompleted");
   modal.classList.add("show");
   modal.style.display = "block";
   document.body.classList.add("modal-open");
+  clearInterval(timerInterval)
   }
   else {
   let modal = document.getElementById("challengeNotCompleted");
   modal.classList.add("show");
   modal.style.display = "block";
   document.body.classList.add("modal-open");
+  clearInterval(timerInterval)
   }
 })
 

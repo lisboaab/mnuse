@@ -5,6 +5,19 @@ import * as Challenges from "./models/modelChallenges.js"
 const rebusChallenges = JSON.parse(localStorage.getItem("challengesRebus"))
 console.log(rebusChallenges)
 
+let remainingTime = 300
+
+function updateTimer() {
+  if (remainingTime > 0) {
+    console.log("Time remaining:", remainingTime)
+    remainingTime -= 1
+  } else {
+    clearInterval(timerInterval)
+  }
+}
+
+const timerInterval = setInterval(updateTimer, 1000)
+
 // CREATE 4 RANDOM NUMBERS FOR THE CHALLENGE
 let randomIds = []
 while (randomIds.length != 4){
@@ -176,6 +189,9 @@ function checkChallengeIs(id) {
 let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
 let usersList = JSON.parse(localStorage.getItem("users"));
 
+let wastedTime = 0
+let wastedTimeMinutes = 0
+
 btnContinueSideInfo.addEventListener("click", function(event) {
     event.preventDefault();
     let user = User.getUserLogged();
@@ -185,7 +201,7 @@ btnContinueSideInfo.addEventListener("click", function(event) {
         challengeList.push(challenge.challengeID);
         console.log(challenge.challengeID);
         console.log(challengeList);
-        const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+        const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.time);
         const index = usersList.findIndex(u => u.username === user.username);
         usersList[index] = updatedUser;
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
@@ -195,6 +211,11 @@ btnContinueSideInfo.addEventListener("click", function(event) {
         modal.classList.add("show");
         modal.style.display = "block";
         document.body.classList.add("modal-open");
+
+        wastedTime = 300 - remainingTime
+        wastedTimeMinutes = wastedTime/60
+        clearInterval(timerInterval)
+        User.getTime(wastedTime)
         } else {
             let modal = document.getElementById("challengeAlreadyCompleted");
             modal.classList.add("show");

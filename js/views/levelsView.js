@@ -23,20 +23,20 @@ console.log(User.getUserLogged().finishedChallenges)
 
 if(User.getUserLogged().currentLevel == 1){
     if(User.getUserLogged().finishedChallenges.length == 3){
-        let modal = document.getElementById("challengeAlreadyCompleted");
+        let modal = document.getElementById("levelFinished");
         modal.classList.add("show");
         modal.style.display = "block";
         document.body.classList.add("modal-open");
-        let btnCloseChallengeCompleted = document.getElementById("btnCloseChallengeCompleted")
+        let btnCloseChallengeCompleted = document.getElementById("btnLevelFinished")
         btnCloseChallengeCompleted.addEventListener("click", function(){
-            var modal = document.getElementById("challengeAlreadyCompleted");
+            let modal = document.getElementById("levelFinished");
             modal.classList.remove("show");
             modal.style.display = "none";
             document.body.classList.remove("modal-open");
             window.location.href = "../html/terapeuta.html"
         })
-        User.changeCurrentLevel(2)    
-        User.addWords()
-        User.addBadge()
+        User.changeCurrentLevel(2)
+        User.addWords(0)
+        User.addBadge(0)
     }
 }

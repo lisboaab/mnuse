@@ -23,6 +23,14 @@ function indexView(){
     }
     
     document.getElementById("middleWebsite").innerHTML = result
+    document.getElementById("disclaimerModal").addEventListener("click", () => {
+      const loggedUser = User.getUserLogged()
+      if(loggedUser.finishedChallenges.length == 0){
+        window.location.href = "../../html/terapeuta.html"
+      }else{
+        window.location.href = "../../html/mapa.html"
+      }
+    })
 
 }
 

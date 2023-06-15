@@ -4,6 +4,20 @@ import * as Challenges from "../models/modelChallenges.js"
 // BACK BUTTON
 let btnBackSideInfo = document.getElementById("btnBackSideInfo");
 
+let remainingTime = 300
+const countdown = document.getElementById("countdown")
+function updateTimer() {
+  if (remainingTime > 0) {
+    console.log("Time remaining:", remainingTime)
+    remainingTime -= 1
+    countdown.innerHTML = remainingTime
+  } else {
+    clearInterval(timerInterval)
+  }
+}
+
+const timerInterval = setInterval(updateTimer, 1000)
+
 btnBackSideInfo.addEventListener("click", function(event){
     event.preventDefault();
     User.changeLevelLoad(1);
@@ -48,6 +62,9 @@ function checkChallengeIs(id) {
     return challengeList.includes(id);
 }
 
+let wastedTime = 0
+let wastedTimeMinutes = 0
+
 let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
 btnContinueSideInfo.addEventListener("click", function() {
     // Save in local storage the challenge completed
@@ -56,7 +73,7 @@ btnContinueSideInfo.addEventListener("click", function() {
     let usersList = JSON.parse(localStorage.getItem("users"));
     if (!checkChallengeIs(challenge.challengeID)) {
         challengeList.push(challenge.challengeID);
-        const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+        const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.time);
         const index = usersList.findIndex(u => u.username === user.username);
         usersList[index] = updatedUser;
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
@@ -66,6 +83,11 @@ btnContinueSideInfo.addEventListener("click", function() {
         modal.classList.add("show");
         modal.style.display = "block";
         document.body.classList.add("modal-open");
+
+        wastedTime = 300 - remainingTime
+        wastedTimeMinutes = wastedTime/60
+        clearInterval(timerInterval)
+        User.getTime(wastedTime)
     } else if (checkChallengeIs(challenge.challengeID)){ // modal saying that the challenge 
         let modal = document.getElementById("challengeAlreadyCompleted");
             modal.classList.add("show");
