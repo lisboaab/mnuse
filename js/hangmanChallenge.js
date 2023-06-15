@@ -8,6 +8,22 @@ const wrongLetters = [];
 const rightLetters = [];
 let gameStarted = 0;
 
+let remainingTime = 300
+
+function updateTimer() {
+  if (remainingTime > 0) {
+    const minutes  = Math.floor(remainingTime / 60)
+    const seconds = remainingTime % 60
+    const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
+    document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}`
+    remainingTime -= 1
+  } else {
+    clearInterval(timerInterval)
+  }
+}
+
+const timerInterval = setInterval(updateTimer, 1000)
+
 document.addEventListener("keydown", (event) => {
   const code = event.keyCode; // 65 - 90 (intervalo)
   if (isLetra(code)) {
@@ -105,7 +121,7 @@ function checkChallengeIs(id) {
 
 function saveFinishedChallenge(){
   challengeList.push(challenge.challengeID);
-  const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+  const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.timeChallenges, user.isFinished);
   const index = usersList.findIndex(u => u.username === user.username);
   usersList[index] = updatedUser;
   sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
@@ -186,6 +202,10 @@ document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
       modal.classList.add("show");
       modal.style.display = "block";
       document.body.classList.add("modal-open");
+      wastedTime = 300 - remainingTime
+      wastedTimeMinutes = wastedTime/60
+      clearInterval(timerInterval)
+      User.getTime(wastedTime)
       if (!checkChallengeIs(challenge.challengeID)){
         saveFinishedChallenge()
       }
