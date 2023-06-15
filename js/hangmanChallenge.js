@@ -69,11 +69,22 @@ function showRightLetters() {
   });
 }
 
+let usersList = JSON.parse(localStorage.getItem("users"));
+let user = User.getUserLogged();
+let challengeList = user.finishedChallenges;
+
 function validateGame() {
     const w1 = document.getElementById("fieldWord1");
     const w2 = document.getElementById("fieldWord2");
     const w3 = document.getElementById("fieldWord3");
     const partesCorpo = document.querySelectorAll(".hangman-part");
+
+    if (checkChallengeIs(challenge.challengeID)){
+      let modal = document.getElementById("challengeAlreadyCompleted");
+      modal.classList.add("show");
+      modal.style.display = "block";
+      document.body.classList.add("modal-open");
+    }
 
     if (wrongLetters.length === partesCorpo.length) {
       let modal = document.getElementById("modalGameOver");
@@ -88,7 +99,26 @@ function validateGame() {
       modal.classList.add("show");
       modal.style.display = "block";
       document.body.classList.add("modal-open");
+      if (!checkChallengeIs(challenge.challengeID)){
+        saveFinishedChallenge()
+      }
     }
+}
+
+// SEE IF CHALLENGE IS IN ARRAY OF FINISHED CHALLENGES
+function checkChallengeIs(id) {
+  let user = User.getUserLogged();
+  let challengeList = user.finishedChallenges;
+  return challengeList.includes(id);
+}
+
+function saveFinishedChallenge(){
+  challengeList.push(challenge.challengeID);
+  const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+  const index = usersList.findIndex(u => u.username === user.username);
+  usersList[index] = updatedUser;
+  sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
+  localStorage.setItem("users", JSON.stringify(usersList));
 }
 
 function drawHangman() {
@@ -142,3 +172,11 @@ document.getElementById("btnCloseChallengeSucessfull").addEventListener("click",
     document.body.classList.remove("modal-open");
 })
 
+document.getElementById("btnCloseChallengeCompleted").addEventListener("click", function(){
+  let modal = document.getElementById("challengeAlreadyCompleted");
+  modal.classList.remove("show");
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+})
+
+validateGame()

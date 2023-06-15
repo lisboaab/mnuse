@@ -1,5 +1,4 @@
 import * as User from "../models/modelUsers.js"
-import * as Levels from "./levelsView.js"
 
 let resultSideInfo = ""
 
@@ -39,10 +38,10 @@ if(User.getUserLogged().words[0] == undefined){
 function showTotalChallenges(){
     let currentLevel = User.getUserLogged().levelLoad;
     if (currentLevel === 1){
-        return Levels.levels[0].numberOfChallenges
+        return 3
     }
     else if (currentLevel == 2){
-        return Levels.levels[1].numberOfChallenges
+        return 4
     }
     else if (currentLevel == 3){
         return 1

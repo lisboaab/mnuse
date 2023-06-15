@@ -1,3 +1,6 @@
+import * as User from "./models/modelUsers.js"
+import * as Challenges from "./models/modelChallenges.js"
+
 const sound1 = new Audio()
 sound1.src = "../assets/sounds/airplane.wav"
 
@@ -72,7 +75,14 @@ function checkMatch() {
         button2 = null
         matched += 1
         if(matched == 4){
-            console.log("completed")
+          let modal = document.getElementById("challengeSucessfullyCompleted");
+          modal.classList.add("show");
+          modal.style.display = "block";
+          document.body.classList.add("modal-open");
+          if (!checkChallengeIs(challenge.challengeID)){
+            saveFinishedChallenge()
+            console.log("challenge salvo")
+          }
         }
     } else {
         button1.classList.remove("radioBtn-clicked")
@@ -93,3 +103,84 @@ function getSoundFromButtonName(name) {
         return sound4
     }
 }
+
+let usersList = JSON.parse(localStorage.getItem("users"));
+let user = User.getUserLogged();
+let challengeList = user.finishedChallenges;
+let challenge = Challenges.challengesList.find(chall => chall.challengeID === "radio");
+
+
+// SEE IF CHALLENGE IS IN ARRAY OF FINISHED CHALLENGES
+function checkChallengeIs(id) {
+  let user = User.getUserLogged();
+  let challengeList = user.finishedChallenges;
+  return challengeList.includes(id);
+}
+
+//  SAVES IN THE ARRAY OF COMPLETED CHALLENGES THIS CHALLENGE ID
+function saveFinishedChallenge(){
+  challengeList.push(challenge.challengeID);
+  const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+  const index = usersList.findIndex(u => u.username === user.username);
+  usersList[index] = updatedUser;
+  sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
+  localStorage.setItem("users", JSON.stringify(usersList));
+}
+
+//  FUNCTIONS BTNS CLOSE MODALS
+document.getElementById("btnCloseChallengeSucessfull").addEventListener("click", function(){
+  let modal = document.getElementById("challengeSucessfullyCompleted");
+  modal.classList.remove("show");
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+})
+
+let textsHelpBtn = document.getElementById("textsHelpBtn");
+let challengeID = Challenges.challengesList.find(chall => chall.challengeID === "radio");
+
+let line = `${challengeID.helpCard}`;
+textsHelpBtn.innerHTML += line;
+
+
+//  BUTTON BACK
+let btnBackSideInfo = document.getElementById("btnBackSideInfo");
+btnBackSideInfo.addEventListener("click", function(event){
+    event.preventDefault();
+    window.location.href = "level.html";
+})
+
+// IF CHALLENGE IS ALREADY COMPLETED SHOW MODAL
+if (checkChallengeIs(challenge.challengeID)){
+  let modal = document.getElementById("challengeAlreadyCompleted");
+      modal.classList.add("show");
+      modal.style.display = "block";
+      document.body.classList.add("modal-open");
+}
+
+document.getElementById("btnCloseChallengeCompleted").addEventListener("click", function(){
+  let modal = document.getElementById("challengeAlreadyCompleted");
+  modal.classList.remove("show");
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+})
+
+
+// FNCTION THAT SHOWS A MODAL SAYING TO TURN ON THE AUDIO ON THE 1ST TIME THE PERSON CLICKS THE 1ST NUMBER BOX
+let firstBoxClicked = 0;
+document.getElementById("sound3").addEventListener("click",function(){
+  if (firstBoxClicked === 0){
+    let modal = document.getElementById("turnAudioOn");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+    firstBoxClicked += 1;
+  }
+
+})
+
+document.getElementById("btnCloseAudioOn").addEventListener("click", function(){
+  let modal = document.getElementById("turnAudioOn");
+  modal.classList.remove("show");
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+})
