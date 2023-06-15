@@ -1,6 +1,22 @@
 import * as User from "./models/modelUsers.js"
 import * as Challenges from "./models/modelChallenges.js"
 
+let remainingTime = 300
+
+function updateTimer() {
+  if (remainingTime > 0) {
+    const minutes  = Math.floor(remainingTime / 60)
+    const seconds = remainingTime % 60
+    const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
+    document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}`
+    remainingTime -= 1
+  } else {
+    clearInterval(timerInterval)
+  }
+}
+
+const timerInterval = setInterval(updateTimer, 1000)
+
 const sound1 = new Audio()
 sound1.src = "../assets/sounds/airplane.wav"
 
@@ -158,6 +174,10 @@ document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
     modal.classList.add("show");
     modal.style.display = "block";
     document.body.classList.add("modal-open");
+    wastedTime = 300 - remainingTime
+    wastedTimeMinutes = wastedTime/60
+    clearInterval(timerInterval)
+    User.getTime(wastedTime)
   }
   else {
     let modal = document.getElementById("challengeNotCompleted");

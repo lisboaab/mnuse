@@ -3,6 +3,22 @@ import * as Challenges from "./models/modelChallenges.js"
 
 let finishedChalenge = false;
 
+let remainingTime = 300
+
+function updateTimer() {
+  if (remainingTime > 0) {
+    const minutes  = Math.floor(remainingTime / 60)
+    const seconds = remainingTime % 60
+    const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
+    document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}`
+    remainingTime -= 1
+  } else {
+    clearInterval(timerInterval)
+  }
+}
+
+const timerInterval = setInterval(updateTimer, 1000)
+
 function game(){
 const canvasDiv = document.getElementById("canvas")
 const canvas = document.getElementById("game")
@@ -160,6 +176,10 @@ function init() {
     canvas.style.display = "none"
     finalImg.style.display = "inline"
     finishedChalenge = true;
+    wastedTime = 300 - remainingTime
+    wastedTimeMinutes = wastedTime/60
+    clearInterval(timerInterval)
+    User.getTime(wastedTime)
     return true
     
   }
@@ -210,7 +230,7 @@ function init() {
         // SAVE IN LOCAL STORAGE FINISHED CHALLENGE
         function saveFinishedChallenge(){
           challengeList.push(challenge.challengeID);
-          const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+          const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.timeChallenges, user.isFinished);
           const index = usersList.findIndex(u => u.username === user.username);
           usersList[index] = updatedUser;
           sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
