@@ -1,0 +1,69 @@
+@font-face {
+    font-family: Josefin Sans Light;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: Josefin Sans SemiBold;
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+body{
+    background-color: #18234d !important;
+}
+
+#middleWebsite {
+    color: #EEEAF5;
+    font-family: Josefin Sans Light;
+    margin-top: 1.6em;
+    height: 77vh;
+    text-align: center;
+}
+
+#top3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-right: 20em;
+    padding-left: 20em;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    width: 6em;
+    margin-left: 1em;
+}
+
+#number2, #number3{
+    margin-top: 4em;
+}
+
+#position1, #position2, #position3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center; 
+    justify-content: center;
+    width: 6em;
+} 
+
+#top3 > div {
+    margin-bottom: 0.5em;
+}
+
+h2{
+    color: #732AD9;
+    font-family: Josefin Sans SemiBold;
+    font-size: 40px !important;
+}
+
+h1{
+    margin-bottom: 1.5em !important;
+}
+
+.avatars{
+    border-radius: 50%;
+}
+
+span{
+    color: #732AD9;
+}

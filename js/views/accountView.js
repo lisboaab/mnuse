@@ -61,7 +61,7 @@ function accountView(){
 
         result += `</div></div></button>`
 
-        result += `<div class="col-lg-2"><div id="mnuseLeague"><button>
+        result += `<div class="col-lg-2"><div id="mnuseLeague" onclick="window.location.href = '../../html/mnuseLeague.html' "><button>
         <h4>MNUSE</h4><h4>league</h4></div></div></button></div></div>`
     }else{
         result += `<div class="container"><div class="row" id="moreInfoRow">

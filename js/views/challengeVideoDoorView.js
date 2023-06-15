@@ -5,12 +5,13 @@ import * as Challenges from "../models/modelChallenges.js"
 let btnBackSideInfo = document.getElementById("btnBackSideInfo");
 
 let remainingTime = 300
-const countdown = document.getElementById("countdown")
 function updateTimer() {
   if (remainingTime > 0) {
-    console.log("Time remaining:", remainingTime)
+    const minutes  = Math.floor(remainingTime / 60)
+    const seconds = remainingTime % 60
+    const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
+    document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}`
     remainingTime -= 1
-    countdown.innerHTML = remainingTime
   } else {
     clearInterval(timerInterval)
   }
@@ -73,7 +74,7 @@ btnContinueSideInfo.addEventListener("click", function() {
     let usersList = JSON.parse(localStorage.getItem("users"));
     if (!checkChallengeIs(challenge.challengeID)) {
         challengeList.push(challenge.challengeID);
-        const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.time);
+        const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.timeChallenges, user.isFinished);
         const index = usersList.findIndex(u => u.username === user.username);
         usersList[index] = updatedUser;
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
@@ -90,9 +91,10 @@ btnContinueSideInfo.addEventListener("click", function() {
         User.getTime(wastedTime)
     } else if (checkChallengeIs(challenge.challengeID)){ // modal saying that the challenge 
         let modal = document.getElementById("challengeAlreadyCompleted");
-            modal.classList.add("show");
-            modal.style.display = "block";
-            document.body.classList.add("modal-open");
+        modal.classList.add("show");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
+        clearInterval(timerInterval)
     }
 })
 

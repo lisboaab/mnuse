@@ -9,7 +9,6 @@ resultSideInfo = `<div id="countdown"></div>`
 
 resultSideInfo += `<h3>Words unlocked</h3>`
 
-
 if(User.getUserLogged().words[0] == undefined){
     resultSideInfo += `<div id="words"><p>a</p></div><div id="words"><p>a</p></div>`
 }else if(User.getUserLogged().words[1] == undefined){

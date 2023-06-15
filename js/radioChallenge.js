@@ -120,7 +120,7 @@ function checkChallengeIs(id) {
 //  SAVES IN THE ARRAY OF COMPLETED CHALLENGES THIS CHALLENGE ID
 function saveFinishedChallenge(){
   challengeList.push(challenge.challengeID);
-  const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+  const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.timeChallenges, user.isFinished);
   const index = usersList.findIndex(u => u.username === user.username);
   usersList[index] = updatedUser;
   sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
