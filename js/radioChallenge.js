@@ -1,6 +1,22 @@
 import * as User from "./models/modelUsers.js"
 import * as Challenges from "./models/modelChallenges.js"
 
+let remainingTime = 300
+
+function updateTimer() {
+  if (remainingTime > 0) {
+    const minutes  = Math.floor(remainingTime / 60)
+    const seconds = remainingTime % 60
+    const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
+    document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}`
+    remainingTime -= 1
+  } else {
+    clearInterval(timerInterval)
+  }
+}
+
+const timerInterval = setInterval(updateTimer, 1000)
+
 const sound1 = new Audio()
 sound1.src = "../assets/sounds/airplane.wav"
 
@@ -120,7 +136,7 @@ function checkChallengeIs(id) {
 //  SAVES IN THE ARRAY OF COMPLETED CHALLENGES THIS CHALLENGE ID
 function saveFinishedChallenge(){
   challengeList.push(challenge.challengeID);
-  const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+  const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.timeChallenges, user.isFinished);
   const index = usersList.findIndex(u => u.username === user.username);
   usersList[index] = updatedUser;
   sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
@@ -151,6 +167,8 @@ btnBackSideInfo.addEventListener("click", function(event){
     window.location.href = "level.html";
 })
 
+let wastedTime = 0
+
 // BUTTON SAVE (IF CHALLENGE IS ALREADY COMPLETED SHOW MODAL)
 document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
   if (checkChallengeIs(challenge.challengeID)){
@@ -158,6 +176,10 @@ document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
     modal.classList.add("show");
     modal.style.display = "block";
     document.body.classList.add("modal-open");
+    wastedTime = 300 - remainingTime
+    console.log(wastedTime)
+    clearInterval(timerInterval)
+    User.getTime(parseInt(wastedTime))
   }
   else {
     let modal = document.getElementById("challengeNotCompleted");

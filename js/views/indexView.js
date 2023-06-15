@@ -1,8 +1,10 @@
 import * as User from "../models/modelUsers.js";
+import * as Rebus from "../models/modelChallengeRebus.js"
 
 function indexView(){
 
     User.initUsers()
+    Rebus.initRebus()
 
     let result = `<div class="row justify-content-center align-items-center">
     <div class="col-md-12"><h1 id="title">ESCAPE THE MIND</h1>
@@ -23,6 +25,14 @@ function indexView(){
     }
     
     document.getElementById("middleWebsite").innerHTML = result
+    document.getElementById("disclaimerModal").addEventListener("click", () => {
+      const loggedUser = User.getUserLogged()
+      if(loggedUser.finishedChallenges.length == 0){
+        window.location.href = "../../html/terapeuta.html"
+      }else{
+        window.location.href = "../../html/mapa.html"
+      }
+    })
 
 }
 
