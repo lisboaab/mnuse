@@ -6,6 +6,7 @@ const word2 = "parents"
 const word3 = "remember";
 const wrongLetters = [];
 const rightLetters = [];
+let gameStarted = 0;
 
 document.addEventListener("keydown", (event) => {
   const code = event.keyCode; // 65 - 90 (intervalo)
@@ -18,7 +19,9 @@ document.addEventListener("keydown", (event) => {
         wrongLetters.push(letter);
       }
     }
+    gameStarted += 1;
     attGame();
+    
   }
 });
 
@@ -72,19 +75,13 @@ function showRightLetters() {
 let usersList = JSON.parse(localStorage.getItem("users"));
 let user = User.getUserLogged();
 let challengeList = user.finishedChallenges;
+let challengeIfFinished = false;
 
 function validateGame() {
     const w1 = document.getElementById("fieldWord1");
     const w2 = document.getElementById("fieldWord2");
     const w3 = document.getElementById("fieldWord3");
     const partesCorpo = document.querySelectorAll(".hangman-part");
-
-    if (checkChallengeIs(challenge.challengeID)){
-      let modal = document.getElementById("challengeAlreadyCompleted");
-      modal.classList.add("show");
-      modal.style.display = "block";
-      document.body.classList.add("modal-open");
-    }
 
     if (wrongLetters.length === partesCorpo.length) {
       let modal = document.getElementById("modalGameOver");
@@ -95,13 +92,7 @@ function validateGame() {
     }
 
     if ((word1 === w1.textContent) && (word2 === w2.textContent) && (word3 === w3.textContent)){
-      let modal = document.getElementById("challengeSucessfullyCompleted");
-      modal.classList.add("show");
-      modal.style.display = "block";
-      document.body.classList.add("modal-open");
-      if (!checkChallengeIs(challenge.challengeID)){
-        saveFinishedChallenge()
-      }
+      challengeIfFinished = true;
     }
 }
 
@@ -179,4 +170,43 @@ document.getElementById("btnCloseChallengeCompleted").addEventListener("click", 
   document.body.classList.remove("modal-open");
 })
 
-validateGame()
+document.getElementById("btnCloseChallengeNotCompleted").addEventListener("click", function(){
+  let modal = document.getElementById("challengeNotCompleted");
+  modal.classList.remove("show");
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+})
+
+
+// BUTTON SAVE
+document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
+  console.log(gameStarted)
+  if (challengeIfFinished === true){
+    let modal = document.getElementById("challengeSucessfullyCompleted");
+      modal.classList.add("show");
+      modal.style.display = "block";
+      document.body.classList.add("modal-open");
+      if (!checkChallengeIs(challenge.challengeID)){
+        saveFinishedChallenge()
+      }
+  }
+  else if (checkChallengeIs(challenge.challengeID)){
+    let modal = document.getElementById("challengeAlreadyCompleted");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+  }
+  
+  else if (!checkChallengeIs(challenge.challengeID) || gameStarted < 14){
+    let modal = document.getElementById("challengeNotCompleted");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+  }
+  else {
+    validateGame()
+  }
+})
+
+console.log(challengeList)
+console.log(gameStarted)

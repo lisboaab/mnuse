@@ -109,3 +109,7 @@ input[id="subscribe"]:hover{
     color: #EEEAF5;
     background-color: #732AD9;
 }
+
+#subscribeBtn{
+    box-shadow: none;
+}

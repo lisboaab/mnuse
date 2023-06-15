@@ -20,12 +20,18 @@
 
 #background {
     position: relative;
+    display: grid;
+    justify-items: center;
 }
   
 .overlay{
     position: absolute;
     top: 1em;
     z-index: 1;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-top: 1%;
 }
 
 #game h1 {
@@ -39,7 +45,7 @@ body{
 }
 
 #divChallenges {
-    border-radius: 4vw;
+    border-radius: 15px;
     background-color: #827397;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -47,6 +53,7 @@ body{
     grid-template-areas: "rebus1 rebus2"
                         "rebus3 rebus4";
     justify-items: center;
+    width: 63em;
 }
 
 #rebus1 {

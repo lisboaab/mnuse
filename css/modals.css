@@ -19,7 +19,7 @@ body{
 }
 
 .modal-dialog {
-    top: 15%;
+    top: 2%;
     z-index: 10;
 }
   
@@ -58,7 +58,7 @@ body{
 .modal-body{
     font-family: Josefin Sans Light;
     padding-top: 0 !important;
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 5%;
 }
 
@@ -119,4 +119,8 @@ input[type="submit"]:hover{
 
 .btnSideInfo {
     box-shadow: none;
+}
+
+.modal{
+    background-color: #00000040;
 }

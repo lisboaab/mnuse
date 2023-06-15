@@ -1,4 +1,64 @@
 import {Game} from "../models/modelMemoryCard.js"
+import * as User from "../models/modelUsers.js"
+import * as Challenges from "../models/modelChallenges.js"
 
 const game = new Game();
 game.init();
+
+//  BUTTON BACK
+let btnBackSideInfo = document.getElementById("btnBackSideInfo");
+btnBackSideInfo.addEventListener("click", function(event){
+    event.preventDefault();
+    window.location.href = "level.html";
+})
+
+
+// BUTTON SAVE
+document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
+    if (game.cardsMatched === game.cards.length){
+        let modal = document.getElementById("challengeSucessfullyCompleted");
+        modal.classList.add("show");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
+        if (!checkChallengeIs(challenge.challengeID)){
+            saveFinishedChallenge()
+        }
+    }
+    else {
+        console.log("erro")
+    }
+})
+
+// SEE IF CHALLENGE IS IN ARRAY OF FINISHED CHALLENGES
+function checkChallengeIs(id) {
+    let user = User.getUserLogged();
+    let challengeList = user.finishedChallenges;
+    return challengeList.includes(id);
+}
+
+let usersList = JSON.parse(localStorage.getItem("users"));
+let user = User.getUserLogged();
+let challengeList = user.finishedChallenges;
+
+function saveFinishedChallenge(){
+    challengeList.push(challenge.challengeID);
+    const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+    const index = usersList.findIndex(u => u.username === user.username);
+    usersList[index] = updatedUser;
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
+    localStorage.setItem("users", JSON.stringify(usersList));
+}
+
+// BUTTON HELP
+let textsHelpBtn = document.getElementById("textsHelpBtn");
+let challenge = Challenges.challengesList.find(chall => chall.challengeID === "memoryCard");
+let line = `${challenge.helpCard}`;
+textsHelpBtn.innerHTML += line;
+
+// BUTTONS TO CLOSE MODALS
+document.getElementById("btnCloseChallengeSucessfull").addEventListener("click", function(){
+    let modal = document.getElementById("challengeSucessfullyCompleted");
+    modal.classList.remove("show");
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+})

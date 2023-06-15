@@ -13,3 +13,25 @@ body{
 #finalImg{
   border-radius: 15px;
 }
+
+.textChallenge{
+  font-family: josefinSansSemibold;
+  color: #18234d;
+  font-size: 25px;
+  text-align: left;
+}
+
+div.divText p {
+  color: #18234d;
+  font-family: josefinSansRegular;
+  font-size: 17px;
+}
+
+div.divText{
+  margin-right: 9%;
+}
+
+#game{
+  margin-top: 2%;
+  margin-bottom: -4%;
+}
