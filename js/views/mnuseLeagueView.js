@@ -1,7 +1,7 @@
 import * as User from "../models/modelUsers.js";
 
 const users = User.exportUsers()
-let timesUsers = users.filter((user) => user.isFinished).map((user) => user.timeChallenges).sort((a, b) => b - a)
+let timesUsers = users.filter((user) => user.isFinished).map((user) => user.timeChallenges).sort((a, b) => a - b)
 
 const topThreeUsers =  timesUsers.slice(0, 3).map((time) => users.find(user => user.timeChallenges === time))
 let timeLoggedUser = User.getUserLogged().timeChallenges
@@ -30,3 +30,8 @@ topThreeUsers.forEach((user, index) => {
   position.innerHTML  += `<img class="avatars" src="${user.avatar}">`
   info.innerHTML = `<p>${user.username}</p><p>${minutes}m${secondsDisplay}s</p>`
 })
+
+const top1 = topThreeUsers[0]
+const user = top1.username
+console.log(user)
+User.addMnuseBadge(3, user)

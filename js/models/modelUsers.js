@@ -48,8 +48,8 @@ if (!users) {
         words:["Forgotten", "Collision"],
         code: 1,
         isBlocked: false,
-        timeChallenges: 0,
-        isFinished: false,
+        timeChallenges: 200,
+        isFinished: true,
     },
         {username:"admin2",
         email:"admin2@email.com",
@@ -80,51 +80,6 @@ if (!users) {
         isBlocked: false,
         timeChallenges: 0,
         isFinished: false
-    },
-        {username:"carol",
-        email:"carol@email.com",
-        password:"123",
-        avatar:"../assets/imgs/avatar1.png",
-        currentLevel:3,
-        levelLoad: 0,
-        finishedChallenges:[],
-        badges:[],
-        badgesDescription: [],
-        words:["Forgotten"],
-        code: 0,
-        isBlocked: false,
-        timeChallenges: 140,
-        isFinished: true
-    },
-        {username:"carol2",
-        email:"carol2@email.com",
-        password:"123",
-        avatar:"../assets/imgs/avatar1.png",
-        currentLevel:3,
-        levelLoad: 0,
-        finishedChallenges:[],
-        badges:[],
-        badgesDescription: [],
-        words:["Forgotten"],
-        code: 0,
-        isBlocked: false,
-        timeChallenges: 180,
-        isFinished: true
-    },
-        {username:"carol3",
-        email:"carol3@email.com",
-        password:"123",
-        avatar:"../assets/imgs/avatar1.png",
-        currentLevel:3,
-        levelLoad: 0,
-        finishedChallenges:[],
-        badges:[],
-        badgesDescription: [],
-        words:["Forgotten"],
-        code: 0,
-        isBlocked: false,
-        timeChallenges: 210,
-        isFinished: true
     }
     ];
     localStorage.setItem("users", JSON.stringify(users))
@@ -187,8 +142,7 @@ export function saveUser(username, email, password) {
         0,
         false,
         0,
-        0,
-        0
+        false
     );
     if (userExists(username, email) === "email"){
         validationMessage.textContent = "Email already in use. Try another one!";
@@ -374,8 +328,8 @@ export function addWords(wordIndex){
     localStorage.setItem("users", JSON.stringify(users))
 }
 
-let badges = ["../assets/imgs/badges/badge_level1.png", "../assets/imgs/badges/badge_level2.png", "../assets/imgs/badges/badge_level3.png"]
-let descriptions = ["You got this badge for finishing level 1!", "You got this badge for finishing level 2!", "You got this badge for finishing level 3!"]
+let badges = ["../assets/imgs/badges/badge_level1.png", "../assets/imgs/badges/badge_level2.png", "../assets/imgs/badges/badge_level3.png", "../assets/imgs/badges/badge_mnuseLeague.png"]
+let descriptions = ["You got this badge for finishing level 1!", "You got this badge for finishing level 2!", "You got this badge for finishing level 3!", "You got this badge for being #1 in the Mnuse League!"]
 
 export function addBadge(badgeIndex){
     const loggedUser = getUserLogged()
@@ -383,8 +337,6 @@ export function addBadge(badgeIndex){
     const descriptionReceived = descriptions[badgeIndex]
     loggedUser.badges.push(badgeReceived)
     loggedUser.badgesDescription.push(descriptionReceived)
-    console.log(loggedUser.badges)
-    console.log(loggedUser.badgesDescription)
     const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, loggedUser.timeChallenges, loggedUser.isFinished)
     const index  = users.findIndex(user => user.username === loggedUser.username)
     users[index] =  updatedUser
@@ -392,36 +344,59 @@ export function addBadge(badgeIndex){
     localStorage.setItem("users", JSON.stringify(users))
 }
 
+export function addMnuseBadge(badgeIndex, userID){
+    const user = users.find(user => user.username === userID)
+    const badgeReceived = badges[badgeIndex]
+    const descriptionReceived = descriptions[badgeIndex]
+    if(!user.badges.includes(badgeReceived)){
+        user.badges.push(badgeReceived)
+        user.badgesDescription.push(descriptionReceived)
+        const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, user.finishedChallenges, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.timeChallenges, user.isFinished)
+        const index  = users.findIndex(u => u.username === user.username)
+        users[index] =  updatedUser
+        localStorage.setItem("users", JSON.stringify(users))
+    }
+}
 
 export function getTime(time) {
     console.log("Entered here");
-  const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"));
-  let newTime = 0;
+    const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"))
+    let newTime = 0;
 
-  console.log(time);
-  console.log(loggedUser.timeChallenges);
-  if (loggedUser.timeChallenges === 0) {
-    newTime = time;
-  } else {
-    console.log("Entered here");
     console.log(time);
     console.log(loggedUser.timeChallenges);
-    newTime = loggedUser.timeChallenges + time;
-    console.log(newTime);
-  }
+    if (loggedUser.timeChallenges === 0) {
+        newTime = time;
+    } else {
+        console.log("Entered here");
+        console.log(time);
+        console.log(loggedUser.timeChallenges);
+        newTime = loggedUser.timeChallenges + time;
+        console.log(newTime);
+    }
 
-  loggedUser.timeChallenges = newTime;
+    loggedUser.timeChallenges = newTime;
 
-  const usersList = JSON.parse(localStorage.getItem("users"));
-  const index = usersList.findIndex((user) => user.username === loggedUser.username);
-  if (index !== -1) {
-    usersList[index] = loggedUser;
-    sessionStorage.setItem("loggedUser", JSON.stringify(loggedUser));
-    localStorage.setItem("users", JSON.stringify(usersList));
-    console.log("User object updated successfully!");
-  } else {
-    console.log("User not found in the users list!");
-  }
+    const usersList = JSON.parse(localStorage.getItem("users"));
+    const index = usersList.findIndex((user) => user.username === loggedUser.username);
+    if (index !== -1) {
+        usersList[index] = loggedUser;
+        sessionStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+        localStorage.setItem("users", JSON.stringify(usersList));
+        console.log("User object updated successfully!");
+    } else {
+        console.log("User not found in the users list!");
+    }
+}
+
+export function changeIsFinished(){
+    const isfinished = true
+    const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"))
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, loggedUser.timeChallenges, isfinished)
+    const index  = users.findIndex(user => user.username === loggedUser.username)
+    users[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("users", JSON.stringify(users))
 }
 
 console.log(users)
