@@ -1,56 +1,75 @@
-let wordLevel1 = "forgotten";
-let wordLevel2 = "collision";
-let messageToShow = document.getElementById("messageToShow");
-let inputWord1 = document.getElementById("inputWord1");
-let inputWord2 = document.getElementById("inputWord2");
-let btnContinue = document.getElementById("btnContinue");
-let containerVideo = document.getElementById("containerVideo");
-var modalUnlockWords = document.getElementById('modalUnlockWords');
+import * as User from "../models/modelUsers.js"
+import * as Challenges from "../models/modelChallenges.js"
 
 
-function checkInput(){
-    if (inputWord1.value.toLowerCase() != wordLevel1 && inputWord2.value.toLowerCase() != wordLevel2){
-        messageToShow.textContent = "";
-        messageToShow.textContent = "Both words are incorrect! Try again";
-        messageToShow.setAttribute("class", "wrong");
-        // btnContinue.disabled = true;
-        return false
 
-    } else if (inputWord1.value.toLowerCase() != wordLevel1 && inputWord2.value.toLowerCase() === wordLevel2){
-        messageToShow.textContent = "";
-        messageToShow.textContent = "Word of the 1st level is incorrect! Try again";
-        messageToShow.setAttribute("class", "wrong");
-        // btnContinue.disabled = true;
-        return false
 
-    }
-    else if (inputWord2.value.toLowerCase() != wordLevel2  && inputWord1.value.toLowerCase() === wordLevel1){
-        messageToShow.textContent = "";
-        messageToShow.textContent = "Word of the 2nd level is incorrect! Try again";
-        messageToShow.setAttribute("class", "wrong");
-        // btnContinue.disabled = true;
-        return false
-        
-    }
-    else if (inputWord1.value.toLowerCase() === wordLevel1 && inputWord2.value.toLowerCase() === wordLevel2) {
-        messageToShow.textContent = "Words match!";
-        messageToShow.setAttribute("class", "right");
-        // btnContinue.disabled = false;
-        return true
-    }
-    else {
-        messageToShow.textContent = "";
-        messageToShow.textContent = "Something is wrong! Try again";
-        messageToShow.setAttribute("class", "wrong");
-        return false
-    }
+
+
+
+//  BUTTON BACK
+let btnBackSideInfo = document.getElementById("btnBackSideInfo");
+btnBackSideInfo.addEventListener("click", function(event){
+    event.preventDefault();
+    window.location.href = "mapa.html";
+})
+
+let usersList = JSON.parse(localStorage.getItem("users"));
+let user = User.getUserLogged();
+let challengeList = user.finishedChallenges;
+
+// BUTTON HELP
+let textsHelpBtn = document.getElementById("textsHelpBtn");
+let challenge = Challenges.challengesList.find(chall => chall.challengeID === "videoLevel3");
+let line = `${challenge.helpCard}`;
+textsHelpBtn.innerHTML += line;
+
+
+//  BUTTON SAVE
+function checkChallengeIs(id) {
+    let user = User.getUserLogged();
+    let challengeList = user.finishedChallenges;
+    return challengeList.includes(id);
 }
 
-btnContinue.addEventListener("click", function(event){
-    event.preventDefault()
-    checkInput()
-    if (checkInput()){
-        window.location.href = "level3Door.html"
-        modalUnlockWords.hide();
-    }  
+let btnSaveSideInfo = document.getElementById("btnSaveSideInfo");
+btnSaveSideInfo.addEventListener("click", function() {
+    // Save in local storage the challenge completed
+    let user = User.getUserLogged();
+    let challengeList = user.finishedChallenges;
+    let usersList = JSON.parse(localStorage.getItem("users"));
+    if (!checkChallengeIs(challenge.challengeID)) {
+        challengeList.push(challenge.challengeID);
+        const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
+        const index = usersList.findIndex(u => u.username === user.username);
+        usersList[index] = updatedUser;
+        sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
+        localStorage.setItem("users", JSON.stringify(usersList));
+        console.log(challengeList)
+        let modal = document.getElementById("challengeSucessfullyCompleted"); // modal saying the challenge is completed
+        modal.classList.add("show");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
+    } else if (checkChallengeIs(challenge.challengeID)){ // modal saying that the challenge was already completed before
+        let modal = document.getElementById("challengeAlreadyCompleted");
+        modal.classList.add("show");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
+    }
+})
+
+let btnCloseChallengeCompleted = document.getElementById("btnCloseChallengeCompleted")
+btnCloseChallengeCompleted.addEventListener("click", function(){
+    var modal = document.getElementById("challengeAlreadyCompleted");
+    modal.classList.remove("show");
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+})
+
+let btnCloseChallengeSucessfull = document.getElementById("btnCloseChallengeSucessfull")
+btnCloseChallengeSucessfull.addEventListener("click", function(){
+    var modal = document.getElementById("challengeSucessfullyCompleted");
+    modal.classList.remove("show");
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
 })

@@ -26,13 +26,72 @@
           </div>
         </div>
         <div class="col-lg-2" id="sideInfo"></div>
+        <div id="butonsSideInfo">
+          <button id="btnBackSideInfo" type="button" class="btnSideInfo">Back</button>
+          <button id="btnHelpSideInfo" type="button" class="btnSideInfo" value="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
+          <button id="btnSaveSideInfo" type="button" class="btnSideInfo">Save</button>
+        </div>
+
+        <!-- MODAL HELP -->
+    <div class="modal fade" id="helpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="#helpModal" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">HELP</h5>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                      <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <p class="text" id="textsHelpBtn"></p>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+
+  <!-- MODAL CHALLENGE ALREADY COMPLETED -->
+  <div class="modal fade" id="challengeAlreadyCompleted" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">YAY!</h5>
+                  <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                      <img src="../assets/imgs/cruz.png" id="btnCloseChallengeCompleted" class="btnClose" alt="Close">
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <p class="text">Good news! You have already completed this challenge!<br>Hurry up to complete all the others in time!</p>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+
+  <!-- MODAL CHALLENGE SUCESSFULLY COMPLETED -->
+  <div class="modal fade" id="challengeSucessfullyCompleted" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">CONGRATULATIONS!</h5>
+                  <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                      <img src="../assets/imgs/cruz.png" id="btnCloseChallengeSucessfull" class="btnClose" alt="Close">
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <p class="text">Challenge sucessfully completed!<br>Hurry up to complete all the others in time!</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
       </div>
     </div>
     <footer id="footer"></footer>
     <script type="module" src="../js/views/navBarView.js"></script>
     <script type="module" src="../js/views/sideInfoView.js"></script>
     <script type="module" src="../js/views/footerView.js"></script>
-    <script src="../js/views/level3door.js"></script>
+    <script type="module" src="../js/views/level3door.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

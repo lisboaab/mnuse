@@ -13,7 +13,7 @@ btnBackSideInfo.addEventListener("click", function(event){
 })
 
 
-// BUTTON SAVE
+// BUTTON TO SAVE CHALLENGE
 document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
     if (game.cardsMatched === game.cards.length){
         let modal = document.getElementById("challengeSucessfullyCompleted");
@@ -24,8 +24,17 @@ document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
             saveFinishedChallenge()
         }
     }
+    else if (checkChallengeIs(challenge.challengeID)){
+        let modal = document.getElementById("challengeAlreadyCompleted");
+        modal.classList.add("show");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
+    }
     else {
-        console.log("erro")
+        let modal = document.getElementById("challengeNotCompleted");
+        modal.classList.add("show");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
     }
 })
 
@@ -40,6 +49,7 @@ let usersList = JSON.parse(localStorage.getItem("users"));
 let user = User.getUserLogged();
 let challengeList = user.finishedChallenges;
 
+//  SAVE IN LOCAL STORAGE THE WORD OF THE FINISHED CHALLENGE
 function saveFinishedChallenge(){
     challengeList.push(challenge.challengeID);
     const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked);
@@ -55,6 +65,7 @@ let challenge = Challenges.challengesList.find(chall => chall.challengeID === "m
 let line = `${challenge.helpCard}`;
 textsHelpBtn.innerHTML += line;
 
+
 // BUTTONS TO CLOSE MODALS
 document.getElementById("btnCloseChallengeSucessfull").addEventListener("click", function(){
     let modal = document.getElementById("challengeSucessfullyCompleted");
@@ -62,3 +73,18 @@ document.getElementById("btnCloseChallengeSucessfull").addEventListener("click",
     modal.style.display = "none";
     document.body.classList.remove("modal-open");
 })
+
+document.getElementById("btnCloseChallengeCompleted").addEventListener("click", function(){
+    let modal = document.getElementById("challengeAlreadyCompleted");
+    modal.classList.remove("show");
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+})
+
+document.getElementById("btnCloseChallengeNotCompleted").addEventListener("click", function(){
+    let modal = document.getElementById("challengeNotCompleted");
+    modal.classList.remove("show");
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+  })
+  
