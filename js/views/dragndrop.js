@@ -97,7 +97,7 @@ textsHelpBtn.innerHTML += line;
 
 
 // BUTTON CONTINUE
-let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
+let btnSaveSideInfo = document.getElementById("btnSaveSideInfo");
 let usersList = JSON.parse(localStorage.getItem("users"));
 let user = User.getUserLogged();
 let challengeList = user.finishedChallenges;
@@ -105,7 +105,7 @@ let challengeList = user.finishedChallenges;
 let wastedTime = 0
 let wastedTimeMinutes = 0
 
-btnContinueSideInfo.addEventListener("click", function(event) {
+btnSaveSideInfo.addEventListener("click", function(event) {
   event.preventDefault();
 
   if (correctAnswers === 3) {

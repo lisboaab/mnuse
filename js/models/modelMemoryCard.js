@@ -47,7 +47,8 @@ export class Game {
 
         // Check if the game has ended
         if (this.cardsMatched === this.cards.length) {
-          console.log("completed")
+          console.log("finished");
+          return true
         }
 
       } else {
@@ -67,3 +68,4 @@ export class Game {
     });
   }
 }
+

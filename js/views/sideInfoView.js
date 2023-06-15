@@ -34,7 +34,12 @@ function getFinishedChallenges(){
     let currentLevel = User.getUserLogged().levelLoad;
     let finishedChallenges = User.getUserLogged().finishedChallenges.length;
     if (currentLevel === 1){
-        return (finishedChallenges)
+        if (finishedChallenges > 3){
+            return 3
+        }
+        else {
+          return (finishedChallenges)  
+        }
     }
     else if (currentLevel === 2){
         return (finishedChallenges - 3)

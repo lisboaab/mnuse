@@ -81,7 +81,6 @@ function checkMatch() {
           document.body.classList.add("modal-open");
           if (!checkChallengeIs(challenge.challengeID)){
             saveFinishedChallenge()
-            console.log("challenge salvo")
           }
         }
     } else {
@@ -103,6 +102,7 @@ function getSoundFromButtonName(name) {
         return sound4
     }
 }
+
 
 let usersList = JSON.parse(localStorage.getItem("users"));
 let user = User.getUserLogged();
@@ -126,6 +126,7 @@ function saveFinishedChallenge(){
   sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
   localStorage.setItem("users", JSON.stringify(usersList));
 }
+console.log(`lista de challenges: ${challengeList}`)
 
 //  FUNCTIONS BTNS CLOSE MODALS
 document.getElementById("btnCloseChallengeSucessfull").addEventListener("click", function(){
@@ -135,9 +136,10 @@ document.getElementById("btnCloseChallengeSucessfull").addEventListener("click",
   document.body.classList.remove("modal-open");
 })
 
+
+// TEXT IN THE HELP BUTTON
 let textsHelpBtn = document.getElementById("textsHelpBtn");
 let challengeID = Challenges.challengesList.find(chall => chall.challengeID === "radio");
-
 let line = `${challengeID.helpCard}`;
 textsHelpBtn.innerHTML += line;
 
@@ -149,13 +151,22 @@ btnBackSideInfo.addEventListener("click", function(event){
     window.location.href = "level.html";
 })
 
-// IF CHALLENGE IS ALREADY COMPLETED SHOW MODAL
-if (checkChallengeIs(challenge.challengeID)){
-  let modal = document.getElementById("challengeAlreadyCompleted");
-      modal.classList.add("show");
-      modal.style.display = "block";
-      document.body.classList.add("modal-open");
-}
+// BUTTON SAVE (IF CHALLENGE IS ALREADY COMPLETED SHOW MODAL)
+document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
+  if (checkChallengeIs(challenge.challengeID)){
+    let modal = document.getElementById("challengeAlreadyCompleted");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+  }
+  else {
+    let modal = document.getElementById("challengeNotCompleted");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+  }
+})
+
 
 document.getElementById("btnCloseChallengeCompleted").addEventListener("click", function(){
   let modal = document.getElementById("challengeAlreadyCompleted");
@@ -164,8 +175,15 @@ document.getElementById("btnCloseChallengeCompleted").addEventListener("click", 
   document.body.classList.remove("modal-open");
 })
 
+document.getElementById("btnCloseChallengeNotCompleted").addEventListener("click", function(){
+  let modal = document.getElementById("challengeNotCompleted");
+  modal.classList.remove("show");
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+})
 
-// FNCTION THAT SHOWS A MODAL SAYING TO TURN ON THE AUDIO ON THE 1ST TIME THE PERSON CLICKS THE 1ST NUMBER BOX
+
+// FUNCTION THAT SHOWS A MODAL SAYING TO TURN ON THE AUDIO ON THE 1ST TIME THE PERSON CLICKS THE 1ST NUMBER BOX
 let firstBoxClicked = 0;
 document.getElementById("sound3").addEventListener("click",function(){
   if (firstBoxClicked === 0){
@@ -177,7 +195,7 @@ document.getElementById("sound3").addEventListener("click",function(){
   }
 
 })
-
+// BUTTON TO CLOSE THE MODAL ABOVE
 document.getElementById("btnCloseAudioOn").addEventListener("click", function(){
   let modal = document.getElementById("turnAudioOn");
   modal.classList.remove("show");
