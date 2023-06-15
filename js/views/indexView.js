@@ -1,8 +1,10 @@
 import * as User from "../models/modelUsers.js";
+import * as Rebus from "../models/modelChallengeRebus.js"
 
 function indexView(){
 
     User.initUsers()
+    Rebus.initRebus()
 
     let result = `<div class="row justify-content-center align-items-center">
     <div class="col-md-12"><h1 id="title">ESCAPE THE MIND</h1>

@@ -407,8 +407,6 @@ export function getTime(time) {
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
     localStorage.setItem("users", JSON.stringify(users))
 }
-  
-
 
 console.log(users)
 

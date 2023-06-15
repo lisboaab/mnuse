@@ -2,7 +2,7 @@ import * as Rebus  from "./models/modelChallengeRebus.js"
 import * as User from "./models/modelUsers.js"
 import * as Challenges from "./models/modelChallenges.js"
 
-const rebusChallenges = JSON.parse(localStorage.getItem("challengesRebus"))
+const rebusChallenges = JSON.parse(localStorage.getItem("rebus"))
 console.log(rebusChallenges)
 
 let remainingTime = 300
