@@ -48,8 +48,8 @@ function checkChallengeIs(id) {
     return challengeList.includes(id);
 }
 
-let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
-btnContinueSideInfo.addEventListener("click", function() {
+let btnSaveSideInfo = document.getElementById("btnSaveSideInfo");
+btnSaveSideInfo.addEventListener("click", function() {
     // Save in local storage the challenge completed
     let user = User.getUserLogged();
     let challengeList = user.finishedChallenges;

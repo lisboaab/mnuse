@@ -13,6 +13,7 @@ body{
     flex-wrap: nowrap;
     background-color: #eeeaf5;
     border-radius: 15px;
+    align-items: center;
 }
 
 #imgPorta {
@@ -33,12 +34,13 @@ body{
 
 
 #divVideo {
-    margin-top: 17vh;
+    margin-right: 3%;
+    margin-top: 7%;
     overflow: hidden;
     border: 5px solid #827397;
     border-radius: 40px;
     width: 80em;
-    height: 30em;
+    height: 25em;
     display: grid;
     place-items: center;
 }

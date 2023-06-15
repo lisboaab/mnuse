@@ -173,10 +173,10 @@ function checkChallengeIs(id) {
 }
   
 // VALIDATE ALL ANSWERS
-let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
+let btnSaveSideInfo = document.getElementById("btnSaveSideInfo");
 let usersList = JSON.parse(localStorage.getItem("users"));
 
-btnContinueSideInfo.addEventListener("click", function(event) {
+btnSaveSideInfo.addEventListener("click", function(event) {
     event.preventDefault();
     let user = User.getUserLogged();
     let challengeList = user.finishedChallenges;
