@@ -28,6 +28,7 @@ btnBackSideInfo.addEventListener("click", function(event){
     window.location.href = "level.html";
 })
 
+let wastedTime = 0
 
 // BUTTON TO SAVE CHALLENGE
 document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
@@ -37,11 +38,10 @@ document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
         modal.style.display = "block";
         document.body.classList.add("modal-open");
         wastedTime = 300 - remainingTime
-        wastedTimeMinutes = wastedTime/60
         clearInterval(timerInterval)
-        User.getTime(wastedTime)
         if (!checkChallengeIs(challenge.challengeID)){
             saveFinishedChallenge()
+            User.getTime(parseInt(wastedTime))
         }
     }
     else if (checkChallengeIs(challenge.challengeID)){

@@ -78,6 +78,7 @@ function accountView(){
     const modalBodyBadges = document.getElementById("modalBodyBadges")
 
     let modalBody = ""
+    modalBodyBadges.innerHTML = ""
     if (User.getUserLogged().badges.length == 0){
         modalBody += `<h4>You have no badges yet!</h4>`
     }else{

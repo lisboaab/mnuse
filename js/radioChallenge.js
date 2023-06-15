@@ -2,6 +2,7 @@ import * as User from "./models/modelUsers.js"
 import * as Challenges from "./models/modelChallenges.js"
 
 let remainingTime = 300
+let challengeIfFinished = false;
 
 function updateTimer() {
   if (remainingTime > 0) {
@@ -91,13 +92,11 @@ function checkMatch() {
         button2 = null
         matched += 1
         if(matched == 4){
-          let modal = document.getElementById("challengeSucessfullyCompleted");
-          modal.classList.add("show");
-          modal.style.display = "block";
-          document.body.classList.add("modal-open");
-          if (!checkChallengeIs(challenge.challengeID)){
-            saveFinishedChallenge()
-          }
+          challengeIfFinished = true;
+          // let modal = document.getElementById("challengeSucessfullyCompleted");
+          // modal.classList.add("show");
+          // modal.style.display = "block";
+          // document.body.classList.add("modal-open");
         }
     } else {
         button1.classList.remove("radioBtn-clicked")
@@ -171,15 +170,24 @@ let wastedTime = 0
 
 // BUTTON SAVE (IF CHALLENGE IS ALREADY COMPLETED SHOW MODAL)
 document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
-  if (checkChallengeIs(challenge.challengeID)){
-    let modal = document.getElementById("challengeAlreadyCompleted");
+  if (challengeIfFinished === true){
+    let modal = document.getElementById("challengeSucessfullyCompleted");
     modal.classList.add("show");
     modal.style.display = "block";
     document.body.classList.add("modal-open");
     wastedTime = 300 - remainingTime
     console.log(wastedTime)
     clearInterval(timerInterval)
-    User.getTime(parseInt(wastedTime))
+    if (!checkChallengeIs(challenge.challengeID)){
+      saveFinishedChallenge()
+      User.getTime(parseInt(wastedTime))
+    }
+  }
+  else if (checkChallengeIs(challenge.challengeID)){
+    let modal = document.getElementById("challengeAlreadyCompleted");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
   }
   else {
     let modal = document.getElementById("challengeNotCompleted");
