@@ -394,18 +394,34 @@ export function addBadge(badgeIndex){
 
 
 export function getTime(time) {
-    const loggedUser = getUserLogged()
-    let newTime = 0
-    if (loggedUser.timeChallenges === 0) {
-        newTime = time
-    } else {
-        newTime = loggedUser.timeChallenges + time
-    }
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, newTime, loggedUser.isFinished)
-    const index = users.findIndex(user => user.username === loggedUser.username)
-    users[index] = updatedUser
-    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
-    localStorage.setItem("users", JSON.stringify(users))
+    console.log("Entered here");
+  const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"));
+  let newTime = 0;
+
+  console.log(time);
+  console.log(loggedUser.timeChallenges);
+  if (loggedUser.timeChallenges === 0) {
+    newTime = time;
+  } else {
+    console.log("Entered here");
+    console.log(time);
+    console.log(loggedUser.timeChallenges);
+    newTime = loggedUser.timeChallenges + time;
+    console.log(newTime);
+  }
+
+  loggedUser.timeChallenges = newTime;
+
+  const usersList = JSON.parse(localStorage.getItem("users"));
+  const index = usersList.findIndex((user) => user.username === loggedUser.username);
+  if (index !== -1) {
+    usersList[index] = loggedUser;
+    sessionStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+    localStorage.setItem("users", JSON.stringify(usersList));
+    console.log("User object updated successfully!");
+  } else {
+    console.log("User not found in the users list!");
+  }
 }
 
 console.log(users)

@@ -167,6 +167,8 @@ btnBackSideInfo.addEventListener("click", function(event){
     window.location.href = "level.html";
 })
 
+let wastedTime = 0
+
 // BUTTON SAVE (IF CHALLENGE IS ALREADY COMPLETED SHOW MODAL)
 document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
   if (checkChallengeIs(challenge.challengeID)){
@@ -175,9 +177,9 @@ document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
     modal.style.display = "block";
     document.body.classList.add("modal-open");
     wastedTime = 300 - remainingTime
-    wastedTimeMinutes = wastedTime/60
+    console.log(wastedTime)
     clearInterval(timerInterval)
-    User.getTime(wastedTime)
+    User.getTime(parseInt(wastedTime))
   }
   else {
     let modal = document.getElementById("challengeNotCompleted");

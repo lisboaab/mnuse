@@ -176,12 +176,7 @@ function init() {
     canvas.style.display = "none"
     finalImg.style.display = "inline"
     finishedChalenge = true;
-    wastedTime = 300 - remainingTime
-    wastedTimeMinutes = wastedTime/60
-    clearInterval(timerInterval)
-    User.getTime(wastedTime)
     return true
-    
   }
   
     init()
@@ -191,6 +186,8 @@ function init() {
       let usersList = JSON.parse(localStorage.getItem("users"));
       let user = User.getUserLogged();
       let challengeList = user.finishedChallenges;
+      let wastedTime = 0
+
 
       document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
         if (finishedChalenge === true){
@@ -198,8 +195,12 @@ function init() {
           modal.classList.add("show");
           modal.style.display = "block";
           document.body.classList.add("modal-open");
+          wastedTime = 300 - remainingTime
+          console.log(wastedTime)
+          clearInterval(timerInterval)
           if(!checkChallengeIs(challenge.challengeID)){
             saveFinishedChallenge()
+            User.getTime(parseInt(wastedTime))
           }
         }
         else {
@@ -208,12 +209,14 @@ function init() {
             modal.classList.add("show");
             modal.style.display = "block";
             document.body.classList.add("modal-open");
+            clearInterval(timerInterval)
           }
           else {
             let modal = document.getElementById("challengeNotCompleted");
             modal.classList.add("show");
             modal.style.display = "block";
             document.body.classList.add("modal-open");
+            clearInterval(timerInterval)
           }
           
         }
