@@ -12,7 +12,7 @@ resultSideInfo += `<div id="wordsContainer"><h3>Words unlocked</h3>`
 if(User.getUserLogged().words[0] == undefined){
     resultSideInfo += `<div id="words"><p></p></div><div id="words"><p></p></div></div>`
 }else if(User.getUserLogged().words[1] == undefined){
-    resultSideInfo += `<div id="words"><p>${User.getUserLogged().words[0]}</p></div><div id="words"><p>a</p></div></div>`
+    resultSideInfo += `<div id="words"><p>${User.getUserLogged().words[0]}</p></div><div id="words"><p></p></div></div>`
 }else{
     resultSideInfo += `<div id="words"><p>${User.getUserLogged().words[0]}</p></div><div id="words"><p>${User.getUserLogged().words[1]}</p></div></div>`
 }
