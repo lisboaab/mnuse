@@ -5,16 +5,16 @@ let resultSideInfo = ""
 const sideInfo = document.getElementById("sideInfo")
 const butonsSideInfo = document.getElementById("butonsSideInfo");
 
-resultSideInfo = `<div id="countdown"></div>`
+resultSideInfo = `<div id="countdownClock"></div>`
 
-resultSideInfo += `<h3>Words unlocked</h3>`
+resultSideInfo += `<div id="wordsContainer"><h3>Words unlocked</h3>`
 
 if(User.getUserLogged().words[0] == undefined){
-    resultSideInfo += `<div id="words"><p>a</p></div><div id="words"><p>a</p></div>`
+    resultSideInfo += `<div id="words"><p></p></div><div id="words"><p></p></div></div>`
 }else if(User.getUserLogged().words[1] == undefined){
-    resultSideInfo += `<div id="words"><p>${User.getUserLogged().words[0]}</p></div><div id="words"><p>a</p></div>`
+    resultSideInfo += `<div id="words"><p>${User.getUserLogged().words[0]}</p></div><div id="words"><p>a</p></div></div>`
 }else{
-    resultSideInfo += `<div id="words"><p>${User.getUserLogged().words[0]}</p></div><div id="words"><p>${User.getUserLogged().words[1]}</p></div>`
+    resultSideInfo += `<div id="words"><p>${User.getUserLogged().words[0]}</p></div><div id="words"><p>${User.getUserLogged().words[1]}</p></div></div>`
 }
 
 function showTotalChallenges(){
@@ -54,6 +54,6 @@ function getFinishedChallenges(){
     }
 }
 
-resultSideInfo += `<h3>Challenges</h3><p id="challenges">${getFinishedChallenges()}/${showTotalChallenges()}</p>`
+resultSideInfo += `<div id="challengesContainer"><h3>Challenges</h3><p id="challenges">${getFinishedChallenges()}/${showTotalChallenges()}</p></div>`
 
 sideInfo.innerHTML = resultSideInfo

@@ -1,3 +1,18 @@
+@font-face {
+    font-family: Josefin Sans Light;
+    src: url(../assets/josefin-sans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: Josefin Sans SemiBold;
+    src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Josefin Sans Regular;
+    src: url(../assets/josefin-sans/JosefinSans-Regular.ttf);
+}
+
 body{
     background-color: #18234d !important;
 }
@@ -10,24 +25,68 @@ body{
     color: #EEEAF5;
 }
 
+#sideInfo h3{
+    font-family: Josefin Sans Regular;
+}
+
 #words{
     background-color: #732ad950;
     border-radius: 15px;
+    height: 3em;
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#countdown, #words, #challenges{
+
+#words p {
+    margin-bottom: 0 !important;
+    font-family: Josefin Sans Light;
+    font-size: 26px;
+}
+  
+
+#challenges{
+    font-family: Josefin Sans Light;
     font-size: 26px;
 }
 
 #butonsSideInfo button {
     background-color: #732AD9;
-    width: 8em;
-    height: 3em;
+    width: 9em;
+    height: 2em;
     color: #EEEAF5;
     border-radius: 15px;
     border: #732AD9;
     margin-top: 1%;
     margin-right: 1%;
+    font-family: Josefin Sans Light;
+    font-size: 22px;
+    margin-bottom: 0.5em;
 }
 
+#butonsSideInfo button:hover {
+    background-color: #EEEAF5;
+    color: #732AD9;
+}
 
+#countdown{
+    font-family: Josefin Sans Regular;
+    font-size: 30px;
+}
+
+#countdownClock{
+    display: grid;
+    grid-template-columns: 2.5em 1fr;
+}
+
+#countdownClock img{
+    align-self: center;
+    width: 2em;
+    margin-bottom: 3em;
+}
+
+#wordsContainer, #challengesContainer{
+    margin-bottom: 3em;
+}

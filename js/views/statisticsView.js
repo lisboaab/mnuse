@@ -1,4 +1,5 @@
 import * as User from "../models/modelUsers.js"
+import * as Challenges from "../models/modelChallenges.js"
 
 let arrayLvl0 = []
 let arrayLvl1 = []
@@ -26,11 +27,11 @@ for (let user of users){
 for (let user of users){
     if(user.avatar == "../assets/imgs/avatar1.png"){
         arrayAvatar1.push(user)
-    }else if(user.avatar == "../assets/imgs/avatar2.jpg"){
+    }else if(user.avatar == "../assets/imgs/avatar2.png"){
         arrayAvatar2.push(user)
-    }else if(user.avatar == "../assets/imgs/avatar3.jpg"){
+    }else if(user.avatar == "../assets/imgs/avatar3.png"){
         arrayAvatar3.push(user)
-    }else if(user.avatar == "../assets/imgs/avatar4.jpg"){
+    }else if(user.avatar == "../assets/imgs/avatar4.png"){
         arrayAvatar4.push(user)
     }
 }
@@ -84,5 +85,15 @@ new Chart("levelsChart2", {
 const totalUsers = document.getElementById("totalUsers")
 totalUsers.innerHTML = users.length
 
-const avgTime = document.getElementById("avgTime")
 const totalChallenges = document.getElementById("totalChallenges")
+totalChallenges.innerHTML = Challenges.challengesList.length
+
+const avgTime = document.getElementById("avgTime")
+const timesUsers = User.exportTimesUsers()
+const totalTimesUsers = timesUsers.reduce((sum, time) => sum+time, 0)
+const avg = totalTimesUsers / (timesUsers.length)
+const minutes = Math.floor(avg / 60)
+const seconds = avg % 60
+const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
+avgTime.innerHTML += `${minutes}m${secondsDisplay}s`
+console.log(avg)

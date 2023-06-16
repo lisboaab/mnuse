@@ -82,13 +82,15 @@ function accountView(){
     if (User.getUserLogged().badges.length == 0){
         modalBody += `<h4>You have no badges yet!</h4>`
     }else{
+        modalBody += `<table id="tableBadges">
+            <tr><th>Badge</th><th>Description</th></tr>`
         for(let i = 0; User.getUserLogged().badges.length > i; i++){
             const badge = User.getUserLogged().badges
             console.log(badge[i])
-            modalBody += `<table id="tableBadges">
-            <tr><th>Badge</th><th>Description</th></tr>
-            </table><tr><td><img id="badge" src="${badge[i]}"></td><td>${User.getUserLogged().badgesDescription}</td></tr>`
+            modalBody += `<tr><td><img id="badge" src="${badge[i]}"></td><td>${User.getUserLogged().badgesDescription[i]}</td></tr>`
         }
+
+        modalBody += `</table>`
     }
 
     modalBodyBadges.innerHTML += modalBody

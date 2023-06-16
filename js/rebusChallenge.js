@@ -9,12 +9,19 @@ let remainingTime = 300
 
 function updateTimer() {
   if (remainingTime > 0) {
+    const countdownClock = document.getElementById("countdownClock")
+    countdownClock.innerHTML = `<img src="../../assets/imgs/clock.png"><div id="countdown"></div>`
     const minutes  = Math.floor(remainingTime / 60)
     const seconds = remainingTime % 60
     const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
-    document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}` 
+    document.getElementById("countdown").innerHTML = `0${minutes}:${secondsDisplay}` 
     remainingTime -= 1
   } else {
+    let modal = document.getElementById("modalGameOver");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+    document.getElementById("btnTryAgain").addEventListener("click", restartGame)
     clearInterval(timerInterval)
   }
 }
@@ -193,7 +200,6 @@ let btnSaveSideInfo = document.getElementById("btnSaveSideInfo");
 let usersList = JSON.parse(localStorage.getItem("users"));
 
 let wastedTime = 0
-let wastedTimeMinutes = 0
 
 btnSaveSideInfo.addEventListener("click", function(event) {
     event.preventDefault();
@@ -216,9 +222,11 @@ btnSaveSideInfo.addEventListener("click", function(event) {
         document.body.classList.add("modal-open");
 
         wastedTime = 300 - remainingTime
-        wastedTimeMinutes = wastedTime/60
         clearInterval(timerInterval)
         User.getTime(wastedTime)
+
+        const failImg = document.getElementById("failImg")
+        failImg.style.display = "block"
         } else {
             let modal = document.getElementById("challengeAlreadyCompleted");
             modal.classList.add("show");
@@ -227,6 +235,8 @@ btnSaveSideInfo.addEventListener("click", function(event) {
             console.log(challenge.challengeID);
             console.log(challengeList);
             clearInterval(timerInterval)
+            const failImg = document.getElementById("failImg")
+        failImg.style.display = "block"
         }
     } else if (checkChallengeIs(challenge.challengeID)){
         let modal = document.getElementById("challengeAlreadyCompleted");
@@ -274,3 +284,7 @@ btnCloseChallengeNotCompleted.addEventListener("click", function(){
     modal.style.display = "none";
     document.body.classList.remove("modal-open");
 })
+
+function restartGame() {
+    window.location.reload();
+}

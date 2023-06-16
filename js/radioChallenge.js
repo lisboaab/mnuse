@@ -6,12 +6,19 @@ let challengeIfFinished = false;
 
 function updateTimer() {
   if (remainingTime > 0) {
+    const countdownClock = document.getElementById("countdownClock")
+    countdownClock.innerHTML = `<img src="../../assets/imgs/clock.png"><div id="countdown"></div>`
     const minutes  = Math.floor(remainingTime / 60)
     const seconds = remainingTime % 60
     const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
-    document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}`
+    document.getElementById("countdown").innerHTML = `0${minutes}:${secondsDisplay}`
     remainingTime -= 1
   } else {
+    let modal = document.getElementById("modalGameOver");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+    document.getElementById("btnTryAgain").addEventListener("click", restartGame)
     clearInterval(timerInterval)
   }
 }
@@ -232,3 +239,7 @@ document.getElementById("btnCloseAudioOn").addEventListener("click", function(){
   modal.style.display = "none";
   document.body.classList.remove("modal-open");
 })
+
+function restartGame() {
+  window.location.reload();
+}

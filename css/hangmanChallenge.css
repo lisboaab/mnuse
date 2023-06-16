@@ -82,14 +82,3 @@ body{
     border-radius: 5px;
     color: #eeeaf5;
 }
-
-#btnTryAgain {
-    cursor: pointer;
-    background-color: #732AD9;
-    color: #eeeaf5;
-    border:  #732AD9;
-    margin-top: 20px;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 2px;
-}
