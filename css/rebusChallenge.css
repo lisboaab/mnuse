@@ -123,3 +123,14 @@ body{
     height: auto;
     margin-left: 3%;
 }
+
+#fail{
+    z-index: 2;
+    position: absolute;
+    margin-left: 50em;
+}
+
+#failImg{
+    width: 14em;
+    display: none;
+}

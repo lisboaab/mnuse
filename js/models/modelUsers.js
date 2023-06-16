@@ -328,20 +328,22 @@ export function addWords(wordIndex){
     localStorage.setItem("users", JSON.stringify(users))
 }
 
-let badges = ["../assets/imgs/badges/badge_level1.png", "../assets/imgs/badges/badge_level2.png", "../assets/imgs/badges/badge_level3.png", "../assets/imgs/badges/badge_mnuseLeague.png"]
-let descriptions = ["You got this badge for finishing level 1!", "You got this badge for finishing level 2!", "You got this badge for finishing level 3!", "You got this badge for being #1 in the Mnuse League!"]
+let badges = ["../assets/imgs/badges/badge_level1.png", "../assets/imgs/badges/badge_level2.png", "../assets/imgs/badges/badge_level3.png", "../assets/imgs/badges/badge_mnuseLeague.png", "../assets/imgs/badges/badge_easterEggCadeiras.png"]
+let descriptions = ["You got this badge for finishing level 1!", "You got this badge for finishing level 2!", "You got this badge for finishing level 3!", "You got this badge for being #1 in the Mnuse League!", ""]
 
 export function addBadge(badgeIndex){
     const loggedUser = getUserLogged()
     const badgeReceived = badges[badgeIndex]
     const descriptionReceived = descriptions[badgeIndex]
-    loggedUser.badges.push(badgeReceived)
-    loggedUser.badgesDescription.push(descriptionReceived)
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, loggedUser.timeChallenges, loggedUser.isFinished)
-    const index  = users.findIndex(user => user.username === loggedUser.username)
-    users[index] =  updatedUser
-    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
-    localStorage.setItem("users", JSON.stringify(users))
+    if(!loggedUser.badges.includes(badgeReceived)){
+        loggedUser.badges.push(badgeReceived)
+        loggedUser.badgesDescription.push(descriptionReceived)
+        const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, loggedUser.timeChallenges, loggedUser.isFinished)
+        const index  = users.findIndex(user => user.username === loggedUser.username)
+        users[index] =  updatedUser
+        sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+        localStorage.setItem("users", JSON.stringify(users))
+    }
 }
 
 export function addMnuseBadge(badgeIndex, userID){
