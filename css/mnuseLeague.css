@@ -14,10 +14,9 @@ body{
 
 #middleWebsite {
     color: #EEEAF5;
-    font-family: Josefin Sans Light;
-    margin-top: 1.6em;
+    font-family: Josefin Sans Regular;
+    margin: 1.6em 0 0 0;
     height: 77vh;
-    text-align: center;
 }
 
 #top3{
@@ -58,6 +57,7 @@ h2{
 
 h1{
     margin-bottom: 1.5em !important;
+    text-align: left;
 }
 
 .avatars{
@@ -66,4 +66,17 @@ h1{
 
 span{
     color: #732AD9;
+}
+
+#middleWebsite{
+    padding-right: 2em;
+    padding-left: 7.5em;
+    height: 30em;
+    margin-bottom: 4em;
+}
+
+p{
+    text-align: center;
+    margin-left: -7em;
+    margin-top: 10em;
 }
