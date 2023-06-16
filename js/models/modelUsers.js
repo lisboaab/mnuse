@@ -359,33 +359,21 @@ export function addMnuseBadge(badgeIndex, userID){
 }
 
 export function getTime(time) {
-    console.log("Entered here");
     const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"))
-    let newTime = 0;
-
-    console.log(time);
-    console.log(loggedUser.timeChallenges);
+    let newTime = 0
     if (loggedUser.timeChallenges === 0) {
         newTime = time;
     } else {
-        console.log("Entered here");
-        console.log(time);
-        console.log(loggedUser.timeChallenges);
-        newTime = loggedUser.timeChallenges + time;
-        console.log(newTime);
+        newTime = loggedUser.timeChallenges + time
     }
 
-    loggedUser.timeChallenges = newTime;
-
-    const usersList = JSON.parse(localStorage.getItem("users"));
-    const index = usersList.findIndex((user) => user.username === loggedUser.username);
+    loggedUser.timeChallenges = newTime
+    const usersList = JSON.parse(localStorage.getItem("users"))
+    const index = usersList.findIndex((user) => user.username === loggedUser.username)
     if (index !== -1) {
         usersList[index] = loggedUser;
         sessionStorage.setItem("loggedUser", JSON.stringify(loggedUser));
         localStorage.setItem("users", JSON.stringify(usersList));
-        console.log("User object updated successfully!");
-    } else {
-        console.log("User not found in the users list!");
     }
 }
 
@@ -397,6 +385,11 @@ export function changeIsFinished(){
     users[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
     localStorage.setItem("users", JSON.stringify(users))
+}
+
+export function exportTimesUsers(){
+    let timesUsers = users.filter((user) => user.isFinished).map((user) => user.timeChallenges).sort((a, b) => a - b)
+    return timesUsers
 }
 
 console.log(users)

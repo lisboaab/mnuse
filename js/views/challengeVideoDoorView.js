@@ -13,6 +13,11 @@ function updateTimer() {
     document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}`
     remainingTime -= 1
   } else {
+    let modal = document.getElementById("modalGameOver");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+    document.getElementById("btnTryAgain").addEventListener("click", restartGame)
     clearInterval(timerInterval)
   }
 }
@@ -32,30 +37,6 @@ let challenge = Challenges.challengesList.find(chall => chall.challengeID === "v
 
 let line = `${challenge.helpCard}`;
 textsHelpBtn.innerHTML += line;
-
-
-// FUNCTION TO SEE IF THE USER SAW THE VIDEO
-// let video = document.getElementById("video");
-// let btnContinueSideInfo = document.getElementById("btnContinueSideInfo");
-// btnContinueSideInfo.addEventListener("click", function() {
-//     if (video.currentTime < 30) {
-//         let modal = document.getElementById("challengeNotCompleted"); // modal saying the challenge is incomplete
-//         modal.classList.add("show");
-//         modal.style.display = "block";
-//         document.body.classList.add("modal-open");
-//     }
-// });
-
-
-
-// // FUNCTION TO CLOSE MODAL OF CHALLENGE NOT COMPLETE
-// let btnCloseChallengeNotCompleted = document.getElementById("btnCloseChallengeNotCompleted")
-// btnCloseChallengeNotCompleted.addEventListener("click", function(){
-//     var modal = document.getElementById("challengeNotCompleted");
-//     modal.classList.remove("show");
-//     modal.style.display = "none";
-//     document.body.classList.remove("modal-open");
-// })
 
 function checkChallengeIs(id) {
     let user = User.getUserLogged();
@@ -113,3 +94,7 @@ btnCloseChallengeSucessfull.addEventListener("click", function(){
     modal.style.display = "none";
     document.body.classList.remove("modal-open");
 })
+
+function restartGame() {
+    window.location.reload();
+}

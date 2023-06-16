@@ -1,7 +1,7 @@
 import * as User from "../models/modelUsers.js";
 
 const users = User.exportUsers()
-let timesUsers = users.filter((user) => user.isFinished).map((user) => user.timeChallenges).sort((a, b) => a - b)
+const timesUsers = User.exportTimesUsers()
 
 const topThreeUsers =  timesUsers.slice(0, 3).map((time) => users.find(user => user.timeChallenges === time))
 let timeLoggedUser = User.getUserLogged().timeChallenges

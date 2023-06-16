@@ -15,6 +15,11 @@ function updateTimer() {
     document.getElementById("countdown").textContent = `0${minutes}:${secondsDisplay}`
     remainingTime -= 1
   } else {
+    let modal = document.getElementById("modalGameOver");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+    document.getElementById("btnTryAgain").addEventListener("click", restartGame)
     clearInterval(timerInterval)
   }
 }
@@ -108,3 +113,6 @@ document.getElementById("btnCloseChallengeNotCompleted").addEventListener("click
     document.body.classList.remove("modal-open");
   })
   
+function restartGame() {
+    window.location.reload();
+}
