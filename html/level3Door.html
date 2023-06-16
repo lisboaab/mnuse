@@ -16,37 +16,18 @@
   <div id="header"></div>
     <div class="container">
       <div class="row">
-        <div id="game">
+        <div class="col-lg-10" id="game">
           <div class="container video" id="containerVideo">
                 <div id="divVideo">
                     <iframe id="video" height="315" src="https://www.youtube.com/embed/v-5TfJ39sC0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
-          </div>
+        
         </div>
-        <div id="butonsSideInfo">
+        <div class="col-lg-2" id="butonsSideInfo">
           <button id="btnBackSideInfo" type="button" class="btnSideInfo">Back</button>
-          <button id="btnHelpSideInfo" type="button" class="btnSideInfo" value="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
-          <button id="btnSaveSideInfo" type="button" class="btnSideInfo">Save</button>
+          <button id="btnSaveSideInfo" type="button" class="btnSideInfo">Finish</button>
         </div>
-
-        <!-- MODAL HELP -->
-    <div class="modal fade" id="helpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="#helpModal" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">HELP</h5>
-                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                      <img src="../assets/imgs/cruz.png" class="btnClose" alt="Close">
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <p class="text" id="textsHelpBtn"></p>
-              </div>
-              
-          </div>
-      </div>
-  </div>
 
   <!-- MODAL CHALLENGE ALREADY COMPLETED -->
   <div class="modal fade" id="challengeAlreadyCompleted" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
@@ -66,28 +47,31 @@
       </div>
   </div>
 
-  <!-- MODAL CHALLENGE SUCESSFULLY COMPLETED -->
-  <div class="modal fade" id="challengeSucessfullyCompleted" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">CONGRATULATIONS!</h5>
-                  <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
-                      <img src="../assets/imgs/cruz.png" id="btnCloseChallengeSucessfull" class="btnClose" alt="Close">
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <p class="text">Challenge sucessfully completed!<br>Hurry up to complete all the others in time!</p>
-              </div>
-          </div>
+  <div class="modal fade" id="levelFinished" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">CONGRATULATIONS!</h5>
+          <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+              <img src="../assets/imgs/cruz.png" id="btnLevelFinished" class="btnClose" alt="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="text">You've completed the last level! You won a badge, check your profile to see it!</p>
+          <p class="text">You also won a certificate! Download to see it!</p>
+          <a href="" download>
+            <button type="button" id="btnDownloadCertificate" class="btn">Download Certificate</button>
+          </a>
+        </div>
+         
       </div>
+    </div>
   </div>
 
       </div>
     </div>
     <footer id="footer"></footer>
     <script type="module" src="../js/views/navBarView.js"></script>
-    <script type="module" src="../js/views/sideInfoView.js"></script>
     <script type="module" src="../js/views/footerView.js"></script>
     <script type="module" src="../js/views/level3door.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>

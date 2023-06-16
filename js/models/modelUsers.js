@@ -329,7 +329,7 @@ export function addWords(wordIndex){
 }
 
 let badges = ["../assets/imgs/badges/badge_level1.png", "../assets/imgs/badges/badge_level2.png", "../assets/imgs/badges/badge_level3.png", "../assets/imgs/badges/badge_mnuseLeague.png", "../assets/imgs/badges/badge_easterEggCadeiras.png", "../assets/imgs/badges/badge_easterEggRadio.png"]
-let descriptions = ["You got this badge for finishing level 1!", "You got this badge for finishing level 2!", "You got this badge for finishing level 3!", "You got this badge for being #1 in the Mnuse League!", "Careful! The kids in this classroom are not very nice..", "Careful! The story behind this car is more complex than it looks like.."]
+let descriptions = ["You got this badge for finishing level 1!", "You got this badge for finishing level 2!", "You got this badge for finishing level 3!", "You got this badge for being #1 in the Mnuse League!", "Careful! The kids in this classroom are not very nice...", "Careful! The story behind this car is more complex than it looks like..."]
 
 export function addBadge(badgeIndex){
     const loggedUser = getUserLogged()
