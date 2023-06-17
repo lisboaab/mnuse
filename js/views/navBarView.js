@@ -26,7 +26,15 @@ function navbarView() {
                       </ul>
                     </div>
                   </nav>
-                </div></div></div>`;
+                </div></div></div>
+                <div id="notification" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="d-flex">
+                    <div class="toast-body">
+                    Congratulations, you got a new badge! Go to your user page to check it out!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                </div>`;
     } else {
       result += `<div class="col-lg-2 col-4">
                   <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center" id="col3">
@@ -41,7 +49,15 @@ function navbarView() {
                       </ul>
                     </div>
                   </nav>
-                </div></div></div>`;
+                </div></div></div>
+                <div id="notification" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="d-flex">
+                    <div class="toast-body">
+                      Congratulations, you got a new badge! Go to your user page to check it out!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                </div>`;
     }
     
 
