@@ -42,7 +42,7 @@ img{
     grid-template-columns: 1fr 1fr;
     align-items: center; 
     justify-content: center;
-    width: 2em;
+    width: 6em;
 } 
 
 #top3 > div {
@@ -74,15 +74,8 @@ span{
     padding-left: 7.5em;
     height: 30em;
     margin-bottom: 4em;
-    text-align: center;
 }
 
 p{
     text-align: center;
-}
-
-#info1, #info2, #info3{
-    align-items: center; 
-    justify-content: center;
-    width: 10%;
 }
