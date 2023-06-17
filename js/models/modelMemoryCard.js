@@ -1,4 +1,4 @@
-export class Game {
+export class MemoryGame {
   constructor() {
     this.gameBoard = document.querySelector(".game-board");
     this.cards = document.querySelectorAll(".card");

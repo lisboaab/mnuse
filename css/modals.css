@@ -125,7 +125,7 @@ input[type="submit"]:hover{
     background-color: #00000040;
 }
 
-#btnTryAgain{
+#btnTryAgain, #btnDownloadCertificate{
     cursor: pointer;
     background-color: #732AD9;
     color: #eeeaf5;

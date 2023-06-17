@@ -1,5 +1,5 @@
-import * as User from "./models/modelUsers.js"
-import * as Challenges from "./models/modelChallenges.js"
+import * as User from "../models/modelUsers.js"
+import * as Challenges from "../models/modelChallenges.js"
 
 const word1 = "caleb"
 const word2 = "parents"

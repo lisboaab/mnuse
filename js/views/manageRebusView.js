@@ -1,4 +1,4 @@
-import * as Rebus  from "./../models/modelChallengeRebus.js"
+import * as Rebus  from "../models/modelChallengeRebus.js"
 
 document.getElementById("formRebus").addEventListener("submit", (e) => {
     e.preventDefault()

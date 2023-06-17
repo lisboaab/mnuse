@@ -47,7 +47,6 @@ function checkChallengeIs(id) {
 }
 
 let wastedTime = 0
-let wastedTimeMinutes = 0
 
 let btnSaveSideInfo = document.getElementById("btnSaveSideInfo");
 btnSaveSideInfo.addEventListener("click", function() {
@@ -69,7 +68,6 @@ btnSaveSideInfo.addEventListener("click", function() {
         document.body.classList.add("modal-open");
 
         wastedTime = 300 - remainingTime
-        wastedTimeMinutes = wastedTime/60
         clearInterval(timerInterval)
         User.getTime(wastedTime)
     } else if (checkChallengeIs(challenge.challengeID)){ // modal saying that the challenge 

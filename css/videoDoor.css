@@ -34,12 +34,12 @@ body{
 
 
 #divVideo {
-    margin-right: 3%;
+    margin-left: 60%;
     margin-top: 7%;
     overflow: hidden;
     border: 5px solid #827397;
     border-radius: 40px;
-    width: 80em;
+    width: 40em;
     height: 25em;
     display: grid;
     place-items: center;
@@ -51,4 +51,25 @@ body{
     position: relative;
     width: 97%;
     height: 95%;
+}
+
+.door{
+    border-radius: 15px;
+    width: 100%;
+}
+
+#background {
+    position: relative;
+    display: grid;
+    justify-items: center;
+}
+  
+.overlay{
+    position: absolute;
+    top: 1em;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-top: 1%;
 }

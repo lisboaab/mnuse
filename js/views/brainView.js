@@ -410,7 +410,7 @@ if(User.getUserLogged().currentLevel == 2){
     tempModalBtn.innerHTML = "Play"
     tempModalBtn.className = "modal-btn level-btn--active"
     tempModalBtn.addEventListener("click", () => {window.location.href = 'terapeuta.html'})
-}else if(User.getUserLogged().currentLevel == 3){
+}else if(User.getUserLogged().currentLevel == 3 || User.getUserLogged().currentLevel == 4){
     const tempModalBtn = document.getElementById("tempModalBtn")
     tempModalBtn.innerHTML = "Play"
     tempModalBtn.className = "modal-btn level-btn--active"
@@ -420,7 +420,6 @@ if(User.getUserLogged().currentLevel == 2){
     parietalModalBtn.className = "modal-btn level-btn--active"
     parietalModalBtn.setAttribute('data-bs-toggle', 'modal');
     parietalModalBtn.setAttribute('data-bs-target', '#modalUnlockWords')
-    // parietalModalBtn.addEventListener("click", () => {window.location.href = 'terapeuta.html'})
 }
 
 const btnclose = document.getElementsByClassName("btnClose")[0]
