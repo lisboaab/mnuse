@@ -1,5 +1,5 @@
-import * as User from "./../models/modelUsers.js"
-import * as Challenges from "./../models/modelChallenges.js"
+import * as User from "../models/modelUsers.js"
+import * as Challenges from "../models/modelChallenges.js"
 
 const draggableElements = document.querySelectorAll(".draggable")
 const droppableElements = document.querySelectorAll(".droppable")
@@ -110,7 +110,6 @@ let user = User.getUserLogged();
 let challengeList = user.finishedChallenges;
 
 let wastedTime = 0
-let wastedTimeMinutes = 0
 
 btnSaveSideInfo.addEventListener("click", function(event) {
   event.preventDefault();
@@ -129,7 +128,6 @@ btnSaveSideInfo.addEventListener("click", function(event) {
       modal.style.display = "block";
       document.body.classList.add("modal-open");
       wastedTime = 300 - remainingTime
-      wastedTimeMinutes = wastedTime/60
       clearInterval(timerInterval)
       User.getTime(wastedTime)
 
