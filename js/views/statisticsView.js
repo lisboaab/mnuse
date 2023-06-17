@@ -59,8 +59,16 @@ new Chart("levelsChart", {
         title: {
             display: true,
             text: "Users avatars",
-            font: {
-                color: "#EEEAF5"
+            fontColor: "#EEEAF5",
+            fontFamily: "Josefin Sans, thin",
+            fontSize: 18,
+        },
+        legend: {
+            display: true,
+            labels: {
+                fontColor: "#eeeaf5",
+                fontFamily: "Josefin Sans, thin",
+                fontSize: 15,
             }
         }
     }
@@ -80,8 +88,19 @@ new Chart("levelsChart2", {
     options:{
         title: {
             display: true,
-            text: "Levels and Users"
-        }
+            text: "Levels and Users",
+            fontColor: "#EEEAF5",
+            fontFamily: "Josefin Sans, thin",
+            fontSize: 18,
+        },
+        legend: {
+            display: true,
+            labels: {
+                fontColor: "#eeeaf5",
+                fontFamily: "Josefin Sans, thin",
+                fontSize: 15,
+            }
+        },
     }
 })
 
