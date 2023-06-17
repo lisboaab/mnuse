@@ -345,6 +345,7 @@ export function addBadge(badgeIndex){
         localStorage.setItem("users", JSON.stringify(users))
         console.log(users)
         console.log(badgeReceived)
+        showBadgeNotification()
     }
 }
 
@@ -359,6 +360,7 @@ export function addMnuseBadge(badgeIndex, userID){
         const index  = users.findIndex(u => u.username === user.username)
         users[index] =  updatedUser
         localStorage.setItem("users", JSON.stringify(users))
+        showBadgeNotification()
     }
 }
 
@@ -395,6 +397,27 @@ export function exportTimesUsers(){
     let timesUsers = users.filter((user) => user.isFinished).map((user) => user.timeChallenges).sort((a, b) => a - b)
     return timesUsers
 }
+export function showBadgeNotification(){
+    document.getElementById("notification").classList.add("show");
+    localStorage.setItem("visibleBadgeNotification", "true");
+}
+
+function hideBadgeNotification() {
+    document.getElementById("notification").classList.remove("show"); // Remove a classe 'show' para esconder o toast
+    localStorage.setItem("visibleBadgeNotification", "false"); // Armazena o estado do toast no Local Storage
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    let notification = localStorage.getItem("visibleBadgeNotification");
+    if (notification === "true") {
+        showBadgeNotification();
+    } 
+    document.querySelector(".btn-close").addEventListener("click", function(){
+        hideBadgeNotification();
+    })
+});
+    
+
 
 console.log(users)
 

@@ -73,6 +73,18 @@ input[type="button"]:hover{
     width: 2em;
 }
 
+#notification{
+    background-color: #827397;
+    color: #eceaee;
+    font-family: Josefin Sans Light;
+    font-size: 17px;
+    position: fixed;
+    top: 20%;
+    right: 15px; /* Ajuste a posição desejada */
+    transform: translateY(-50%);
+}
+
+
 @media only screen and (max-width: 767px) {
     #logo {
         margin-top: 2.2vh;
