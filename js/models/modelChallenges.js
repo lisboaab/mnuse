@@ -16,8 +16,5 @@ challengesList.push(new Challenges ("memoryCard", "This is a memory card game! C
 challengesList.push(new Challenges ("hangMan", "Try to guess the missing words on Lily's diary! Tap a letter and see if it matches any of the blank spaces, but be careful, in this challenge you have only 6 tries!"));
 challengesList.push(new Challenges ("radio", "Click on the number boxes, TURN ON YOUR AUDIO, and try to match the sound you hear to the images."));
 challengesList.push(new Challenges ("connectTheDots", "Click and hold on the first dot and see where it sticks to. Connect all the dots to see the image hidden behind them!"));
-// challengesList.push(new Challenges ("videoLevel3", "All Lily's memories are unlocked, congratulations! Press play to see everything that was once forgotten!"));
-
-
 
 console.log(challengesList)

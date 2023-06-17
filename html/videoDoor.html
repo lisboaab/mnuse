@@ -7,7 +7,7 @@
     <title>Mnuse</title>
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/navBar.css">
-    <link rel="stylesheet" href="../css/challengeVideoDoor.css">
+    <link rel="stylesheet" href="../css/videoDoor.css">
     <link rel="stylesheet" href="../css/lvl.css">
     <link rel="stylesheet" href="../css/modals.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -21,16 +21,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10" id="imageMap">
-                <div class="container">
-                    <div class="row" id="rowVideo">
-                        <div class="col-4 col-md-4" id="divImgPorta"> 
-                            <img id="imgPorta" src="../assets/imgs/classroom-doorVideo.png">
-                        </div>
-                        <div class="col-8 col-md-8 d-flex flex-row-reverse" id="containerVideo">
-                            <div id="divVideo">
-                                <!-- <video id="Video" height="380" src="https://www.youtube.com/watch?v=Jcg93UlOwE0" controls></video> -->
-                                <iframe id="video" height="315" src="https://www.youtube.com/embed/Jcg93UlOwE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
+                <div id="background">
+                    <img class="img-fluid door" src="../assets/imgs/bgChallenge3.png">
+                    <div class="overlay">
+                        <div id="divVideo">
+                            <iframe id="video" height="315" src="https://www.youtube.com/embed/Jcg93UlOwE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -57,7 +52,6 @@
                         <div class="modal-body">
                             <p class="text" id="textsHelpBtn"></p>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -99,22 +93,21 @@
             <!-- MODAL CHALLENGE ALREADY COMPLETED -->
             <div class="modal fade" id="challengeAlreadyCompleted" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
                 <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">YAY!</h5>
-                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
-                        <img src="../assets/imgs/cruz.png" id="btnCloseChallengeCompleted" class="btnClose" alt="Close">
-                    </button>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">YAY!</h5>
+                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                <img src="../assets/imgs/cruz.png" id="btnCloseChallengeCompleted" class="btnClose" alt="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text">Good news! You have already completed this challenge before!<br>Hurry up to complete all the others in time!</p>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                    <p class="text">Good news! You have already completed this challenge before!<br>Hurry up to complete all the others in time!</p>
-                    </div>
-                    
-                </div>
                 </div>
             </div>
 
-            <!-- MODAL GAME OVER -->
+            <!-- MODAL RESTART CHALLENGE -->
             <div class="modal fade" id="modalGameOver" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -135,12 +128,11 @@
         </div>
     </div>
     <footer id="footer"></footer>
-    <script type="module" src="../js/views/challengeVideoDoorView.js"></script>
+    <script type="module" src="../js/views/videoDoorView.js"></script>
     <script type="module" src="../js/views/navBarView.js"></script>
     <script type="module" src="../js/views/sideInfoView.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="../js/views/footerView.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
-
 </body>
 </html>

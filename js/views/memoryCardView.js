@@ -1,8 +1,8 @@
-import {Game} from "../models/modelMemoryCard.js"
+import {MemoryGame} from "../models/modelMemoryCard.js"
 import * as User from "../models/modelUsers.js"
 import * as Challenges from "../models/modelChallenges.js"
 
-const game = new Game();
+const game = new MemoryGame();
 game.init();
 
 let remainingTime = 300

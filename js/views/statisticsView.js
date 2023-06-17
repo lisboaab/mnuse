@@ -5,6 +5,7 @@ let arrayLvl0 = []
 let arrayLvl1 = []
 let arrayLvl2 = []
 let arrayLvl3 = []
+let arrayLvl4 = []
 let arrayAvatar1 = []
 let arrayAvatar2 = []
 let arrayAvatar3 = []
@@ -21,6 +22,8 @@ for (let user of users){
         arrayLvl2.push(user)
     }else if(user.currentLevel == 3){
         arrayLvl3.push(user)
+    }else if(user.currentLevel == 4){
+        arrayLvl4.push(user)
     }
 }
 
@@ -36,8 +39,8 @@ for (let user of users){
     }
 }
 
-let xValues = ["Level 0", "Level 1", "Level 2", "Level 3"]
-let zValues = [arrayLvl0.length, arrayLvl1.length, arrayLvl2.length, arrayLvl3.length]
+let xValues = ["Level 0", "Level 1", "Level 2", "Level 3", "Level 4"]
+let zValues = [arrayLvl0.length, arrayLvl1.length, arrayLvl2.length, arrayLvl3.length, arrayLvl4.length]
 let yValues = [arrayAvatar1.length, arrayAvatar2.length, arrayAvatar3.length, arrayAvatar4.length]
 let aValues = ["Avatar 1", "Avatar 2", "Avatar 3", "Avatar 4"]
 

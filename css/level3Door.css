@@ -17,13 +17,6 @@ body{
     background-color: #18234d !important;
 }
 
-#game{
-    width: 1070px;
-    height: 602px;
-    border-radius: 15px;
-    padding: 0;
-}
-
 #divVideo {
     border-radius: 15px;
 }
