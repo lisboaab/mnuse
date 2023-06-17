@@ -42,7 +42,7 @@ img{
     grid-template-columns: 1fr 1fr;
     align-items: center; 
     justify-content: center;
-    width: 6em;
+    width: 2em;
 } 
 
 #top3 > div {
@@ -58,6 +58,7 @@ h2{
 h1{
     margin-bottom: 1.5em !important;
     text-align: left;
+    margin-left: 1.6%;
 }
 
 .avatars{
@@ -73,10 +74,15 @@ span{
     padding-left: 7.5em;
     height: 30em;
     margin-bottom: 4em;
+    text-align: center;
 }
 
 p{
     text-align: center;
-    margin-left: -7em;
-    margin-top: 10em;
+}
+
+#info1, #info2, #info3{
+    align-items: center; 
+    justify-content: center;
+    width: 10%;
 }
