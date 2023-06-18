@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.memory-game {
+.memoryGame {
   position: absolute;
   display: flex;
   padding: 0 160px;
@@ -19,7 +19,7 @@
   z-index: 1;
 }
 
-.game-board {
+.gameBoard {
   width: 600px;
   height: 580px;
   padding: 32px;
@@ -43,7 +43,7 @@
   transform-origin: center center;
 }
 
-.card .front-face {
+.card .frontFace {
   position: absolute;
   display: flex;
   width: 100%;
@@ -54,7 +54,7 @@
   backface-visibility: hidden;
 }
 
-.back-face {
+.backFace {
   position: absolute;
   display: flex;
   width: 100%;
