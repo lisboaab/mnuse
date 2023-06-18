@@ -1,5 +1,4 @@
 import * as User from "../models/modelUsers.js"
-import * as Challenges from "../models/modelChallenges.js"
 
 //  BUTTON BACK
 let btnBackSideInfo = document.getElementById("btnBackSideInfo");
