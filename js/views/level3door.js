@@ -47,8 +47,8 @@ btnCloseChallengeCompleted.addEventListener("click", function(){
     document.body.classList.remove("modal-open");
 })
 
-let btnCloseChallengeSucessfull = document.getElementById("btnCloseChallengeSucessfull")
-btnCloseChallengeSucessfull.addEventListener("click", function(){
+let btnLevelFinished = document.getElementById("btnLevelFinished")
+btnLevelFinished.addEventListener("click", function(){
     var modal = document.getElementById("challengeSucessfullyCompleted");
     modal.classList.remove("show");
     modal.style.display = "none";
