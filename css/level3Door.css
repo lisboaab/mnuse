@@ -37,8 +37,10 @@ body{
 
 #video {
     border-radius: 30px;
-    width: 1070px;
-    height: 602px;
+    width: 925px;
+    height: auto;
+    /* width: 1070px;
+    height: 602px; */
 }
 
 #modalUnlockWords{
