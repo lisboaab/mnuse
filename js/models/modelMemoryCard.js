@@ -1,6 +1,6 @@
 export class MemoryGame {
   constructor() {
-    this.gameBoard = document.querySelector(".game-board");
+    this.gameBoard = document.querySelector(".gameBoard");
     this.cards = document.querySelectorAll(".card");
 
     this.flippedCards = [];

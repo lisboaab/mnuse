@@ -480,7 +480,6 @@ const parietalModalBtn = document.getElementById("parietalModalBtn")
 if(parietalModalBtn.className == "modal-btn level-btn--active"){
 document.getElementById("parietalModalBtn").addEventListener("click", () => {
     User.changeLevelLoad(3)
-    // window.location.href = "level.html"
 })}
 
 

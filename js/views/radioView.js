@@ -100,10 +100,6 @@ function checkMatch() {
         matched += 1
         if(matched == 4){
           challengeIfFinished = true;
-          // let modal = document.getElementById("challengeSucessfullyCompleted");
-          // modal.classList.add("show");
-          // modal.style.display = "block";
-          // document.body.classList.add("modal-open");
         }
     } else {
         button1.classList.remove("radioBtn-clicked")
