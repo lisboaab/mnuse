@@ -144,7 +144,6 @@ function saveFinishedChallenge(){
   sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser));
   localStorage.setItem("users", JSON.stringify(usersList));
 }
-console.log(`lista de challenges: ${challengeList}`)
 
 //  FUNCTIONS BTNS CLOSE MODALS
 document.getElementById("btnCloseChallengeSucessfull").addEventListener("click", function(){
@@ -174,23 +173,21 @@ let wastedTime = 0
 // BUTTON SAVE (IF CHALLENGE IS ALREADY COMPLETED SHOW MODAL)
 document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
   if (challengeIfFinished === true){
-    let modal = document.getElementById("challengeSucessfullyCompleted");
-    modal.classList.add("show");
-    modal.style.display = "block";
-    document.body.classList.add("modal-open");
-    wastedTime = 300 - remainingTime
-    console.log(wastedTime)
-    clearInterval(timerInterval)
     if (!checkChallengeIs(challenge.challengeID)){
+      let modal = document.getElementById("challengeSucessfullyCompleted");
+      modal.classList.add("show");
+      modal.style.display = "block";
+      document.body.classList.add("modal-open");
+      wastedTime = 300 - remainingTime
+      clearInterval(timerInterval)
       saveFinishedChallenge()
       User.getTime(parseInt(wastedTime))
-    }
-  }
-  else if (checkChallengeIs(challenge.challengeID)){
+    }else if (checkChallengeIs(challenge.challengeID)){
     let modal = document.getElementById("challengeAlreadyCompleted");
     modal.classList.add("show");
     modal.style.display = "block";
     document.body.classList.add("modal-open");
+    }
   }
   else {
     let modal = document.getElementById("challengeNotCompleted");

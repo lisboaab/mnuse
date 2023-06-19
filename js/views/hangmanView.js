@@ -199,27 +199,23 @@ let wastedTime = 0
 
 // BUTTON SAVE
 document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
-  console.log(gameStarted)
   if (challengeIfFinished === true){
-    let modal = document.getElementById("challengeSucessfullyCompleted");
+    if (!checkChallengeIs(challenge.challengeID)){
+      let modal = document.getElementById("challengeSucessfullyCompleted");
       modal.classList.add("show");
       modal.style.display = "block";
       document.body.classList.add("modal-open");
       wastedTime = 300 - remainingTime
       clearInterval(timerInterval)
-      if (!checkChallengeIs(challenge.challengeID)){
-        saveFinishedChallenge()
-        User.getTime(parseInt(wastedTime))
+      saveFinishedChallenge()
+      User.getTime(parseInt(wastedTime))
+      }else if (checkChallengeIs(challenge.challengeID)){
+        let modal = document.getElementById("challengeAlreadyCompleted");
+        modal.classList.add("show");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
       }
-  }
-  else if (checkChallengeIs(challenge.challengeID)){
-    let modal = document.getElementById("challengeAlreadyCompleted");
-    modal.classList.add("show");
-    modal.style.display = "block";
-    document.body.classList.add("modal-open");
-  }
-  
-  else if (!checkChallengeIs(challenge.challengeID) || gameStarted < 14){
+    }else if (!checkChallengeIs(challenge.challengeID) || gameStarted < 14){
     let modal = document.getElementById("challengeNotCompleted");
     modal.classList.add("show");
     modal.style.display = "block";
@@ -229,6 +225,3 @@ document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
     validateGame()
   }
 })
-
-console.log(challengeList)
-console.log(gameStarted)

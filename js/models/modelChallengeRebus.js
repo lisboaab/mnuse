@@ -87,7 +87,6 @@ export function initRebus(){
 
 export function getId(){
     let max = 0;
-    console.log(rebus)
     for (let challenge of rebus){
         if (challenge.id > max){
             max = challenge.id
@@ -108,9 +107,7 @@ export function addRebus(url, rightAnswer, helpBtn){
     }else{
         rebus.push(newRebus)
         localStorage.setItem("rebus", JSON.stringify(rebus))
-        console.log(JSON.stringify(rebus))
     }
-    console.log(rebus)
 }
 
 export function rebusExists(rightAnswer){

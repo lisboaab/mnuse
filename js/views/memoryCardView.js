@@ -40,22 +40,21 @@ let wastedTime = 0
 // BUTTON TO SAVE CHALLENGE
 document.getElementById("btnSaveSideInfo").addEventListener("click", function(){
     if (game.cardsMatched === game.cards.length){
-        let modal = document.getElementById("challengeSucessfullyCompleted");
-        modal.classList.add("show");
-        modal.style.display = "block";
-        document.body.classList.add("modal-open");
-        wastedTime = 300 - remainingTime
-        clearInterval(timerInterval)
         if (!checkChallengeIs(challenge.challengeID)){
+            let modal = document.getElementById("challengeSucessfullyCompleted");
+            modal.classList.add("show");
+            modal.style.display = "block";
+            document.body.classList.add("modal-open");
+            wastedTime = 300 - remainingTime
+            clearInterval(timerInterval)
             saveFinishedChallenge()
             User.getTime(parseInt(wastedTime))
-        }
-    }
-    else if (checkChallengeIs(challenge.challengeID)){
+        }else if (checkChallengeIs(challenge.challengeID)){
         let modal = document.getElementById("challengeAlreadyCompleted");
         modal.classList.add("show");
         modal.style.display = "block";
         document.body.classList.add("modal-open");
+        }
     }
     else {
         let modal = document.getElementById("challengeNotCompleted");

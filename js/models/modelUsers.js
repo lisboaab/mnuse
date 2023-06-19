@@ -119,8 +119,6 @@ export function login(usernameToValidate, passwordToValidate){
     }else{
         sessionStorage.setItem("loggedUser", JSON.stringify(user))
         let usersstr = JSON.stringify(users);
-        console.log(usersstr)
-        console.log("login feito")
         window.location.href = "../index.html"
     }
 }
@@ -155,8 +153,6 @@ export function saveUser(username, email, password) {
     else {
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
-        console.log("utilizador salvo com sucesso")
-        console.log(JSON.stringify(users))
         validationMessage.textContent = "User successfully created!";
         validationMessage.style.color = "green";
     }   
@@ -228,7 +224,6 @@ export function editPassword(oldPassword, newPassword){
     }else{
         validationMessagePassword.textContent = "Old password incorrect!";
         validationMessagePassword.style.color = "red";
-        console.log("Passwords don't match!")
     }
 }
 
@@ -312,7 +307,6 @@ export function changeCurrentLevel(level){
     users[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
     localStorage.setItem("users", JSON.stringify(users))
-    console.log(users)
 }
 
 let words = ["forgotten", "collision"]
@@ -343,8 +337,6 @@ export function addBadge(badgeIndex){
         users[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
         localStorage.setItem("users", JSON.stringify(users))
-        console.log(users)
-        console.log(badgeReceived)
         showBadgeNotification()
     }
 }
@@ -418,8 +410,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
     
 
-
-console.log(users)
 
 // localStorage.clear()
 // sessionStorage.clear()

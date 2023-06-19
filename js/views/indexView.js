@@ -30,7 +30,7 @@ function indexView(){
       if(loggedUser.currentLevel == 0){
         window.location.href = "../../html/terapeuta.html"
       }else{
-        window.location.href = "../../html/mapa.html"
+        window.location.href = "../../html/brain.html"
       }
     })
 

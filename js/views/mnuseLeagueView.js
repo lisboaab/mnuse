@@ -33,5 +33,4 @@ topThreeUsers.forEach((user, index) => {
 
 const top1 = topThreeUsers[0]
 const user = top1.username
-console.log(user)
 User.addMnuseBadge(3, user)

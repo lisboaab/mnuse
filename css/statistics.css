@@ -38,4 +38,8 @@ canvas{
     .sideBorder{
         border-right: none;
     }
+    
+    .chart1{
+        margin-bottom: 1em;
+    }
 }

@@ -4,7 +4,7 @@ import * as User from "../models/modelUsers.js"
 let btnBackSideInfo = document.getElementById("btnBackSideInfo");
 btnBackSideInfo.addEventListener("click", function(event){
     event.preventDefault();
-    window.location.href = "mapa.html";
+    window.location.href = "brain.html";
 })
 
 let user = User.getUserLogged();
