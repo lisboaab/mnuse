@@ -54,7 +54,6 @@ function accountView(){
         }else{
             for(let i = 0; User.getUserLogged().badges.length > i; i++){
                 const badge = User.getUserLogged().badges
-                console.log(badge[i])
                 result += `<img id="badge" src="${badge[i]}">`
             }
         }
@@ -86,7 +85,6 @@ function accountView(){
             <tr><th>Badge</th><th>Description</th></tr>`
         for(let i = 0; User.getUserLogged().badges.length > i; i++){
             const badge = User.getUserLogged().badges
-            console.log(badge[i])
             modalBody += `<tr><td><img id="badge" src="${badge[i]}"></td><td>${User.getUserLogged().badgesDescription[i]}</td></tr>`
         }
 
@@ -126,7 +124,6 @@ document.getElementById("formAvatar").addEventListener("submit", function(e){
     e.preventDefault()
 
     const selectedAvatar = document.querySelector(`input[name="avatar"]:checked`).value
-    console.log(selectedAvatar)
     User.editAvatar(selectedAvatar)
 })
 

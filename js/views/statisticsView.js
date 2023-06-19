@@ -42,7 +42,7 @@ for (let user of users){
 let xValues = ["Level 0", "Level 1", "Level 2", "Level 3", "Level 4"]
 let zValues = [arrayLvl0.length, arrayLvl1.length, arrayLvl2.length, arrayLvl3.length, arrayLvl4.length]
 let yValues = [arrayAvatar1.length, arrayAvatar2.length, arrayAvatar3.length, arrayAvatar4.length]
-let aValues = ["Avatar 1", "Avatar 2", "Avatar 3", "Avatar 4"]
+let aValues = ["Standard", "Caleb", "Lily", "Therapist"]
 
 let barColors = ["#eeeaf5", "#827397", "#4d4c7d", "#732AD9"]
 
@@ -118,4 +118,3 @@ const minutes = Math.floor(avg / 60)
 const seconds = avg % 60
 const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds
 avgTime.innerHTML += `${minutes}m${secondsDisplay}s`
-console.log(avg)

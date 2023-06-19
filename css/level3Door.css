@@ -13,12 +13,29 @@
     src: url(../assets/josefin-sans/JosefinSans-SemiBold.ttf);
 }
 
+.bg{
+    border-radius: 15px;
+    width: 100%;
+}
+
+#background {
+    position: relative;
+}
+  
+.video{
+    position: absolute;
+    top: 1.6em;
+    z-index: 1;
+}
+
 body{
     background-color: #18234d !important;
 }
 
 #divVideo {
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 #containerVideo{
@@ -37,10 +54,8 @@ body{
 
 #video {
     border-radius: 30px;
-    width: 925px;
+    width: 850px;
     height: auto;
-    /* width: 1070px;
-    height: 602px; */
 }
 
 #modalUnlockWords{
@@ -85,11 +100,6 @@ body{
     text-align: center;
     background-color: #732AD950 !important;
 }
-
-/* .text{
-    text-align: center;
-    margin-top: 2%;
-} */
 
 .wrong{
     color: red;

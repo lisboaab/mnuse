@@ -47,7 +47,6 @@ export class MemoryGame {
 
         // Check if the game has ended
         if (this.cardsMatched === this.cards.length) {
-          console.log("finished");
           return true
         }
 

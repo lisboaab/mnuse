@@ -36,12 +36,13 @@ body{
 
 #nextBtn{
     background-image: url("../assets/imgs/terapeuta.png");
-    width: 10em;
-    height: 10em;
+    width: 9em;
+    height: 9em;
     background-size: cover;
     background-position: center;
     border: none;
     color: #EEEAF5;
+    margin-top: 1em;
 }
 
 #messageBallon p{
@@ -55,6 +56,7 @@ body{
     font-family: Josefin Sans SemiBold;
     color: #18234d;
     margin-left: 2em;
+    margin-top: 0.5em
 }
 
 .img {

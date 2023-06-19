@@ -14,7 +14,7 @@ export function generateDialogue(value){
       currentPhraseIndex += 1
       displayDialogue(currentPhrase)
     } else {
-      window.location.href = "../../html/mapa.html"
+      window.location.href = "../../html/brain.html"
     }
   }
 

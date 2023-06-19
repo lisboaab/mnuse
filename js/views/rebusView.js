@@ -1,9 +1,7 @@
-import * as Rebus  from "../models/modelChallengeRebus.js"
 import * as User from "../models/modelUsers.js"
 import * as Challenges from "../models/modelChallenges.js"
 
 const rebusChallenges = JSON.parse(localStorage.getItem("rebus"))
-console.log(rebusChallenges)
 
 let remainingTime = 300
 
@@ -39,8 +37,6 @@ while (randomIds.length != 4){
     }
 }
 
-// console.log(randomIds);
-
 
 // GET IN THE ARRAY OF ANSWERS THE 4 OBJECTS CHOSEN FROM THE RANDOM NUMBERS
 let rebus1 = rebusChallenges.find((challenge) => challenge.id === randomIds[0]);
@@ -53,8 +49,6 @@ correctAnswers.push(rebus1.rightAnswer);
 correctAnswers.push(rebus2.rightAnswer);
 correctAnswers.push(rebus3.rightAnswer);
 correctAnswers.push(rebus4.rightAnswer);
-
-console.log(correctAnswers);
 
 
 // PUT THE IMAGES OF EACH CHALLENGE IN THE HTML 
@@ -208,8 +202,6 @@ btnSaveSideInfo.addEventListener("click", function(event) {
     if (sumAllRigthAnswers === 4) {
         if (!checkChallengeIs(challenge.challengeID)) {
         challengeList.push(challenge.challengeID);
-        console.log(challenge.challengeID);
-        console.log(challengeList);
         const updatedUser = new User.Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, challengeList, user.badges, user.badgesDescription, user.words, user.code, user.isBlocked, user.timeChallenges, user.isFinished);
         const index = usersList.findIndex(u => u.username === user.username);
         usersList[index] = updatedUser;
@@ -232,8 +224,6 @@ btnSaveSideInfo.addEventListener("click", function(event) {
             modal.classList.add("show");
             modal.style.display = "block";
             document.body.classList.add("modal-open");
-            console.log(challenge.challengeID);
-            console.log(challengeList);
             clearInterval(timerInterval)
             const failImg = document.getElementById("failImg")
         failImg.style.display = "block"
@@ -243,8 +233,6 @@ btnSaveSideInfo.addEventListener("click", function(event) {
         modal.classList.add("show");
         modal.style.display = "block";
         document.body.classList.add("modal-open");
-        console.log(challenge.challengeID);
-        console.log(challengeList);
         clearInterval(timerInterval)
     }
     else {
@@ -252,8 +240,6 @@ btnSaveSideInfo.addEventListener("click", function(event) {
         modal.classList.add("show");
         modal.style.display = "block";
         document.body.classList.add("modal-open");
-        console.log(challenge.challengeID);
-        console.log(challengeList);
         clearInterval(timerInterval)
     }
 });

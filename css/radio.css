@@ -9,21 +9,21 @@
   
 .overlayBtnLeft{
     position: absolute;
-    top: 5.5em;
+    top: 4em;
     left: 5em;
     z-index: 1;
 }
 
 .overlayRadio{
     position: absolute;
-    top: 5.5em;
+    top: 4em;
     left: 15em;
     z-index: 1;
 }
 
 .overlayBtnRight{
     position: absolute;
-    top: 5.5em;
+    top: 4em;
     left: 55em;
     z-index: 1;
 }

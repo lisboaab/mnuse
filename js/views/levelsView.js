@@ -13,12 +13,10 @@ const imageMap = document.getElementById("imageMap")
 
 
 const levelUser = User.getUserLogged().levelLoad
-console.log(levelUser)
 const levelFound = levels.find((level) => level.levelName == levelUser)
 
 imageMap.innerHTML = `${levelFound.imagePath}`
 
-console.log(User.getUserLogged().finishedChallenges)
 
 if(User.getUserLogged().currentLevel == 1){
     if(User.getUserLogged().finishedChallenges.length == 3){
